@@ -1,0 +1,34 @@
+.section {
+  background-color: var(--color-brand-strong);
+  color: #fff;
+  padding-block: var(--space-8);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.title {
+  color: #fff;
+}
+
+.text {
+  margin-top: var(--space-3);
+  color: rgb(255 255 255 / 78%);
+  max-width: 48ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (min-width: 62rem) {
+  .inner {
+    grid-template-columns: 1.5fr auto;
+    gap: var(--space-7);
+  }
+}

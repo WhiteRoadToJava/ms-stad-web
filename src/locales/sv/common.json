@@ -36,5 +36,13 @@
     "title": "Sidan finns inte",
     "text": "Länken kan vara gammal eller felstavad.",
     "back": "Till startsidan"
+  },
+  "units": {
+    "visit": "gång",
+    "hour": "tim"
+  },
+  "price": {
+    "afterRut": "Efter RUT-avdrag, inklusive material och moms.",
+    "from": "från"
   }
 }

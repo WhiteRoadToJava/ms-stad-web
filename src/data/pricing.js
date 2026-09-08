@@ -1,23 +1,35 @@
 /**
  * Price calculation, mirrored from the API.
  *
- * Keep this file in sync with `src/services/pricing.service.ts` on the server.
+ * Keep this file in sync with `src/services/pricing.service.js` on the server.
  * The client copy exists purely so the calculator can update while the user
  * drags a slider; the server value is the one that gets stored.
  */
 
-/** Recurring cleaning is cheaper per visit; a single visit costs more. */
+/**
+ * A single visit costs more than a recurring one: travel, setup and admin are
+ * paid for once instead of being spread over the year.
+ */
 export const frequencyModifier = {
-  once: 1.15,
-  weekly: 0.9,
+  once: 1.35,
+  monthly: 1.1,
   biweekly: 1,
-  monthly: 1.05,
+  weekly: 0.95,
 };
 
 export const RUT_PERCENTAGE = 50;
 
-/** Share of the price that counts as labour, and is therefore RUT eligible. */
-export const LABOUR_SHARE = 1;
+/**
+ * Share of the price that counts as labour, and is therefore RUT eligible.
+ * Moving help includes a van and fuel, which do not qualify.
+ */
+export const labourShare = {
+  default: 1,
+  flytthjalp: 0.6,
+};
+
+/** Keeps every displayed amount a whole krona, never 1 483,50 kr. */
+const roundToKronor = (ore) => Math.round(ore / 100) * 100;
 
 const emptyBreakdown = {
   quoteOnly: true,
@@ -65,9 +77,11 @@ export const calculatePrice = (input) => {
 
   const grossPrice = basePrice + extrasPrice;
 
+  const share = labourShare[service.slug] ?? labourShare.default;
+
   const rutDeduction =
     service.rutEligible && applyRut
-      ? Math.round((grossPrice * LABOUR_SHARE * RUT_PERCENTAGE) / 100)
+      ? roundToKronor((grossPrice * share * RUT_PERCENTAGE) / 100)
       : 0;
 
   return {
@@ -87,3 +101,22 @@ export const formatPrice = (ore, locale = 'sv-SE') =>
     currency: 'SEK',
     maximumFractionDigits: 0,
   }).format(ore / 100);
+
+/**
+ * The "from" price shown on cards and in the price list: the cheapest a service
+ * can start at, with RUT already applied for private customers. Returns null
+ * for services that always need a manual quote.
+ */
+export const startingPrice = (service) => {
+  const base =
+    service.minPrice ?? service.packagePrice ?? service.hourlyRate ?? null;
+
+  if (base === null) return null;
+
+  const share = labourShare[service.slug] ?? labourShare.default;
+  const deduction = service.rutEligible
+    ? roundToKronor((base * share * RUT_PERCENTAGE) / 100)
+    : 0;
+
+  return base - deduction;
+};

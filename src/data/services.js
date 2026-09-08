@@ -5,7 +5,10 @@
  * calculator show a price instantly, without a round trip. The server always
  * recalculates before saving, so a tampered client price is never trusted.
  *
- * All amounts are in ore (1 kr = 100 ore).
+ * All amounts are in ore (1 kr = 100 ore) and are stored BEFORE the RUT
+ * deduction, exactly like the `services` table. Competitors publish after-RUT
+ * figures, so 21 kr/kvm advertised elsewhere is 42 kr/kvm here. Use
+ * `startingPrice()` from ./pricing.js when showing a price to a customer.
  */
 
 export const services = [
@@ -14,15 +17,15 @@ export const services = [
     i18nKey: 'homeCleaning',
     category: 'private',
     pricingModel: 'per_sqm',
-    pricePerSqm: 2100,
-    minPrice: 52500,
+    pricePerSqm: 4200,
+    minPrice: 105000,
     rutEligible: true,
     isPopular: true,
     extras: [
-      { key: 'oven', price: 25000 },
-      { key: 'fridge', price: 25000 },
-      { key: 'windows', price: 45000 },
-      { key: 'balcony', price: 20000 },
+      { key: 'oven', price: 40000 },
+      { key: 'fridge', price: 40000 },
+      { key: 'windows', price: 60000 },
+      { key: 'balcony', price: 30000 },
     ],
   },
   {
@@ -30,13 +33,12 @@ export const services = [
     i18nKey: 'movingCleaning',
     category: 'private',
     pricingModel: 'per_sqm',
-    pricePerSqm: 2800,
-    minPrice: 168000,
+    pricePerSqm: 5600,
+    minPrice: 336000,
     rutEligible: true,
     extras: [
       { key: 'balcony', price: 30000 },
-      { key: 'garage', price: 45000 },
-      { key: 'attic', price: 45000 },
+      { key: 'garage', price: 80000 },
     ],
   },
   {
@@ -44,12 +46,12 @@ export const services = [
     i18nKey: 'deepCleaning',
     category: 'private',
     pricingModel: 'per_sqm',
-    pricePerSqm: 2600,
-    minPrice: 156000,
+    pricePerSqm: 5200,
+    minPrice: 312000,
     rutEligible: true,
     extras: [
-      { key: 'oven', price: 25000 },
-      { key: 'windows', price: 45000 },
+      { key: 'oven', price: 40000 },
+      { key: 'windows', price: 60000 },
     ],
   },
   {
