@@ -1,70 +1,57 @@
 import { useTranslation } from 'react-i18next';
-import { Container } from '../components/layout/Container';
-import { Button } from '../components/ui/Button';
+import { Seo } from '../components/seo/Seo';
+import { Hero } from '../components/home/Hero';
+import { HowItWorks } from '../components/home/HowItWorks';
+import { ServiceGrid } from '../components/home/ServiceGrid';
+import { Promises } from '../components/home/Promises';
+import { Areas } from '../components/home/Areas';
+import { Faq } from '../components/home/Faq';
+import { CtaBanner } from '../components/home/CtaBanner';
 import { site } from '../data/site';
 import { services } from '../data/services';
-import { formatPrice } from '../data/pricing';
-import styles from './Home.module.css';
+import {
+  combineSchemas,
+  faqSchema,
+  localBusinessSchema,
+  serviceListSchema,
+} from '../lib/structuredData';
 
 /**
  * Home page.
- * Phase 1 covers the hero and the service list; the remaining sections
- * (process, guarantees, reviews, local areas) arrive with phase 2.
+ *
+ * Order follows the questions a visitor asks, in the order they ask them:
+ * what do you do and what does it cost, how does it work, what exactly can I
+ * buy, why you, do you come to me, and the small print.
  */
 export const Home = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('home');
   const { t: tServices } = useTranslation('services');
+
+  const faqItems = t('faq.items', { returnObjects: true });
+
+  const jsonLd = combineSchemas(
+    localBusinessSchema(),
+    serviceListSchema(services, tServices),
+    faqSchema(faqItems),
+  );
 
   return (
     <>
-      <section className={styles.hero}>
-        <Container className={styles.heroInner}>
-          <h1>{t('home.heroTitle')}</h1>
-          <p className={styles.heroText}>{t('home.heroText')}</p>
-          <div className={styles.heroActions}>
-            <Button to="/boka" size="lg">
-              {t('cta.book')}
-            </Button>
-            <Button to="/offert" size="lg" variant="secondary">
-              {t('cta.quote')}
-            </Button>
-            <Button href={`tel:${site.phone}`} variant="ghost" size="lg">
-              {site.phoneDisplay}
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <Seo
+        title={`${site.name} — Städfirma i Västra Götaland, Jönköping och Halland`}
+        description={t('hero.text')}
+        path="/"
+        siteUrl={site.url}
+        jsonLd={jsonLd}
+      />
 
-      <section className={styles.services}>
-        <Container>
-          <h2>{t('home.servicesTitle')}</h2>
-          <ul className={styles.grid}>
-            {services.map((service) => {
-              const priceValue =
-                service.minPrice ?? service.packagePrice ?? service.hourlyRate ?? 0;
-
-              return (
-                <li key={service.slug} className={styles.card}>
-                  <h3 className={styles.cardTitle}>
-                    {tServices(`${service.i18nKey}.name`)}
-                  </h3>
-                  <p className={styles.cardText}>
-                    {tServices(`${service.i18nKey}.short`)}
-                  </p>
-                  <p className={styles.cardPrice}>
-                    {tServices(`${service.i18nKey}.priceLabel`, {
-                      price: formatPrice(priceValue),
-                    })}
-                  </p>
-                  <Button to={`/tjanster/${service.slug}`} variant="ghost">
-                    {t('cta.readMore')}
-                  </Button>
-                </li>
-              );
-            })}
-          </ul>
-        </Container>
-      </section>
+      <Hero />
+      <HowItWorks />
+      <ServiceGrid />
+      <Promises />
+      <Areas />
+      <Faq />
+      <CtaBanner />
     </>
   );
 };

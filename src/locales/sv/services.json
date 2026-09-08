@@ -2,7 +2,12 @@
   "homeCleaning": {
     "name": "Hemstädning",
     "short": "Återkommande städning av hela hemmet, med samma team varje gång.",
-    "priceLabel": "från {{price}}/gång efter RUT"
+    "priceLabel": "från {{price}}/gång efter RUT",
+    "highlights": [
+      "Dammsugning och våttorkning",
+      "Kök och badrum",
+      "Vi tar med allt material"
+    ]
   },
   "movingCleaning": {
     "name": "Flyttstädning",

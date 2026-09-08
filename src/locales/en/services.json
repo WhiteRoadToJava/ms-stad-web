@@ -2,7 +2,12 @@
   "homeCleaning": {
     "name": "Home cleaning",
     "short": "Recurring cleaning of the whole home, with the same team every visit.",
-    "priceLabel": "from {{price}}/visit after RUT"
+    "priceLabel": "from {{price}}/visit after RUT",
+    "highlights": [
+      "Vacuuming and damp mopping",
+      "Kitchen and bathroom",
+      "We bring all supplies"
+    ]
   },
   "movingCleaning": {
     "name": "Move-out cleaning",

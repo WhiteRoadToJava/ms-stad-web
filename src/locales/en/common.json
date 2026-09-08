@@ -36,5 +36,13 @@
     "title": "Page not found",
     "text": "The link may be outdated or misspelled.",
     "back": "Back to home"
+  },
+  "units": {
+    "visit": "visit",
+    "hour": "hour"
+  },
+  "price": {
+    "afterRut": "After the RUT deduction, materials and VAT included.",
+    "from": "from"
   }
 }

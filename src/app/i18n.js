@@ -10,8 +10,10 @@ import { initReactI18next } from 'react-i18next';
 
 import svCommon from '../locales/sv/common.json';
 import svServices from '../locales/sv/services.json';
+import svHome from '../locales/sv/home.json';
 import enCommon from '../locales/en/common.json';
 import enServices from '../locales/en/services.json';
+import enHome from '../locales/en/home.json';
 
 export const locales = ['sv', 'en'];
 
@@ -19,8 +21,8 @@ export const defaultLocale = 'sv';
 
 void i18n.use(initReactI18next).init({
   resources: {
-    sv: { common: svCommon, services: svServices },
-    en: { common: enCommon, services: enServices },
+    sv: { common: svCommon, services: svServices, home: svHome },
+    en: { common: enCommon, services: enServices, home: enHome },
   },
   lng: defaultLocale,
   fallbackLng: defaultLocale,

@@ -58,3 +58,25 @@
 .ghost:hover:not(:disabled) {
   color: var(--color-brand-strong);
 }
+
+/* Brass button, used on the dark bands where the petrol blue would disappear. */
+.accent {
+  background-color: var(--color-accent);
+  color: var(--color-brand-strong);
+}
+
+.accent:hover:not(:disabled) {
+  background-color: #c9932f;
+}
+
+/* Outlined button for dark backgrounds. */
+.ghostLight {
+  background-color: transparent;
+  border-color: rgb(255 255 255 / 45%);
+  color: #fff;
+}
+
+.ghostLight:hover:not(:disabled) {
+  border-color: #fff;
+  background-color: rgb(255 255 255 / 10%);
+}

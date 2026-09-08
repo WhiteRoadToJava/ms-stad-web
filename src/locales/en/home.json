@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "eyebrow": "Cleaning company in Västra Götaland, Jönköping and Halland",
+    "title": "A clean home, without having to think about it.",
+    "text": "You get the price before we start, the same team every time, and the RUT deduction taken straight off the invoice. No lock-in.",
+    "primaryCta": "Calculate your price",
+    "secondaryCta": "Call us",
+    "trust": [
+      "Fixed price before we start",
+      "Insured and tax registered",
+      "Free re-clean within 7 days"
+    ]
+  },
+  "how": {
+    "title": "How it works",
+    "text": "Four steps from the first click to a cleaned home.",
+    "steps": [
+      {
+        "title": "Pick a service and size",
+        "text": "Tell us the square meters and how often you want help."
+      },
+      {
+        "title": "See the price right away",
+        "text": "The price is calculated on screen, with the RUT deduction already applied."
+      },
+      {
+        "title": "We confirm the time",
+        "text": "You hear from us the same working day with a time that suits you."
+      },
+      {
+        "title": "We clean, you never get a surprise",
+        "text": "The invoice arrives after the cleaning, with RUT already deducted."
+      }
+    ]
+  },
+  "services": {
+    "title": "Our services",
+    "text": "Nine services for homes and businesses. Prices for private customers are shown after the RUT deduction.",
+    "privateTitle": "For your home",
+    "businessTitle": "For businesses",
+    "readMore": "Read more about {{service}}"
+  },
+  "promises": {
+    "title": "Why people choose us",
+    "items": [
+      {
+        "title": "A fixed price, not an estimate",
+        "text": "The price you see is the price you pay. We do not add hours afterwards."
+      },
+      {
+        "title": "The same team every time",
+        "text": "No need to explain twice. The team learns your home and your preferences."
+      },
+      {
+        "title": "If it is wrong, we redo it",
+        "text": "Tell us within seven days and we come back and fix it at no cost."
+      },
+      {
+        "title": "Eco-labelled products",
+        "text": "We clean with Nordic Swan certified products, safe for children, pets and allergies."
+      }
+    ]
+  },
+  "areas": {
+    "title": "We clean where you live",
+    "text": "From Gothenburg in the west to Jönköping in the east and down the Halland coast.",
+    "linkLabel": "Cleaning in {{area}}"
+  },
+  "faq": {
+    "title": "Common questions",
+    "items": [
+      {
+        "question": "How does the RUT deduction work?",
+        "answer": "You do not have to do anything. We deduct 50 percent of the labour cost directly on the invoice and claim it from the Swedish Tax Agency. Each person can use up to 75,000 kronor of RUT per year."
+      },
+      {
+        "question": "Do I need to be home while you clean?",
+        "answer": "No. Most of our customers are at work. We agree on how we get in, for example with a key kept locked away at our office."
+      },
+      {
+        "question": "Do I need to provide cleaning supplies?",
+        "answer": "No, we bring everything. If you want a specific product used on a delicate floor, just tell us."
+      },
+      {
+        "question": "How quickly can you come?",
+        "answer": "Often within a few days. Move-out cleaning is best booked one to two weeks ahead, especially around the end of the month."
+      },
+      {
+        "question": "Can I cancel or move my booking?",
+        "answer": "Yes, free of charge up to 24 hours before. Our recurring plans have no lock-in period."
+      },
+      {
+        "question": "What happens if something breaks?",
+        "answer": "We carry liability insurance covering damage we cause. Get in touch straight away and we will sort it out."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Take your weekend back.",
+    "text": "Work out the price in a minute, or call us and we will point you to the right service.",
+    "primary": "Book cleaning",
+    "secondary": "Request a quote"
+  }
+}

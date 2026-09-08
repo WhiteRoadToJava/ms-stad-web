@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "eyebrow": "Städfirma i Västra Götaland, Jönköping och Halland",
+    "title": "Ett rent hem, utan att du behöver tänka på det.",
+    "text": "Du får priset innan vi börjar, samma team varje gång och RUT-avdraget draget direkt på fakturan. Inga bindningstider.",
+    "primaryCta": "Räkna ut ditt pris",
+    "secondaryCta": "Ring oss",
+    "trust": [
+      "Fast pris innan vi börjar",
+      "Ansvarsförsäkring och F-skatt",
+      "Omstädning inom 7 dagar"
+    ]
+  },
+  "how": {
+    "title": "Så går det till",
+    "text": "Fyra steg från första klicket till ett städat hem.",
+    "steps": [
+      {
+        "title": "Välj tjänst och storlek",
+        "text": "Ange antal kvadratmeter och hur ofta du vill ha hjälp."
+      },
+      {
+        "title": "Se priset direkt",
+        "text": "Priset räknas ut på skärmen, med RUT-avdraget redan avdraget."
+      },
+      {
+        "title": "Vi bekräftar tiden",
+        "text": "Du hör från oss samma arbetsdag med en tid som passar dig."
+      },
+      {
+        "title": "Vi städar, du fakturerar aldrig fel",
+        "text": "Fakturan kommer efter städningen, med RUT redan avdraget."
+      }
+    ]
+  },
+  "services": {
+    "title": "Våra tjänster",
+    "text": "Nio tjänster för hem och företag. Alla priser för privatpersoner visas efter RUT-avdrag.",
+    "privateTitle": "För hemmet",
+    "businessTitle": "För företag",
+    "readMore": "Läs mer om {{service}}"
+  },
+  "promises": {
+    "title": "Därför väljer man oss",
+    "items": [
+      {
+        "title": "Fast pris, inte ungefär",
+        "text": "Priset du ser är priset du betalar. Vi lägger inte till timmar i efterhand."
+      },
+      {
+        "title": "Samma team varje gång",
+        "text": "Du slipper förklara om igen. Teamet lär sig ditt hem och dina önskemål."
+      },
+      {
+        "title": "Blir det fel, gör vi om",
+        "text": "Säg till inom sju dagar så kommer vi tillbaka och åtgärdar det utan kostnad."
+      },
+      {
+        "title": "Miljömärkta medel",
+        "text": "Vi städar med Svanenmärkta produkter, tryggt för barn, husdjur och allergiker."
+      }
+    ]
+  },
+  "areas": {
+    "title": "Vi städar där du bor",
+    "text": "Från Göteborg i väster till Jönköping i öster och ner längs Hallandskusten.",
+    "linkLabel": "Städning i {{area}}"
+  },
+  "faq": {
+    "title": "Vanliga frågor",
+    "items": [
+      {
+        "question": "Hur fungerar RUT-avdraget?",
+        "answer": "Du behöver inte göra någonting. Vi drar av 50 procent av arbetskostnaden direkt på fakturan och begär pengarna från Skatteverket. Varje person får använda upp till 75 000 kronor i RUT per år."
+      },
+      {
+        "question": "Måste jag vara hemma när ni städar?",
+        "answer": "Nej. De flesta av våra kunder är på jobbet. Vi kommer överens om hur vi tar oss in, till exempel med en nyckel som förvaras inlåst hos oss."
+      },
+      {
+        "question": "Behöver jag ha städmaterial hemma?",
+        "answer": "Nej, vi tar med allt. Vill du att vi använder ett specifikt medel för ett känsligt golv är det bara att säga till."
+      },
+      {
+        "question": "Hur snabbt kan ni komma?",
+        "answer": "Ofta inom några dagar. Flyttstädningar bokar vi helst en till två veckor i förväg, särskilt vid månadsskiften."
+      },
+      {
+        "question": "Kan jag avboka eller ändra tid?",
+        "answer": "Ja, kostnadsfritt fram till 24 timmar innan. Vi har inga bindningstider på våra abonnemang."
+      },
+      {
+        "question": "Vad händer om något går sönder?",
+        "answer": "Vi har ansvarsförsäkring som täcker skador vi orsakar. Hör av dig direkt så löser vi det."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ta tillbaka din helg.",
+    "text": "Räkna ut priset på en minut, eller ring oss så hjälper vi dig fram till rätt tjänst.",
+    "primary": "Boka städning",
+    "secondary": "Få offert"
+  }
+}

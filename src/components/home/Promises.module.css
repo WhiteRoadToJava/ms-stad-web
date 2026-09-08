@@ -1,0 +1,38 @@
+.section {
+  padding-block: var(--space-8);
+}
+
+.title {
+  max-width: 20ch;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--color-accent);
+}
+
+.itemTitle {
+  font-size: var(--text-lg);
+}
+
+.itemText {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 48rem) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
