@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "private": "Privat",
+    "business": "Företag",
+    "about": "Om oss",
+    "prices": "Priser",
+    "contact": "Kontakt",
+    "career": "Jobba hos oss",
+    "openMenu": "Öppna meny",
+    "closeMenu": "Stäng meny"
+  },
+  "cta": {
+    "book": "Boka städning",
+    "quote": "Få offert",
+    "call": "Ring {{phone}}",
+    "readMore": "Läs mer"
+  },
+  "home": {
+    "heroTitle": "Städhjälp i Västra Götaland, Jönköping och Halland.",
+    "heroText": "Samma team varje gång, fasta priser och RUT-avdraget draget direkt på fakturan.",
+    "servicesTitle": "Våra tjänster",
+    "regionsTitle": "Områden vi städar i"
+  },
+  "footer": {
+    "tagline": "Städning med personlig kontakt i Västra Götaland, Jönköping och Halland.",
+    "contact": "Kontakt",
+    "company": "Företaget",
+    "rights": "Alla rättigheter förbehållna."
+  },
+  "language": {
+    "label": "Språk",
+    "sv": "Svenska",
+    "en": "English"
+  },
+  "notFound": {
+    "title": "Sidan finns inte",
+    "text": "Länken kan vara gammal eller felstavad.",
+    "back": "Till startsidan"
+  }
+}

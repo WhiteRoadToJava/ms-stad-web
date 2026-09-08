@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "private": "Private",
+    "business": "Business",
+    "about": "About us",
+    "prices": "Prices",
+    "contact": "Contact",
+    "career": "Work with us",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "cta": {
+    "book": "Book a cleaning",
+    "quote": "Get a quote",
+    "call": "Call {{phone}}",
+    "readMore": "Read more"
+  },
+  "home": {
+    "heroTitle": "Cleaning across Västra Götaland, Jönköping and Halland.",
+    "heroText": "The same team every visit, fixed prices, and the RUT deduction taken straight off your invoice.",
+    "servicesTitle": "Our services",
+    "regionsTitle": "Areas we clean in"
+  },
+  "footer": {
+    "tagline": "Cleaning with a personal contact across Västra Götaland, Jönköping and Halland.",
+    "contact": "Contact",
+    "company": "Company",
+    "rights": "All rights reserved."
+  },
+  "language": {
+    "label": "Language",
+    "sv": "Svenska",
+    "en": "English"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The link may be outdated or misspelled.",
+    "back": "Back to home"
+  }
+}

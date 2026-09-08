@@ -1,0 +1,47 @@
+{
+  "homeCleaning": {
+    "name": "Home cleaning",
+    "short": "Recurring cleaning of the whole home, with the same team every visit.",
+    "priceLabel": "from {{price}}/visit after RUT"
+  },
+  "movingCleaning": {
+    "name": "Move-out cleaning",
+    "short": "Inspection-ready move-out cleaning, windows included.",
+    "priceLabel": "from {{price}} after RUT"
+  },
+  "deepCleaning": {
+    "name": "Deep cleaning",
+    "short": "A thorough pass through the whole home, top to bottom.",
+    "priceLabel": "from {{price}} after RUT"
+  },
+  "windowCleaning": {
+    "name": "Window cleaning",
+    "short": "Inside and out, frames included. Priced by number of windows.",
+    "priceLabel": "quote within 1 working day"
+  },
+  "movingHelp": {
+    "name": "Moving help",
+    "short": "Packing, lifting and transport to your new address.",
+    "priceLabel": "from {{price}}"
+  },
+  "officeCleaning": {
+    "name": "Office cleaning",
+    "short": "Cleaning on a fixed schedule that stays out of your working day.",
+    "priceLabel": "from {{price}}/hour excl. VAT"
+  },
+  "stairwellCleaning": {
+    "name": "Stairwell cleaning",
+    "short": "Ongoing cleaning of stairwells and shared spaces.",
+    "priceLabel": "request a quote"
+  },
+  "constructionCleaning": {
+    "name": "Post-construction cleaning",
+    "short": "Building dust, debris and a final pass before move-in.",
+    "priceLabel": "request a quote"
+  },
+  "retailCleaning": {
+    "name": "Retail cleaning",
+    "short": "Cleaning before opening or after closing time.",
+    "priceLabel": "request a quote"
+  }
+}
