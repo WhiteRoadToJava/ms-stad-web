@@ -1,0 +1,47 @@
+{
+  "homeCleaning": {
+    "name": "Hemstädning",
+    "short": "Återkommande städning av hela hemmet, med samma team varje gång.",
+    "priceLabel": "från {{price}}/gång efter RUT"
+  },
+  "movingCleaning": {
+    "name": "Flyttstädning",
+    "short": "Godkänd flyttstäd med fönsterputs och besiktningsgaranti.",
+    "priceLabel": "från {{price}} efter RUT"
+  },
+  "deepCleaning": {
+    "name": "Storstädning",
+    "short": "Grundlig genomgång av hela bostaden, uppifrån och ned.",
+    "priceLabel": "från {{price}} efter RUT"
+  },
+  "windowCleaning": {
+    "name": "Fönsterputs",
+    "short": "In- och utsida, karmar och spröjs. Pris efter antal fönster.",
+    "priceLabel": "offert inom 1 arbetsdag"
+  },
+  "movingHelp": {
+    "name": "Flytthjälp",
+    "short": "Packning, bärhjälp och transport till nya adressen.",
+    "priceLabel": "från {{price}}"
+  },
+  "officeCleaning": {
+    "name": "Kontorsstäd",
+    "short": "Städning på fasta tider som inte stör arbetsdagen.",
+    "priceLabel": "från {{price}}/tim exkl. moms"
+  },
+  "stairwellCleaning": {
+    "name": "Trappstädning",
+    "short": "Löpande städning av trapphus och allmänna utrymmen.",
+    "priceLabel": "begär offert"
+  },
+  "constructionCleaning": {
+    "name": "Byggstädning",
+    "short": "Byggdamm, spill och finstäd inför inflyttning.",
+    "priceLabel": "begär offert"
+  },
+  "retailCleaning": {
+    "name": "Butiksstädning",
+    "short": "Städning före öppning eller efter stängning.",
+    "priceLabel": "begär offert"
+  }
+}
