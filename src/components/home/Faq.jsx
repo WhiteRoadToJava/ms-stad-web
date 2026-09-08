@@ -1,12 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Container } from '../layout/Container';
+import { FaqList } from '../ui/FaqList';
 import styles from './Faq.module.css';
 
-/**
- * Uses native <details> rather than a React accordion: it works before the
- * JavaScript loads, it is keyboard accessible for free, and the answers are in
- * the static HTML where search engines can read them.
- */
+/** The questions people ask before booking, answered on the page itself. */
 export const Faq = () => {
   const { t } = useTranslation('home');
   const items = t('faq.items', { returnObjects: true });
@@ -15,15 +12,7 @@ export const Faq = () => {
     <section className={styles.section} id="fragor">
       <Container className={styles.inner}>
         <h2 className={styles.title}>{t('faq.title')}</h2>
-
-        <div className={styles.list}>
-          {items.map((item) => (
-            <details key={item.question} className={styles.item}>
-              <summary className={styles.question}>{item.question}</summary>
-              <p className={styles.answer}>{item.answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqList items={items} />
       </Container>
     </section>
   );

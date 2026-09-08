@@ -103,6 +103,17 @@ export const formatPrice = (ore, locale = 'sv-SE') =>
   }).format(ore / 100);
 
 /**
+ * Applies the RUT deduction to any amount belonging to a service, so pages can
+ * show what the customer actually pays. Non-eligible services pass through.
+ */
+export const afterRut = (amount, service) => {
+  if (!service.rutEligible) return amount;
+
+  const share = labourShare[service.slug] ?? labourShare.default;
+  return amount - roundToKronor((amount * share * RUT_PERCENTAGE) / 100);
+};
+
+/**
  * The "from" price shown on cards and in the price list: the cheapest a service
  * can start at, with RUT already applied for private customers. Returns null
  * for services that always need a manual quote.
@@ -113,10 +124,5 @@ export const startingPrice = (service) => {
 
   if (base === null) return null;
 
-  const share = labourShare[service.slug] ?? labourShare.default;
-  const deduction = service.rutEligible
-    ? roundToKronor((base * share * RUT_PERCENTAGE) / 100)
-    : 0;
-
-  return base - deduction;
+  return afterRut(base, service);
 };

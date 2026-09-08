@@ -1,0 +1,129 @@
+.hero {
+  background-color: var(--color-surface);
+  border-bottom: var(--border-hairline);
+  padding-block: var(--space-8);
+}
+
+.lead {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  max-width: 56ch;
+}
+
+.section {
+  padding-block: var(--space-8);
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.caption {
+  margin-bottom: var(--space-4);
+  color: var(--color-ink-muted);
+  font-size: var(--text-sm);
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-hairline);
+  vertical-align: top;
+}
+
+.table thead th {
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  border-bottom: 2px solid var(--color-brand);
+}
+
+.table tbody th {
+  font-weight: 700;
+}
+
+.amount {
+  font-weight: 700;
+  color: var(--color-brand);
+  white-space: nowrap;
+}
+
+.note {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+.explainer {
+  background-color: var(--color-surface);
+  border-block: var(--border-hairline);
+  padding-block: var(--space-8);
+}
+
+.explainerGrid {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.text {
+  margin-top: var(--space-3);
+  color: var(--color-ink-soft);
+}
+
+.points {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-left: var(--space-5);
+  color: var(--color-ink-soft);
+}
+
+.frequency {
+  margin-top: var(--space-4);
+}
+
+.frequency div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: var(--border-hairline);
+}
+
+.frequency dd {
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.cta {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.legal {
+  padding-bottom: var(--space-7);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 48rem) {
+  .explainerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .cta {
+    grid-template-columns: 1fr auto;
+  }
+}

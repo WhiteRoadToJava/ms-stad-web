@@ -7,46 +7,208 @@
       "Vacuuming and damp mopping",
       "Kitchen and bathroom",
       "We bring all supplies"
+    ],
+    "intro": "We come on the same weekday, bring all the supplies and leave your home the way you want to come back to it. No lock-in, and you pay after the RUT deduction.",
+    "includes": [
+      "Vacuuming and damp mopping of all floors",
+      "Kitchen: worktops, hob exterior, sink and cupboard doors",
+      "Bathroom: toilet, basin, shower or bath, mirrors",
+      "Free surfaces, skirting boards, door handles and switches wiped",
+      "Bins emptied and beds made if you want"
+    ],
+    "faq": [
+      {
+        "question": "How often should I book?",
+        "answer": "Every other week suits most households. With a larger family or pets, weekly is usually worth it."
+      },
+      {
+        "question": "Can I add window cleaning?",
+        "answer": "Yes, you pick extras when you book. Oven and fridge are popular additions before the holidays."
+      }
     ]
   },
   "movingCleaning": {
     "name": "Move-out cleaning",
     "short": "Inspection-ready move-out cleaning, windows included.",
-    "priceLabel": "from {{price}} after RUT"
+    "priceLabel": "from {{price}} after RUT",
+    "intro": "A move-out clean has to pass both the landlord's and the buyer's inspection. We follow the industry checklist, and if something is missed we come back at no cost.",
+    "includes": [
+      "Every room cleaned from ceiling to floor, wardrobes included",
+      "Appliances cleaned inside and pulled out",
+      "Window cleaning inside and out always included",
+      "Limescale removed, vents and radiators wiped",
+      "Balcony or patio swept and wiped"
+    ],
+    "faq": [
+      {
+        "question": "What if the inspection fails?",
+        "answer": "Tell us within seven days and we return to fix whatever was flagged, at no extra cost."
+      },
+      {
+        "question": "When should I book?",
+        "answer": "One to two weeks ahead. Month ends fill up fast, especially late June and September."
+      }
+    ]
   },
   "deepCleaning": {
     "name": "Deep cleaning",
     "short": "A thorough pass through the whole home, top to bottom.",
-    "priceLabel": "from {{price}} after RUT"
+    "priceLabel": "from {{price}} after RUT",
+    "intro": "Deep cleaning is the once or twice a year clean where everything is included: behind furniture, inside cupboards and up towards the ceiling. Good before guests, after a renovation or at the turn of the year.",
+    "includes": [
+      "Cupboards and wardrobes cleaned inside",
+      "Behind and under furniture that can be moved",
+      "Skirting boards, doors, frames and radiators",
+      "Limescale removed from showers and taps",
+      "Vents, lampshades and picture frames dusted"
+    ],
+    "faq": [
+      {
+        "question": "How long does it take?",
+        "answer": "A three-room flat usually takes five to seven hours with two people. We tell you before we start if we think it needs more."
+      },
+      {
+        "question": "Do I need to tidy up first?",
+        "answer": "The clearer the surfaces, the more we get done. We happily move things, but we do not sort your belongings."
+      }
+    ]
   },
   "windowCleaning": {
     "name": "Window cleaning",
     "short": "Inside and out, frames included. Priced by number of windows.",
-    "priceLabel": "quote within 1 working day"
+    "priceLabel": "quote within 1 working day",
+    "intro": "Clean windows show immediately, especially through the dark months. We clean inside and out, wipe the frames and leave no streaks. The price depends on the number and type of windows, so you get a quote first.",
+    "includes": [
+      "Glass cleaned inside and outside",
+      "Frames and sills wiped",
+      "Glazing bars and patio doors are no problem",
+      "We protect floors and furniture while we work",
+      "RUT deducted directly on the invoice"
+    ],
+    "faq": [
+      {
+        "question": "How is a window counted?",
+        "answer": "Per sash. A window with two sashes counts as two, because the work is doubled."
+      },
+      {
+        "question": "Do you clean at height?",
+        "answer": "We reach most house windows from the ground with a telescopic pole. For higher sections we refer you to a partner with the right equipment."
+      }
+    ]
   },
   "movingHelp": {
     "name": "Moving help",
     "short": "Packing, lifting and transport to your new address.",
-    "priceLabel": "from {{price}}"
+    "priceLabel": "from {{price}}",
+    "intro": "Carrying, a van and reassembly of whatever needs taking apart. Your belongings are insured throughout, and you can add move-out cleaning so one company handles everything.",
+    "includes": [
+      "Two movers and a van",
+      "Blankets, straps and packing material",
+      "Beds and tables taken apart and reassembled",
+      "Goods insured during the whole transport",
+      "Removal of boxes can be added"
+    ],
+    "faq": [
+      {
+        "question": "Does RUT apply to moving help?",
+        "answer": "Yes, but only to the labour. Transport and materials do not qualify, so the deduction is smaller than for cleaning."
+      },
+      {
+        "question": "Do you pack as well?",
+        "answer": "That can be added. Tell us when you book and we include the time in the price."
+      }
+    ]
   },
   "officeCleaning": {
     "name": "Office cleaning",
     "short": "Cleaning on a fixed schedule that stays out of your working day.",
-    "priceLabel": "from {{price}}/hour excl. VAT"
+    "priceLabel": "from {{price}}/hour excl. VAT",
+    "intro": "An office cleaned on a fixed schedule shows in the staff. We come before opening or after closing, work to a schedule you approve and send one invoice a month.",
+    "includes": [
+      "Desks, meeting rooms and reception",
+      "Kitchen and pantry, consumables restocked",
+      "Toilets cleaned and disinfected",
+      "Floor care matched to the surface",
+      "The same staff every time, with cover during absence"
+    ],
+    "faq": [
+      {
+        "question": "Can you clean outside office hours?",
+        "answer": "Yes, that is the most common arrangement. Evenings and early mornings work well and disturb no one."
+      },
+      {
+        "question": "Do you sign confidentiality agreements?",
+        "answer": "All staff sign one, and we can provide background record extracts if you require them."
+      }
+    ]
   },
   "stairwellCleaning": {
     "name": "Stairwell cleaning",
     "short": "Ongoing cleaning of stairwells and shared spaces.",
-    "priceLabel": "request a quote"
+    "priceLabel": "request a quote",
+    "intro": "The stairwell is the first thing a visitor sees. We clean to a schedule posted in the entrance, with dates and signatures, so the board and the residents can both see the work was done.",
+    "includes": [
+      "Stairs, landings and lift areas",
+      "Entrance doors, glass sections and letterboxes",
+      "Laundry room, waste room and pram storage",
+      "Handrails and contact surfaces wiped",
+      "Sign-off sheet in the entrance"
+    ],
+    "faq": [
+      {
+        "question": "How often should a stairwell be cleaned?",
+        "answer": "Once a week works for most associations. Buildings with a shop or many residents need it more often."
+      },
+      {
+        "question": "Is floor care included?",
+        "answer": "The regular cleaning is. Polishing and sealing of stone floors is quoted separately, usually once or twice a year."
+      }
+    ]
   },
   "constructionCleaning": {
     "name": "Post-construction cleaning",
     "short": "Building dust, debris and a final pass before move-in.",
-    "priceLabel": "request a quote"
+    "priceLabel": "request a quote",
+    "intro": "Construction dust settles everywhere and ordinary cleaning will not shift it. We handle both the rough clean during the project and the final clean before inspection and move-in.",
+    "includes": [
+      "Removal of debris and packaging",
+      "Vacuuming construction dust from all surfaces, including high ones",
+      "Windows, frames and skirting cleaned of building grime",
+      "Floors washed with the right product for the material",
+      "Final clean before inspection"
+    ],
+    "faq": [
+      {
+        "question": "Do you come before the inspection?",
+        "answer": "Yes, we plan around your schedule and finish before the inspector arrives."
+      },
+      {
+        "question": "Do you remove construction waste?",
+        "answer": "We take away smaller amounts. Skip handling is quoted separately."
+      }
+    ]
   },
   "retailCleaning": {
     "name": "Retail cleaning",
     "short": "Cleaning before opening or after closing time.",
-    "priceLabel": "request a quote"
+    "priceLabel": "request a quote",
+    "intro": "A shop is judged in seconds. We clean before opening or after closing so the space is ready for the first customer, without your staff having to do it at the end of a shift.",
+    "includes": [
+      "Floor care in the shop floor and entrance",
+      "Fitting rooms, mirrors and the counter",
+      "Staff areas and toilets",
+      "Display windows from the inside",
+      "Flexible hours, weekends included"
+    ],
+    "faq": [
+      {
+        "question": "Can you clean every day?",
+        "answer": "Yes. High-turnover shops usually book daily cleaning plus a deep clean each quarter."
+      },
+      {
+        "question": "Can your staff be in the shop alone?",
+        "answer": "That is your call. We work both with alarm codes and with your staff present, depending on your routines."
+      }
+    ]
   }
 }

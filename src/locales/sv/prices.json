@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Priser",
+    "description": "Fasta priser på städning i Västra Götaland, Jönköping och Halland. Alla priser för privatpersoner visas efter RUT-avdrag."
+  },
+  "hero": {
+    "title": "Priser utan överraskningar",
+    "text": "Du ser priset innan du bokar. Vi räknar på bostadens storlek, inte på hur lång tid vi råkar behöva, och RUT-avdraget är redan avdraget i tabellen nedan."
+  },
+  "table": {
+    "caption": "Prislista för privatpersoner och företag",
+    "service": "Tjänst",
+    "model": "Prissättning",
+    "from": "Från",
+    "rut": "RUT",
+    "rutYes": "Ja, 50 %",
+    "rutNo": "Nej",
+    "perSqm": "{{price}}/kvm",
+    "hourly": "{{price}}/tim",
+    "package": "Fast paketpris",
+    "quote": "Offert",
+    "note": "Priserna avser engångsbokning. Återkommande städning blir billigare per gång."
+  },
+  "rut": {
+    "title": "Så fungerar RUT-avdraget",
+    "text": "RUT är ett skatteavdrag på hushållsnära tjänster. Vi drar av 50 procent av arbetskostnaden direkt på fakturan och begär pengarna från Skatteverket. Du behöver inte fylla i någonting.",
+    "points": [
+      "Avdraget gäller arbetskostnaden, inte material eller transport",
+      "Varje person får använda 75 000 kronor per år",
+      "Du måste äga eller hyra bostaden där vi städar",
+      "Vi behöver ditt personnummer för att kunna göra avdraget"
+    ]
+  },
+  "frequency": {
+    "title": "Så påverkar hur ofta du bokar",
+    "text": "Resa, uppstart och administration betalas en gång i stället för att fördelas över året. Därför blir varje besök billigare ju oftare vi kommer.",
+    "rows": [
+      { "label": "Varje vecka", "value": "−5 %" },
+      { "label": "Varannan vecka", "value": "Grundpris" },
+      { "label": "En gång i månaden", "value": "+10 %" },
+      { "label": "Engångsstädning", "value": "+35 %" }
+    ]
+  },
+  "cta": {
+    "title": "Räkna ut ditt pris",
+    "text": "Ange kvadratmeter och hur ofta du vill ha hjälp, så ser du summan direkt.",
+    "button": "Till bokningen"
+  }
+}

@@ -1,0 +1,205 @@
+.hero {
+  background-color: var(--color-surface);
+  border-bottom: var(--border-hairline);
+  padding-block: var(--space-6) var(--space-8);
+}
+
+.heroInner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.crumbs {
+  display: flex;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+.crumbs a {
+  color: inherit;
+}
+
+.heroGrid {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.intro {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  max-width: 54ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.priceBox {
+  padding: var(--space-5);
+  background-color: var(--color-brand);
+  color: #fff;
+  border-radius: var(--radius-panel);
+}
+
+.priceLabel {
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--color-accent);
+}
+
+.priceNote,
+.quoteNote {
+  font-size: var(--text-sm);
+  opacity: 0.85;
+}
+
+.priceMeta {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  font-size: var(--text-sm);
+}
+
+.priceMeta div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.priceMeta dt {
+  opacity: 0.8;
+}
+
+.priceMeta dd {
+  font-weight: 700;
+}
+
+.section {
+  padding-block: var(--space-8);
+}
+
+.split {
+  display: grid;
+  gap: var(--space-7);
+  align-items: start;
+}
+
+.includes {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.includes li {
+  padding-left: var(--space-5);
+  position: relative;
+  color: var(--color-ink-soft);
+}
+
+/* Brass tick drawn in CSS, same mark as the hero uses. */
+.includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 0.4rem;
+  height: 0.75rem;
+  border: solid var(--color-accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.extras {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.extras li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  font-size: var(--text-sm);
+}
+
+.extraPrice {
+  font-weight: 700;
+  color: var(--color-brand);
+  white-space: nowrap;
+}
+
+.faqSection {
+  background-color: var(--color-surface);
+  border-block: var(--border-hairline);
+  padding-block: var(--space-8);
+}
+
+.faqInner {
+  display: grid;
+  gap: var(--space-5);
+  max-width: var(--container-narrow);
+}
+
+.relatedTitle {
+  font-size: var(--text-xl);
+}
+
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.relatedLink {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-brand-tint);
+  border-radius: var(--radius-pill);
+  color: var(--color-brand-strong);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.relatedLink:hover {
+  background-color: var(--color-brand);
+  color: #fff;
+}
+
+@media (min-width: 62rem) {
+  .heroGrid {
+    grid-template-columns: 1.7fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .split {
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-8);
+  }
+}

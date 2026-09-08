@@ -7,46 +7,208 @@
       "Dammsugning och våttorkning",
       "Kök och badrum",
       "Vi tar med allt material"
+    ],
+    "intro": "Vi kommer på samma veckodag, tar med allt material och lämnar hemmet i det skick du vill komma hem till. Du binder dig inte, och du betalar efter RUT-avdraget.",
+    "includes": [
+      "Dammsugning och våttorkning av alla golv",
+      "Kök: bänkar, spis utvändigt, diskho och skåpsluckor",
+      "Badrum: toalett, handfat, dusch eller badkar, speglar",
+      "Avtorkning av fria ytor, lister, dörrhandtag och strömbrytare",
+      "Papperskorgar töms och sängar bäddas om du vill"
+    ],
+    "faq": [
+      {
+        "question": "Hur ofta bör jag boka?",
+        "answer": "Varannan vecka passar de flesta hushåll. Bor ni många eller har husdjur är varje vecka oftast värt det."
+      },
+      {
+        "question": "Kan jag lägga till fönsterputs?",
+        "answer": "Ja, du väljer tillägg när du bokar. Det går också bra att lägga till ugn och kyl inför storhelger."
+      }
     ]
   },
   "movingCleaning": {
     "name": "Flyttstädning",
     "short": "Godkänd flyttstäd med fönsterputs och besiktningsgaranti.",
-    "priceLabel": "från {{price}} efter RUT"
+    "priceLabel": "från {{price}} efter RUT",
+    "intro": "En flyttstädning ska klara både hyresvärdens och köparens besiktning. Vi städar efter en checklista som följer branschstandard, och missar vi något kommer vi tillbaka utan kostnad.",
+    "includes": [
+      "Alla rum städas från tak till golv, inklusive garderober invändigt",
+      "Vitvaror rengörs invändigt och dras ut",
+      "Fönsterputs in- och utvändigt ingår alltid",
+      "Kalk tas bort i badrum, ventiler och element torkas av",
+      "Balkong eller uteplats sopas och torkas"
+    ],
+    "faq": [
+      {
+        "question": "Vad händer om besiktningen inte godkänns?",
+        "answer": "Hör av dig inom sju dagar så kommer vi tillbaka och åtgärdar det som anmärkts, utan extra kostnad."
+      },
+      {
+        "question": "När ska jag boka?",
+        "answer": "Helst en till två veckor i förväg. Månadsskiften fylls snabbt, särskilt i slutet av juni och september."
+      }
+    ]
   },
   "deepCleaning": {
     "name": "Storstädning",
     "short": "Grundlig genomgång av hela bostaden, uppifrån och ned.",
-    "priceLabel": "från {{price}} efter RUT"
+    "priceLabel": "från {{price}} efter RUT",
+    "intro": "Storstädning är den städning man gör en eller två gånger om året, när allt ska med: bakom möbler, in i skåp och upp mot tak. Passar bra inför gäster, efter en renovering eller vid årsskiftet.",
+    "includes": [
+      "Skåp och garderober rengörs invändigt",
+      "Bakom och under möbler som går att flytta",
+      "Lister, dörrar, dörrfoder och element",
+      "Kalkborttagning i dusch och på blandare",
+      "Ventiler, lampskärmar och tavelramer dammas av"
+    ],
+    "faq": [
+      {
+        "question": "Hur lång tid tar det?",
+        "answer": "En trerumslägenhet tar oftast fem till sju timmar med två personer. Vi säger till om vi tror att det behövs mer tid innan vi börjar."
+      },
+      {
+        "question": "Behöver jag plocka undan först?",
+        "answer": "Ju friare ytor, desto mer hinner vi med. Vi flyttar gärna saker, men vi sorterar inte dina tillhörigheter."
+      }
+    ]
   },
   "windowCleaning": {
     "name": "Fönsterputs",
     "short": "In- och utsida, karmar och spröjs. Pris efter antal fönster.",
-    "priceLabel": "offert inom 1 arbetsdag"
+    "priceLabel": "offert inom 1 arbetsdag",
+    "intro": "Rena fönster märks direkt, särskilt under de mörka månaderna. Vi putsar in- och utvändigt, torkar av karmar och lämnar inga ränder. Priset sätts efter antal fönster och typ, så du får en offert innan vi börjar.",
+    "includes": [
+      "Putsning av glas in- och utvändigt",
+      "Karmar och fönsterbrädor torkas av",
+      "Spröjsade fönster och fönsterdörrar går bra",
+      "Vi skyddar golv och möbler under arbetet",
+      "RUT-avdrag dras direkt på fakturan"
+    ],
+    "faq": [
+      {
+        "question": "Hur räknas ett fönster?",
+        "answer": "Vi räknar per båge. Ett fönster med två bågar räknas alltså som två, eftersom arbetet är dubbelt."
+      },
+      {
+        "question": "Putsar ni på hög höjd?",
+        "answer": "Vi når de flesta villafönster från marken med teleskopstång. För högre partier hänvisar vi till en partner med rätt utrustning."
+      }
+    ]
   },
   "movingHelp": {
     "name": "Flytthjälp",
     "short": "Packning, bärhjälp och transport till nya adressen.",
-    "priceLabel": "från {{price}}"
+    "priceLabel": "från {{price}}",
+    "intro": "Bärhjälp, bil och montering av det som behöver skruvas isär. Godset är försäkrat under hela flytten, och du kan lägga till flyttstädning så att allt sköts av samma företag.",
+    "includes": [
+      "Två flyttare och en flyttbil",
+      "Filtar, spännband och emballage",
+      "Nedmontering och montering av sängar och bord",
+      "Godset är försäkrat under hela transporten",
+      "Bortforsling av kartonger kan läggas till"
+    ],
+    "faq": [
+      {
+        "question": "Gäller RUT för flytthjälp?",
+        "answer": "Ja, men bara för arbetet. Transport och material ger inget avdrag, så avdraget blir lägre än vid städning."
+      },
+      {
+        "question": "Packar ni ner sakerna också?",
+        "answer": "Det går att lägga till. Säg till när du bokar så räknar vi in tiden i priset."
+      }
+    ]
   },
   "officeCleaning": {
     "name": "Kontorsstäd",
     "short": "Städning på fasta tider som inte stör arbetsdagen.",
-    "priceLabel": "från {{price}}/tim exkl. moms"
+    "priceLabel": "från {{price}}/tim exkl. moms",
+    "intro": "Ett kontor som städas på fasta tider märks på personalen. Vi kommer före öppning eller efter stängning, arbetar efter ett schema ni godkänner och skickar en faktura i månaden.",
+    "includes": [
+      "Kontorsytor, mötesrum och reception",
+      "Kök och pentry, inklusive påfyllning av förbrukningsmaterial",
+      "Toaletter rengörs och desinficeras",
+      "Golvvård anpassad efter underlag",
+      "Samma personal varje gång, med vikarie vid frånvaro"
+    ],
+    "faq": [
+      {
+        "question": "Kan ni städa utanför kontorstid?",
+        "answer": "Ja, det är det vanligaste. Kvällar och tidiga morgnar fungerar bra och stör ingen."
+      },
+      {
+        "question": "Har ni sekretess?",
+        "answer": "All personal skriver på sekretessavtal, och vi kan lämna utdrag ur belastningsregistret om ni kräver det."
+      }
+    ]
   },
   "stairwellCleaning": {
     "name": "Trappstädning",
     "short": "Löpande städning av trapphus och allmänna utrymmen.",
-    "priceLabel": "begär offert"
+    "priceLabel": "begär offert",
+    "intro": "Trapphuset är det första en besökare ser. Vi städar enligt ett schema som sitter uppsatt i porten, med datum och signatur, så att både styrelse och boende kan se att arbetet är utfört.",
+    "includes": [
+      "Trappor, vilplan och hisshall",
+      "Entrédörrar, glaspartier och postboxar",
+      "Tvättstuga, soprum och barnvagnsförråd",
+      "Torkning av ledstänger och kontaktytor",
+      "Signeringslista i porten"
+    ],
+    "faq": [
+      {
+        "question": "Hur ofta bör ett trapphus städas?",
+        "answer": "En gång i veckan fungerar för de flesta föreningar. Trapphus med butikslokal eller många boende behöver oftare."
+      },
+      {
+        "question": "Ingår golvvård?",
+        "answer": "Grundstädningen ingår. Polering och boning av stengolv offereras separat, oftast en till två gånger om året."
+      }
+    ]
   },
   "constructionCleaning": {
     "name": "Byggstädning",
     "short": "Byggdamm, spill och finstäd inför inflyttning.",
-    "priceLabel": "begär offert"
+    "priceLabel": "begär offert",
+    "intro": "Byggdamm sätter sig överallt och går inte bort med vanlig städning. Vi tar både grovstädningen under projektet och finstädningen inför besiktning och inflyttning.",
+    "includes": [
+      "Bortforsling av spill och emballage",
+      "Dammsugning av byggdamm på alla ytor, även höga",
+      "Rengöring av fönster, karmar och lister från byggsmuts",
+      "Avtvättning av golv med rätt medel för materialet",
+      "Slutstäd inför besiktning"
+    ],
+    "faq": [
+      {
+        "question": "Kommer ni innan besiktningen?",
+        "answer": "Ja, vi planerar arbetet efter er tidplan och är klara innan besiktningsmannen kommer."
+      },
+      {
+        "question": "Tar ni hand om byggavfallet?",
+        "answer": "Vi forslar bort mindre mängder. Containerhantering offereras separat."
+      }
+    ]
   },
   "retailCleaning": {
     "name": "Butiksstädning",
     "short": "Städning före öppning eller efter stängning.",
-    "priceLabel": "begär offert"
+    "priceLabel": "begär offert",
+    "intro": "En butik bedöms på sekunder. Vi städar före öppning eller efter stängning, så att ytorna är rena när första kunden kommer in, utan att personalen behöver ta det på sluttampen av arbetsdagen.",
+    "includes": [
+      "Golvvård i butiksyta och entré",
+      "Provrum, speglar och kassadisk",
+      "Personalutrymmen och toaletter",
+      "Skyltfönster invändigt",
+      "Flexibla tider, även helger"
+    ],
+    "faq": [
+      {
+        "question": "Kan ni städa varje dag?",
+        "answer": "Ja. Butiker med hög omsättning bokar oftast daglig städning och en storstädning per kvartal."
+      },
+      {
+        "question": "Får era medarbetare vistas i butiken ensamma?",
+        "answer": "Det bestämmer ni. Vi arbetar både med larmkod och med personal på plats, beroende på era rutiner."
+      }
+    ]
   }
 }
