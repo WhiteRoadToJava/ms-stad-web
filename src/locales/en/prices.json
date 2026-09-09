@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Prices",
+    "description": "Fixed cleaning prices across Västra Götaland, Jönköping and Halland. Prices for private customers are shown after the RUT deduction."
+  },
+  "hero": {
+    "title": "Prices without surprises",
+    "text": "You see the price before you book. We charge by the size of the home, not by how long we happen to take, and the RUT deduction is already applied in the table below."
+  },
+  "table": {
+    "caption": "Price list for private customers and businesses",
+    "service": "Service",
+    "model": "Pricing",
+    "from": "From",
+    "rut": "RUT",
+    "rutYes": "Yes, 50%",
+    "rutNo": "No",
+    "perSqm": "{{price}}/sqm",
+    "hourly": "{{price}}/hour",
+    "package": "Fixed package price",
+    "quote": "Quote",
+    "note": "Prices are for a single booking. Recurring cleaning costs less per visit."
+  },
+  "rut": {
+    "title": "How the RUT deduction works",
+    "text": "RUT is a tax deduction on household services. We take 50 percent off the labour cost directly on the invoice and claim it from the Swedish Tax Agency. You do not have to fill in anything.",
+    "points": [
+      "The deduction applies to labour, not materials or transport",
+      "Each person can use 75,000 kronor per year",
+      "You must own or rent the home we clean",
+      "We need your personal identity number to make the claim"
+    ]
+  },
+  "frequency": {
+    "title": "How often you book changes the price",
+    "text": "Travel, setup and admin are paid for once instead of being spread across the year. The more often we come, the cheaper each visit gets.",
+    "rows": [
+      { "label": "Every week", "value": "−5%" },
+      { "label": "Every other week", "value": "Base price" },
+      { "label": "Once a month", "value": "+10%" },
+      { "label": "One-off clean", "value": "+35%" }
+    ]
+  },
+  "cta": {
+    "title": "Work out your price",
+    "text": "Enter the square meters and how often you want help, and you see the total right away.",
+    "button": "Go to booking"
+  }
+}

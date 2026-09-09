@@ -43,6 +43,31 @@
   },
   "price": {
     "afterRut": "After the RUT deduction, materials and VAT included.",
-    "from": "from"
+    "from": "from",
+    "exclVat": "Excluding VAT, no RUT deduction."
+  },
+  "service": {
+    "includesTitle": "What's included",
+    "extrasTitle": "Common add-ons",
+    "faqTitle": "Questions about {{service}}",
+    "bookCta": "Book {{service}}",
+    "quoteCta": "Request a quote",
+    "priceFrom": "Price from",
+    "perSqm": "per square meter",
+    "minPrice": "Minimum price per visit",
+    "otherServices": "Other services",
+    "allServices": "All services",
+    "quoteNote": "This service is priced after a short walkthrough. You get a quote within one working day."
+  },
+  "extras": {
+    "oven": "Inside the oven",
+    "fridge": "Inside fridge and freezer",
+    "windows": "Window cleaning",
+    "balcony": "Balcony",
+    "garage": "Garage or storage"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "services": "Services"
   }
 }

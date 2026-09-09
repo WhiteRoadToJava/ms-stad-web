@@ -43,6 +43,31 @@
   },
   "price": {
     "afterRut": "Efter RUT-avdrag, inklusive material och moms.",
-    "from": "från"
+    "from": "från",
+    "exclVat": "Exklusive moms, inget RUT-avdrag."
+  },
+  "service": {
+    "includesTitle": "Det här ingår",
+    "extrasTitle": "Vanliga tillägg",
+    "faqTitle": "Vanliga frågor om {{service}}",
+    "bookCta": "Boka {{service}}",
+    "quoteCta": "Begär offert",
+    "priceFrom": "Pris från",
+    "perSqm": "per kvadratmeter",
+    "minPrice": "Lägsta pris per tillfälle",
+    "otherServices": "Andra tjänster",
+    "allServices": "Alla tjänster",
+    "quoteNote": "Den här tjänsten prissätts efter en kort genomgång. Du får en offert inom en arbetsdag."
+  },
+  "extras": {
+    "oven": "Ugn invändigt",
+    "fridge": "Kyl och frys invändigt",
+    "windows": "Fönsterputs",
+    "balcony": "Balkong",
+    "garage": "Garage eller förråd"
+  },
+  "breadcrumb": {
+    "home": "Hem",
+    "services": "Tjänster"
   }
 }

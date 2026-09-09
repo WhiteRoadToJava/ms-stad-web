@@ -72,3 +72,37 @@ export const combineSchemas = (...schemas) => ({
   '@context': 'https://schema.org',
   '@graph': schemas.map(({ '@context': _context, ...rest }) => rest),
 });
+
+/** A single service, used on its own page. */
+export const serviceSchema = ({ service, name, description, price }) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name,
+  description,
+  serviceType: name,
+  url: `${site.url}/tjanster/${service.slug}`,
+  provider: { '@id': `${site.url}/#organization` },
+  areaServed: areas.map((area) => ({ '@type': 'City', name: area.name })),
+  ...(price
+    ? {
+        offers: {
+          '@type': 'Offer',
+          price: Math.round(price / 100),
+          priceCurrency: 'SEK',
+          availability: 'https://schema.org/InStock',
+        },
+      }
+    : {}),
+});
+
+/** The trail Google prints above a result instead of the raw URL. */
+export const breadcrumbSchema = (crumbs) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: `${site.url}${crumb.path}`,
+  })),
+});

@@ -1,4 +1,5 @@
 import { App } from './App';
+import { services } from './data/services';
 
 /**
  * Route table.
@@ -16,6 +17,23 @@ export const routes = [
         index: true,
         entry: 'src/pages/Home.jsx',
         lazy: () => import('./pages/Home').then((m) => ({ Component: m.Home })),
+      },
+      {
+        path: 'tjanster',
+        entry: 'src/pages/Services.jsx',
+        lazy: () => import('./pages/Services').then((m) => ({ Component: m.Services })),
+      },
+      {
+        path: 'tjanster/:slug',
+        entry: 'src/pages/Service.jsx',
+        lazy: () => import('./pages/Service').then((m) => ({ Component: m.Service })),
+        // One HTML file per service, listed here so the generator knows them.
+        getStaticPaths: () => services.map((service) => `tjanster/${service.slug}`),
+      },
+      {
+        path: 'priser',
+        entry: 'src/pages/Prices.jsx',
+        lazy: () => import('./pages/Prices').then((m) => ({ Component: m.Prices })),
       },
       {
         path: '*',
