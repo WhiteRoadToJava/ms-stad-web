@@ -18,6 +18,7 @@ export const PriceSummary = ({
   hasSlot,
   status,
   errorMessage,
+  canSubmit = true,
 }) => {
   const { t } = useTranslation('booking');
   const { t: tCommon } = useTranslation();
@@ -85,9 +86,11 @@ export const PriceSummary = ({
           <span className={styles.perVisit}>{t('summary.perVisit')}</span>
         </p>
 
-        <button type="submit" className={styles.submit} disabled={sending}>
-          {sending ? t('summary.submitting') : t('summary.submit')}
-        </button>
+        {canSubmit ? (
+          <button type="submit" className={styles.submit} disabled={sending}>
+            {sending ? t('summary.submitting') : t('summary.submit')}
+          </button>
+        ) : null}
 
         {errorMessage ? (
           <p className={styles.error} role="alert">

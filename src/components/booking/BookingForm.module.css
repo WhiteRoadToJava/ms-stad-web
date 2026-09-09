@@ -170,3 +170,135 @@
     gap: var(--space-8);
   }
 }
+
+/* --- Wizard --- */
+
+.cards {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.card {
+  display: grid;
+  gap: var(--space-1, 4px);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-panel);
+  cursor: pointer;
+}
+
+.card input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.card:focus-within {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.cardActive {
+  border-color: var(--color-brand);
+  box-shadow: inset 0 0 0 1px var(--color-brand);
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.cardText {
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.cardPrice {
+  margin-top: var(--space-2);
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.next,
+.back {
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-control);
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.next {
+  background-color: var(--color-brand);
+  border: 2px solid var(--color-brand);
+  color: #fff;
+}
+
+.back {
+  background-color: transparent;
+  border: 2px solid var(--color-line-strong);
+  color: var(--color-ink-soft);
+  order: -1;
+}
+
+.error {
+  color: #a4291b;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.review {
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-panel);
+}
+
+.reviewList {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.reviewList div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-hairline);
+}
+
+.reviewList dt {
+  color: var(--color-ink-muted);
+}
+
+.reviewList dd {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  font-weight: 600;
+  text-align: right;
+}
+
+.edit {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--color-brand);
+  font: inherit;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+}

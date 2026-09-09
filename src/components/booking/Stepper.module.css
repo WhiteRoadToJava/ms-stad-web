@@ -1,0 +1,91 @@
+.stepper {
+  margin-bottom: var(--space-7);
+}
+
+.list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+/* The connector is drawn from each step back to the previous one, so it always
+   spans exactly the gap between two markers whatever the column width. */
+.line {
+  position: absolute;
+  top: 1.1rem;
+  right: 50%;
+  left: -50%;
+  height: 2px;
+  background-color: var(--color-line);
+}
+
+.lineDone {
+  background-color: var(--color-brand);
+}
+
+.marker {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-color: var(--color-canvas);
+  border: 2px solid var(--color-line-strong);
+  border-radius: 50%;
+  color: var(--color-ink-muted);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.marker:disabled {
+  cursor: default;
+}
+
+.done {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+  cursor: pointer;
+}
+
+.current {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-brand-strong);
+}
+
+.tick {
+  width: 0.35rem;
+  height: 0.7rem;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.label {
+  font-size: var(--text-xs);
+  color: var(--color-ink-muted);
+}
+
+.labelCurrent {
+  color: var(--color-brand-strong);
+  font-weight: 700;
+}
+
+@media (min-width: 40rem) {
+  .label {
+    font-size: var(--text-sm);
+  }
+}

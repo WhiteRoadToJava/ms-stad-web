@@ -80,5 +80,42 @@
     "text": "Vi hör av oss samma arbetsdag för att bekräfta tiden. En bekräftelse ligger redan i din inkorg.",
     "again": "Boka en till städning",
     "home": "Till startsidan"
+  },
+  "steps": {
+    "service": "Välj städning",
+    "property": "Bostad & pris",
+    "address": "Adress & datum",
+    "confirm": "Bekräfta bokning",
+    "progress": "Steg {{current}} av {{total}}"
+  },
+  "nav": {
+    "back": "Tillbaka",
+    "next": "Nästa",
+    "confirm": "Bekräfta bokning"
+  },
+  "calendar": {
+    "legend": "Önskat datum och tid",
+    "availableTimes": "Tillgängliga tider för {{date}}",
+    "noTimes": "Inga lediga tider den dagen. Välj ett annat datum.",
+    "previous": "Föregående månad",
+    "next": "Nästa månad",
+    "unavailable": "Inga tider"
+  },
+  "review": {
+    "title": "Ser det här rätt ut?",
+    "text": "Kontrollera uppgifterna innan du skickar. Du binder dig inte till någonting förrän vi har bekräftat tiden.",
+    "address": "Adress",
+    "contact": "Kontakt",
+    "edit": "Ändra"
+  },
+  "validation": {
+    "name": "Fyll i ditt namn",
+    "email": "Kontrollera e-postadressen",
+    "phone": "Fyll i ett telefonnummer",
+    "street": "Fyll i gatuadress",
+    "postalCode": "Postnumret ska vara fem siffror",
+    "city": "Fyll i ort",
+    "squareMeters": "Ange en yta mellan 10 och 1000 kvm",
+    "hours": "Ange minst två timmar"
   }
 }

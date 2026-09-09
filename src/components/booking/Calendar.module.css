@@ -1,0 +1,150 @@
+.calendar {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-panel);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.month {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.controls {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: 50%;
+  font-size: var(--text-lg);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.weekdays,
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+}
+
+.weekdays {
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+
+.day {
+  padding: var(--space-3) 0;
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.day:hover:not(:disabled) {
+  border-color: var(--color-brand);
+}
+
+/* Days with nothing left stay visible but clearly out of reach, so the shape
+   of the month is preserved. */
+.day:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-ink-muted);
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dayActive {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+.times {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: var(--border-hairline);
+}
+
+.timesTitle {
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--space-2);
+}
+
+.time {
+  display: grid;
+  gap: 2px;
+  padding: var(--space-3);
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  text-align: left;
+  cursor: pointer;
+}
+
+.time small {
+  color: var(--color-ink-muted);
+  font-size: var(--text-xs);
+}
+
+.timeActive {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+}
+
+.timeActive small {
+  color: rgb(255 255 255 / 75%);
+}
+
+.status {
+  padding: var(--space-4);
+  background-color: var(--color-brand-tint);
+  border-radius: var(--radius-control);
+  color: var(--color-brand-strong);
+  font-size: var(--text-sm);
+}
+
+.skip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}

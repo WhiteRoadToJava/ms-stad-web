@@ -1,8 +1,12 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { SlotPicker } from './SlotPicker';
+import { Stepper } from './Stepper';
 import { PriceSummary } from './PriceSummary';
+import { ServiceStep } from './steps/ServiceStep';
+import { PropertyStep } from './steps/PropertyStep';
+import { AddressStep } from './steps/AddressStep';
+import { ConfirmStep } from './steps/ConfirmStep';
 import { api, ApiError } from '../../lib/api';
 import { site } from '../../data/site';
 import { services, getService } from '../../data/services';
@@ -12,7 +16,7 @@ import styles from './BookingForm.module.css';
 /** Services with an online price. Quote-only ones send people to /offert. */
 const bookable = services.filter((service) => service.pricingModel !== 'quote_only');
 
-const frequencies = ['once', 'weekly', 'biweekly', 'monthly'];
+const STEPS = ['service', 'property', 'address', 'confirm'];
 
 const emptyCustomer = {
   name: '',
@@ -25,20 +29,22 @@ const emptyCustomer = {
 
 export const BookingForm = ({ initialSlug }) => {
   const { t } = useTranslation('booking');
-  const { t: tCommon } = useTranslation();
-  const { t: tServices } = useTranslation('services');
 
+  const [step, setStep] = useState(0);
   const [slug, setSlug] = useState(initialSlug ?? bookable[0].slug);
-  const [squareMeters, setSquareMeters] = useState(70);
-  const [rooms, setRooms] = useState('');
-  const [hours, setHours] = useState(3);
-  const [frequency, setFrequency] = useState('biweekly');
-  const [extraKeys, setExtraKeys] = useState([]);
-  const [timeSlotId, setTimeSlotId] = useState(null);
-  const [applyRut, setApplyRut] = useState(true);
   const [customer, setCustomer] = useState(emptyCustomer);
-  const [message, setMessage] = useState('');
-  const [honeypot, setHoneypot] = useState('');
+  const [errors, setErrors] = useState({});
+  const [values, setValues] = useState({
+    squareMeters: 70,
+    rooms: '',
+    hours: 3,
+    frequency: 'biweekly',
+    extraKeys: [],
+    timeSlotId: null,
+    applyRut: true,
+    message: '',
+    honeypot: '',
+  });
 
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState(null);
@@ -54,32 +60,91 @@ export const BookingForm = ({ initialSlug }) => {
     () =>
       calculatePrice({
         service,
-        squareMeters: Number(squareMeters) || 0,
-        hours: Number(hours) || 0,
-        frequency,
-        extraKeys,
-        applyRut,
+        squareMeters: Number(values.squareMeters) || 0,
+        hours: Number(values.hours) || 0,
+        frequency: values.frequency,
+        extraKeys: values.extraKeys,
+        applyRut: values.applyRut,
       }),
-    [service, squareMeters, hours, frequency, extraKeys, applyRut],
+    [service, values],
   );
 
-  const updateCustomer = (field) => (event) =>
+  const change = (field, value) => setValues((current) => ({ ...current, [field]: value }));
+
+  const changeCustomer = (field) => (event) =>
     setCustomer((current) => ({ ...current, [field]: event.target.value }));
 
   const toggleExtra = (key) =>
-    setExtraKeys((current) =>
-      current.includes(key) ? current.filter((item) => item !== key) : [...current, key],
-    );
+    setValues((current) => ({
+      ...current,
+      extraKeys: current.extraKeys.includes(key)
+        ? current.extraKeys.filter((item) => item !== key)
+        : [...current.extraKeys, key],
+    }));
 
   const changeService = (nextSlug) => {
     setSlug(nextSlug);
     // Extras belong to one service; carrying them over would price a fridge
     // clean into an office contract.
-    setExtraKeys([]);
+    setValues((current) => ({ ...current, extraKeys: [] }));
   };
 
-  const handleSubmit = async (event) => {
+  /**
+   * Each step checks only its own fields. Validating everything at the end
+   * would send someone back three screens to fix a postal code.
+   */
+  const validateStep = (index) => {
+    const found = {};
+
+    if (index === 1) {
+      if (isHourly) {
+        if (!(Number(values.hours) >= 2)) found.hours = t('validation.hours');
+      } else if (!isPackage) {
+        const sqm = Number(values.squareMeters);
+        if (!(sqm >= 10 && sqm <= 1000)) found.squareMeters = t('validation.squareMeters');
+      }
+    }
+
+    if (index === 2) {
+      if (!customer.street.trim()) found.street = t('validation.street');
+      if (!/^\d{3}\s?\d{2}$/.test(customer.postalCode.trim())) {
+        found.postalCode = t('validation.postalCode');
+      }
+      if (!customer.city.trim()) found.city = t('validation.city');
+    }
+
+    if (index === 3) {
+      if (!customer.name.trim()) found.name = t('validation.name');
+      if (!/^\S+@\S+\.\S+$/.test(customer.email)) found.email = t('validation.email');
+      if (!customer.phone.trim()) found.phone = t('validation.phone');
+    }
+
+    setErrors(found);
+    return Object.keys(found).length === 0;
+  };
+
+  const goTo = (index) => {
+    setErrors({});
+    setStep(index);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const next = () => {
+    if (validateStep(step)) goTo(step + 1);
+  };
+
+  const submit = async (event) => {
     event.preventDefault();
+
+    // Enter inside a text field submits a form. On any step but the last that
+    // should advance instead of sending a half-filled booking.
+    if (step < STEPS.length - 1) {
+      next();
+      return;
+    }
+
+    if (!validateStep(step)) return;
+
     setStatus('sending');
     setErrorMessage(null);
 
@@ -88,15 +153,15 @@ export const BookingForm = ({ initialSlug }) => {
         serviceSlug: slug,
         customer,
         // The API speaks the Prisma enum, the UI speaks lower case.
-        frequency: frequency.toUpperCase(),
-        extraKeys,
-        applyRut,
-        timeSlotId: timeSlotId ?? undefined,
-        squareMeters: isHourly || isPackage ? undefined : Number(squareMeters),
-        hours: isHourly ? Number(hours) : undefined,
-        rooms: rooms ? Number(rooms) : undefined,
-        message: message || undefined,
-        website: honeypot,
+        frequency: values.frequency.toUpperCase(),
+        extraKeys: values.extraKeys,
+        applyRut: values.applyRut,
+        timeSlotId: values.timeSlotId ?? undefined,
+        squareMeters: isHourly || isPackage ? undefined : Number(values.squareMeters),
+        hours: isHourly ? Number(values.hours) : undefined,
+        rooms: values.rooms ? Number(values.rooms) : undefined,
+        message: values.message || undefined,
+        website: values.honeypot,
       });
 
       setConfirmation(payload.data);
@@ -130,205 +195,45 @@ export const BookingForm = ({ initialSlug }) => {
   }
 
   return (
-    <form className={styles.layout} onSubmit={handleSubmit} noValidate>
-      <div className={styles.fields}>
-        <fieldset className={styles.block}>
-          <legend className={styles.legend}>{t('service.legend')}</legend>
-          <div className={styles.options}>
-            {bookable.map((item) => (
-              <label
-                key={item.slug}
-                className={`${styles.option} ${slug === item.slug ? styles.optionActive : ''}`}
-              >
-                <input
-                  type="radio"
-                  name="service"
-                  value={item.slug}
-                  checked={slug === item.slug}
-                  onChange={() => changeService(item.slug)}
-                />
-                {tServices(`${item.i18nKey}.name`)}
-              </label>
-            ))}
-          </div>
-          <p className={styles.hint}>
-            {t('service.quoteHint')}{' '}
-            <Link to="/offert">{t('service.quoteLink')}</Link>
-          </p>
-        </fieldset>
+    <>
+      <Stepper steps={STEPS} current={step} onSelect={goTo} />
 
-        {!isPackage ? (
-          <fieldset className={styles.block}>
-            <legend className={styles.legend}>{t('size.legend')}</legend>
+      <form className={styles.layout} onSubmit={submit} noValidate>
+        <div className={styles.fields}>
+          {step === 0 ? (
+            <ServiceStep options={bookable} slug={slug} onChange={changeService} />
+          ) : null}
 
-            {isHourly ? (
-              <label className={styles.field}>
-                <span>{t('size.hoursLabel')}</span>
-                <input
-                  type="number"
-                  min="2"
-                  max="40"
-                  step="0.5"
-                  value={hours}
-                  onChange={(event) => setHours(event.target.value)}
-                />
-                <small>{t('size.hoursHelp')}</small>
-              </label>
-            ) : (
-              <div className={styles.row}>
-                <label className={styles.field}>
-                  <span>{t('size.sqmLabel')}</span>
-                  <input
-                    type="number"
-                    min="10"
-                    max="1000"
-                    required
-                    value={squareMeters}
-                    onChange={(event) => setSquareMeters(event.target.value)}
-                  />
-                  <small>{t('size.sqmHelp')}</small>
-                </label>
-
-                <label className={styles.field}>
-                  <span>{t('size.roomsLabel')}</span>
-                  <input
-                    type="number"
-                    min="1"
-                    max="30"
-                    value={rooms}
-                    onChange={(event) => setRooms(event.target.value)}
-                  />
-                </label>
-              </div>
-            )}
-          </fieldset>
-        ) : null}
-
-        {!isPackage ? (
-          <fieldset className={styles.block}>
-            <legend className={styles.legend}>{t('frequency.legend')}</legend>
-            <div className={styles.options}>
-              {frequencies.map((key) => (
-                <label
-                  key={key}
-                  className={`${styles.option} ${frequency === key ? styles.optionActive : ''}`}
-                >
-                  <input
-                    type="radio"
-                    name="frequency"
-                    value={key}
-                    checked={frequency === key}
-                    onChange={() => setFrequency(key)}
-                  />
-                  {t(`frequency.${key}`)}
-                  {key === 'weekly' ? (
-                    <small className={styles.badge}>{t('frequency.cheapest')}</small>
-                  ) : null}
-                </label>
-              ))}
-            </div>
-          </fieldset>
-        ) : null}
-
-        {service.extras?.length ? (
-          <fieldset className={styles.block}>
-            <legend className={styles.legend}>{t('extras.legend')}</legend>
-            <div className={styles.options}>
-              {service.extras.map((extra) => (
-                <label
-                  key={extra.key}
-                  className={`${styles.option} ${
-                    extraKeys.includes(extra.key) ? styles.optionActive : ''
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={extraKeys.includes(extra.key)}
-                    onChange={() => toggleExtra(extra.key)}
-                  />
-                  {tCommon(`extras.${extra.key}`)}
-                </label>
-              ))}
-            </div>
-          </fieldset>
-        ) : null}
-
-        <fieldset className={styles.block}>
-          <legend className={styles.legend}>{t('slot.legend')}</legend>
-          <SlotPicker value={timeSlotId} onChange={setTimeSlotId} />
-        </fieldset>
-
-        <fieldset className={styles.block}>
-          <legend className={styles.legend}>{t('customer.legend')}</legend>
-
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>{t('customer.name')}</span>
-              <input required value={customer.name} onChange={updateCustomer('name')} />
-            </label>
-            <label className={styles.field}>
-              <span>{t('customer.phone')}</span>
-              <input
-                required
-                type="tel"
-                value={customer.phone}
-                onChange={updateCustomer('phone')}
-              />
-            </label>
-          </div>
-
-          <label className={styles.field}>
-            <span>{t('customer.email')}</span>
-            <input
-              required
-              type="email"
-              value={customer.email}
-              onChange={updateCustomer('email')}
+          {step === 1 ? (
+            <PropertyStep
+              service={service}
+              values={values}
+              errors={errors}
+              onChange={change}
+              onToggleExtra={toggleExtra}
             />
-          </label>
+          ) : null}
 
-          <label className={styles.field}>
-            <span>{t('customer.street')}</span>
-            <input value={customer.street} onChange={updateCustomer('street')} />
-          </label>
-
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>{t('customer.postalCode')}</span>
-              <input
-                inputMode="numeric"
-                value={customer.postalCode}
-                onChange={updateCustomer('postalCode')}
-              />
-            </label>
-            <label className={styles.field}>
-              <span>{t('customer.city')}</span>
-              <input value={customer.city} onChange={updateCustomer('city')} />
-            </label>
-          </div>
-
-          <label className={styles.field}>
-            <span>{t('customer.message')}</span>
-            <textarea
-              rows="3"
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
+          {step === 2 ? (
+            <AddressStep
+              customer={customer}
+              errors={errors}
+              timeSlotId={values.timeSlotId}
+              onCustomer={changeCustomer}
+              onSlot={(id) => change('timeSlotId', id)}
             />
-            <small>{t('customer.messageHelp')}</small>
-          </label>
+          ) : null}
 
-          {service.rutEligible ? (
-            <label className={styles.checkbox}>
-              <input
-                type="checkbox"
-                checked={applyRut}
-                onChange={(event) => setApplyRut(event.target.checked)}
-              />
-              <span>
-                {t('customer.rut')}
-                <small>{t('customer.rutHelp')}</small>
-              </span>
-            </label>
+          {step === 3 ? (
+            <ConfirmStep
+              service={service}
+              customer={customer}
+              errors={errors}
+              values={values}
+              onCustomer={changeCustomer}
+              onChange={change}
+              onEdit={goTo}
+            />
           ) : null}
 
           {/* Hidden from people, irresistible to bots. */}
@@ -339,23 +244,38 @@ export const BookingForm = ({ initialSlug }) => {
             autoComplete="off"
             aria-hidden="true"
             className={styles.honeypot}
-            value={honeypot}
-            onChange={(event) => setHoneypot(event.target.value)}
+            value={values.honeypot}
+            onChange={(event) => change('honeypot', event.target.value)}
           />
-        </fieldset>
-      </div>
 
-      <PriceSummary
-        service={service}
-        breakdown={breakdown}
-        frequency={frequency}
-        squareMeters={squareMeters}
-        hours={hours}
-        extraKeys={extraKeys}
-        hasSlot={Boolean(timeSlotId)}
-        status={status}
-        errorMessage={errorMessage}
-      />
-    </form>
+          <div className={styles.nav}>
+            {step > 0 ? (
+              <button type="button" className={styles.back} onClick={() => goTo(step - 1)}>
+                {t('nav.back')}
+              </button>
+            ) : null}
+
+            {step < STEPS.length - 1 ? (
+              <button type="button" className={styles.next} onClick={next}>
+                {t('nav.next')}
+              </button>
+            ) : null}
+          </div>
+        </div>
+
+        <PriceSummary
+          service={service}
+          breakdown={breakdown}
+          frequency={values.frequency}
+          squareMeters={values.squareMeters}
+          hours={values.hours}
+          extraKeys={values.extraKeys}
+          hasSlot={Boolean(values.timeSlotId)}
+          status={status}
+          errorMessage={errorMessage}
+          canSubmit={step === STEPS.length - 1}
+        />
+      </form>
+    </>
   );
 };

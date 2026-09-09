@@ -80,5 +80,42 @@
     "text": "We will be in touch the same working day to confirm the time. A confirmation is already in your inbox.",
     "again": "Book another cleaning",
     "home": "Back to the home page"
+  },
+  "steps": {
+    "service": "Choose cleaning",
+    "property": "Home & price",
+    "address": "Address & date",
+    "confirm": "Confirm booking",
+    "progress": "Step {{current}} of {{total}}"
+  },
+  "nav": {
+    "back": "Back",
+    "next": "Next",
+    "confirm": "Confirm booking"
+  },
+  "calendar": {
+    "legend": "Preferred date and time",
+    "availableTimes": "Available times on {{date}}",
+    "noTimes": "No times left that day. Pick another date.",
+    "previous": "Previous month",
+    "next": "Next month",
+    "unavailable": "No times"
+  },
+  "review": {
+    "title": "Does this look right?",
+    "text": "Check the details before sending. Nothing is binding until we have confirmed the time.",
+    "address": "Address",
+    "contact": "Contact",
+    "edit": "Edit"
+  },
+  "validation": {
+    "name": "Enter your name",
+    "email": "Check the email address",
+    "phone": "Enter a phone number",
+    "street": "Enter a street address",
+    "postalCode": "The postal code should be five digits",
+    "city": "Enter a city",
+    "squareMeters": "Enter an area between 10 and 1000 sqm",
+    "hours": "Enter at least two hours"
   }
 }
