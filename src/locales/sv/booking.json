@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Boka städning",
+    "description": "Räkna ut priset och boka städning direkt. Fast pris, RUT-avdraget draget på fakturan och inga bindningstider."
+  },
+  "hero": {
+    "title": "Boka din städning",
+    "text": "Fyll i formuläret så ser du priset direkt. Vi bekräftar tiden samma arbetsdag."
+  },
+  "service": {
+    "legend": "Vilken tjänst behöver du?",
+    "quoteHint": "Den här tjänsten prissätts efter en kort genomgång.",
+    "quoteLink": "Begär offert i stället"
+  },
+  "size": {
+    "legend": "Hur stort är det?",
+    "sqmLabel": "Boyta i kvadratmeter",
+    "sqmHelp": "Räkna med alla rum vi ska städa.",
+    "roomsLabel": "Antal rum",
+    "hoursLabel": "Antal timmar per tillfälle",
+    "hoursHelp": "Minsta bokning är två timmar."
+  },
+  "frequency": {
+    "legend": "Hur ofta?",
+    "once": "Engångsstädning",
+    "weekly": "Varje vecka",
+    "biweekly": "Varannan vecka",
+    "monthly": "En gång i månaden",
+    "cheapest": "Billigast per gång"
+  },
+  "extras": {
+    "legend": "Vill du lägga till något?"
+  },
+  "slot": {
+    "legend": "När passar det?",
+    "loading": "Hämtar lediga tider …",
+    "empty": "Vi kunde inte hämta lediga tider just nu. Boka ändå, så ringer vi och kommer överens om en tid.",
+    "skip": "Jag vill att ni föreslår en tid",
+    "placesLeft": "{{count}} plats kvar",
+    "placesLeft_other": "{{count}} platser kvar"
+  },
+  "customer": {
+    "legend": "Dina uppgifter",
+    "name": "Namn",
+    "email": "E-post",
+    "phone": "Telefon",
+    "street": "Adress",
+    "postalCode": "Postnummer",
+    "city": "Ort",
+    "message": "Något vi bör veta?",
+    "messageHelp": "Husdjur, portkod, parkering, känsliga golv.",
+    "rut": "Dra av RUT direkt på fakturan",
+    "rutHelp": "Vi behöver ditt personnummer först när vi bekräftar bokningen."
+  },
+  "summary": {
+    "title": "Ditt pris",
+    "service": "Tjänst",
+    "size": "Yta",
+    "frequency": "Hur ofta",
+    "time": "Tid",
+    "timeMissing": "Vi föreslår en tid",
+    "extras": "Tillägg",
+    "gross": "Pris före avdrag",
+    "rut": "RUT-avdrag",
+    "total": "Att betala",
+    "perVisit": "per tillfälle",
+    "note": "Priset är fast. Vi lägger inte till timmar i efterhand.",
+    "submit": "Skicka bokning",
+    "submitting": "Skickar …"
+  },
+  "errors": {
+    "required": "Fyll i det här fältet",
+    "email": "Kontrollera e-postadressen",
+    "sqm": "Ange en yta mellan 10 och 1000 kvm",
+    "generic": "Något gick fel. Försök igen eller ring oss på {{phone}}."
+  },
+  "success": {
+    "title": "Tack, vi har tagit emot din bokning!",
+    "reference": "Ditt bokningsnummer är {{reference}}.",
+    "text": "Vi hör av oss samma arbetsdag för att bekräfta tiden. En bekräftelse ligger redan i din inkorg.",
+    "again": "Boka en till städning",
+    "home": "Till startsidan"
+  }
+}

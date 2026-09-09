@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Book cleaning",
+    "description": "Work out the price and book cleaning right away. Fixed price, RUT deducted on the invoice, no lock-in."
+  },
+  "hero": {
+    "title": "Book your cleaning",
+    "text": "Fill in the form and you see the price straight away. We confirm the time the same working day."
+  },
+  "service": {
+    "legend": "Which service do you need?",
+    "quoteHint": "This service is priced after a short walkthrough.",
+    "quoteLink": "Request a quote instead"
+  },
+  "size": {
+    "legend": "How big is it?",
+    "sqmLabel": "Living area in square meters",
+    "sqmHelp": "Include every room we should clean.",
+    "roomsLabel": "Number of rooms",
+    "hoursLabel": "Hours per visit",
+    "hoursHelp": "The minimum booking is two hours."
+  },
+  "frequency": {
+    "legend": "How often?",
+    "once": "One-off clean",
+    "weekly": "Every week",
+    "biweekly": "Every other week",
+    "monthly": "Once a month",
+    "cheapest": "Cheapest per visit"
+  },
+  "extras": {
+    "legend": "Anything to add?"
+  },
+  "slot": {
+    "legend": "When suits you?",
+    "loading": "Loading available times …",
+    "empty": "We could not load available times right now. Book anyway and we will call you to agree on a time.",
+    "skip": "I want you to suggest a time",
+    "placesLeft": "{{count}} place left",
+    "placesLeft_other": "{{count}} places left"
+  },
+  "customer": {
+    "legend": "Your details",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "street": "Address",
+    "postalCode": "Postal code",
+    "city": "City",
+    "message": "Anything we should know?",
+    "messageHelp": "Pets, door code, parking, delicate floors.",
+    "rut": "Apply the RUT deduction on the invoice",
+    "rutHelp": "We only need your personal identity number when we confirm the booking."
+  },
+  "summary": {
+    "title": "Your price",
+    "service": "Service",
+    "size": "Area",
+    "frequency": "Frequency",
+    "time": "Time",
+    "timeMissing": "We suggest a time",
+    "extras": "Add-ons",
+    "gross": "Price before deduction",
+    "rut": "RUT deduction",
+    "total": "To pay",
+    "perVisit": "per visit",
+    "note": "The price is fixed. We do not add hours afterwards.",
+    "submit": "Send booking",
+    "submitting": "Sending …"
+  },
+  "errors": {
+    "required": "Please fill this in",
+    "email": "Check the email address",
+    "sqm": "Enter an area between 10 and 1000 sqm",
+    "generic": "Something went wrong. Try again or call us on {{phone}}."
+  },
+  "success": {
+    "title": "Thank you, we have your booking!",
+    "reference": "Your booking number is {{reference}}.",
+    "text": "We will be in touch the same working day to confirm the time. A confirmation is already in your inbox.",
+    "again": "Book another cleaning",
+    "home": "Back to the home page"
+  }
+}

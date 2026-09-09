@@ -69,7 +69,14 @@ export const calculatePrice = (input) => {
       break;
   }
 
-  basePrice = Math.round(basePrice * frequencyModifier[frequency]);
+  // Only recurring models move with how often we come. A package price is
+  // already priced as one visit, so the one-off surcharge would double count.
+  const isRecurring =
+    service.pricingModel === 'per_sqm' || service.pricingModel === 'hourly';
+
+  basePrice = roundToKronor(
+    basePrice * (isRecurring ? frequencyModifier[frequency] : 1),
+  );
 
   const extrasPrice = (service.extras ?? [])
     .filter((extra) => extraKeys.includes(extra.key))

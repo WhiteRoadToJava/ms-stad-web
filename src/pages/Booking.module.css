@@ -1,0 +1,16 @@
+.hero {
+  background-color: var(--color-surface);
+  border-bottom: var(--border-hairline);
+  padding-block: var(--space-7);
+}
+
+.lead {
+  margin-top: var(--space-3);
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  max-width: 48ch;
+}
+
+.section {
+  padding-block: var(--space-7) var(--space-8);
+}
