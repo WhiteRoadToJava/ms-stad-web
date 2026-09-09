@@ -302,3 +302,30 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* The final confirmation. Deliberately heavier than the other checkboxes:
+   it is the last thing read before a team is sent to an address. */
+.confirm {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  background-color: var(--color-brand-tint);
+  border: 2px solid transparent;
+  border-radius: var(--radius-control);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.confirm small {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-ink-muted);
+  font-weight: 400;
+}
+
+.confirmInvalid {
+  border-color: #a4291b;
+}

@@ -116,6 +116,11 @@
     "postalCode": "Postnumret ska vara fem siffror",
     "city": "Fyll i ort",
     "squareMeters": "Ange en yta mellan 10 och 1000 kvm",
-    "hours": "Ange minst två timmar"
+    "hours": "Ange minst två timmar",
+    "confirmed": "Kryssa i rutan för att bekräfta bokningen"
+  },
+  "confirmation": {
+    "label": "Jag bekräftar att adressen stämmer och vill boka städningen",
+    "help": "Vi kontaktar dig samma arbetsdag. Du kan avboka kostnadsfritt fram till 24 timmar innan."
   }
 }

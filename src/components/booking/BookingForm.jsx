@@ -43,6 +43,7 @@ export const BookingForm = ({ initialSlug }) => {
     timeSlotId: null,
     applyRut: true,
     message: '',
+    confirmed: false,
     honeypot: '',
   });
 
@@ -117,6 +118,9 @@ export const BookingForm = ({ initialSlug }) => {
       if (!customer.name.trim()) found.name = t('validation.name');
       if (!/^\S+@\S+\.\S+$/.test(customer.email)) found.email = t('validation.email');
       if (!customer.phone.trim()) found.phone = t('validation.phone');
+      // An explicit confirmation, not a pre-ticked box: the customer states
+      // that the address is right before we send a team to it.
+      if (!values.confirmed) found.confirmed = t('validation.confirmed');
     }
 
     setErrors(found);
@@ -274,6 +278,7 @@ export const BookingForm = ({ initialSlug }) => {
           status={status}
           errorMessage={errorMessage}
           canSubmit={step === STEPS.length - 1}
+          submitDisabled={!values.confirmed}
         />
       </form>
     </>

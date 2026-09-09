@@ -19,6 +19,7 @@ export const PriceSummary = ({
   status,
   errorMessage,
   canSubmit = true,
+  submitDisabled = false,
 }) => {
   const { t } = useTranslation('booking');
   const { t: tCommon } = useTranslation();
@@ -87,7 +88,11 @@ export const PriceSummary = ({
         </p>
 
         {canSubmit ? (
-          <button type="submit" className={styles.submit} disabled={sending}>
+          <button
+            type="submit"
+            className={styles.submit}
+            disabled={sending || submitDisabled}
+          >
             {sending ? t('summary.submitting') : t('summary.submit')}
           </button>
         ) : null}

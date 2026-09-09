@@ -116,6 +116,11 @@
     "postalCode": "The postal code should be five digits",
     "city": "Enter a city",
     "squareMeters": "Enter an area between 10 and 1000 sqm",
-    "hours": "Enter at least two hours"
+    "hours": "Enter at least two hours",
+    "confirmed": "Tick the box to confirm the booking"
+  },
+  "confirmation": {
+    "label": "I confirm the address is correct and want to book this cleaning",
+    "help": "We contact you the same working day. You can cancel free of charge up to 24 hours before."
   }
 }

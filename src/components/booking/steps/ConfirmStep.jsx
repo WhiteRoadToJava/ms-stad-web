@@ -110,6 +110,26 @@ export const ConfirmStep = ({
             </dd>
           </div>
         </dl>
+        <label
+          className={`${styles.confirm} ${errors.confirmed ? styles.confirmInvalid : ''}`}
+        >
+          <input
+            type="checkbox"
+            checked={values.confirmed}
+            onChange={(event) => onChange('confirmed', event.target.checked)}
+            aria-invalid={Boolean(errors.confirmed)}
+          />
+          <span>
+            {t('confirmation.label')}
+            <small>{t('confirmation.help')}</small>
+          </span>
+        </label>
+
+        {errors.confirmed ? (
+          <strong className={styles.error} role="alert">
+            {errors.confirmed}
+          </strong>
+        ) : null}
       </section>
     </>
   );
