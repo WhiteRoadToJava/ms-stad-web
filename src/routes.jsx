@@ -31,6 +31,11 @@ export const routes = [
         getStaticPaths: () => services.map((service) => `tjanster/${service.slug}`),
       },
       {
+        path: 'boka',
+        entry: 'src/pages/Booking.jsx',
+        lazy: () => import('./pages/Booking').then((m) => ({ Component: m.Booking })),
+      },
+      {
         path: 'priser',
         entry: 'src/pages/Prices.jsx',
         lazy: () => import('./pages/Prices').then((m) => ({ Component: m.Prices })),

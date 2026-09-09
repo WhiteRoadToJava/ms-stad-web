@@ -87,7 +87,14 @@ export const Service = () => {
                 <p className={styles.intro}>{intro}</p>
 
                 <div className={styles.actions}>
-                  <Button to={isQuoteOnly ? '/offert' : '/boka'} size="lg">
+                  <Button
+                    to={
+                      isQuoteOnly
+                        ? `/offert?tjanst=${service.slug}`
+                        : `/boka?tjanst=${service.slug}`
+                    }
+                    size="lg"
+                  >
                     {isQuoteOnly
                       ? t('service.quoteCta')
                       : t('service.bookCta', { service: name.toLowerCase() })}
