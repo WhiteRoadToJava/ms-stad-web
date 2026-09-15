@@ -1,0 +1,88 @@
+{
+  "syncedAt": null,
+  "prices": {
+    "hemstadning": {
+      "pricePerSqm": 4200,
+      "minPrice": 105000,
+      "hourlyRate": null,
+      "packagePrice": null,
+      "rutEligible": true,
+      "extras": {
+        "oven": 40000,
+        "fridge": 40000,
+        "windows": 60000,
+        "balcony": 30000
+      }
+    },
+    "flyttstadning": {
+      "pricePerSqm": 5600,
+      "minPrice": 336000,
+      "hourlyRate": null,
+      "packagePrice": null,
+      "rutEligible": true,
+      "extras": {
+        "balcony": 30000,
+        "garage": 80000
+      }
+    },
+    "storstadning": {
+      "pricePerSqm": 5200,
+      "minPrice": 312000,
+      "hourlyRate": null,
+      "packagePrice": null,
+      "rutEligible": true,
+      "extras": {
+        "oven": 40000,
+        "windows": 60000
+      }
+    },
+    "fonsterputs": {
+      "pricePerSqm": null,
+      "minPrice": null,
+      "hourlyRate": null,
+      "packagePrice": null,
+      "rutEligible": true,
+      "extras": {}
+    },
+    "flytthjalp": {
+      "pricePerSqm": null,
+      "minPrice": null,
+      "hourlyRate": null,
+      "packagePrice": 299500,
+      "rutEligible": true,
+      "extras": {}
+    },
+    "kontorsstad": {
+      "pricePerSqm": null,
+      "minPrice": null,
+      "hourlyRate": 39900,
+      "packagePrice": null,
+      "rutEligible": false,
+      "extras": {}
+    },
+    "trappstadning": {
+      "pricePerSqm": null,
+      "minPrice": null,
+      "hourlyRate": null,
+      "packagePrice": null,
+      "rutEligible": false,
+      "extras": {}
+    },
+    "byggstadning": {
+      "pricePerSqm": null,
+      "minPrice": null,
+      "hourlyRate": null,
+      "packagePrice": null,
+      "rutEligible": false,
+      "extras": {}
+    },
+    "butiksstadning": {
+      "pricePerSqm": null,
+      "minPrice": null,
+      "hourlyRate": null,
+      "packagePrice": null,
+      "rutEligible": false,
+      "extras": {}
+    }
+  }
+}

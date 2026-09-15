@@ -122,5 +122,9 @@
   "confirmation": {
     "label": "I confirm the address is correct and want to book this cleaning",
     "help": "We contact you the same working day. You can cancel free of charge up to 24 hours before."
+  },
+  "priceChanged": {
+    "title": "The price has changed",
+    "text": "The price for this service changed while you were filling in the form. The new price is {{price}}. Check it and send again if it looks right."
   }
 }

@@ -116,3 +116,15 @@
     display: none;
   }
 }
+
+/* The price correction is not an error the customer caused, so it reads as a
+   notice rather than a failure, but it has to be impossible to miss. */
+.notice {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-control);
+  color: var(--color-brand-strong);
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal, 1.5);
+}

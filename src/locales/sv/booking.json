@@ -122,5 +122,9 @@
   "confirmation": {
     "label": "Jag bekräftar att adressen stämmer och vill boka städningen",
     "help": "Vi kontaktar dig samma arbetsdag. Du kan avboka kostnadsfritt fram till 24 timmar innan."
+  },
+  "priceChanged": {
+    "title": "Priset har ändrats",
+    "text": "Priset för den här tjänsten ändrades medan du fyllde i formuläret. Det nya priset är {{price}}. Kontrollera och skicka igen om det känns rätt."
   }
 }

@@ -20,6 +20,7 @@ export const PriceSummary = ({
   errorMessage,
   canSubmit = true,
   submitDisabled = false,
+  priceChanged = false,
 }) => {
   const { t } = useTranslation('booking');
   const { t: tCommon } = useTranslation();
@@ -97,13 +98,23 @@ export const PriceSummary = ({
           </button>
         ) : null}
 
+        {priceChanged ? (
+          <p className={styles.notice} role="alert">
+            <strong>{t('priceChanged.title')}</strong>
+            <br />
+            {t('priceChanged.text', { price: formatPrice(breakdown.totalPrice) })}
+          </p>
+        ) : null}
+
         {errorMessage ? (
           <p className={styles.error} role="alert">
             {errorMessage}
           </p>
-        ) : (
+        ) : null}
+
+        {!errorMessage && !priceChanged ? (
           <p className={styles.note}>{t('summary.note')}</p>
-        )}
+        ) : null}
       </div>
     </aside>
   );

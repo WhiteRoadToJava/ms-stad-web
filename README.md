@@ -20,7 +20,9 @@ The API must be running separately (see the `ma-stad-api` repo) for the booking
 and quote forms to work. Static pages work without it.
 
 ```bash
+npm run sync:prices    # pull the live price list into src/data/prices.generated.json
 npm run build          # bundle and pre-render every route to HTML
+npm run build:prod     # sync prices first, then build (use this when deploying)
 npm run preview        # serve the production build locally
 ```
 
