@@ -1,0 +1,58 @@
+{
+  "quote": {
+    "meta": {
+      "title": "Request a quote",
+      "description": "Get a fixed price for window cleaning, stairwells, post-construction or retail cleaning. Answer within one working day."
+    },
+    "title": "Request a quote",
+    "text": "Some services are priced after a short walkthrough, because the work differs too much between premises. Describe what you need and we come back with a fixed price within one working day.",
+    "service": "Which service is it about?",
+    "anyService": "Something else",
+    "propertyType": "Type of premises or home",
+    "propertyPlaceholder": "Flat, house, office, stairwell, shop …",
+    "squareMeters": "Approximate area in square meters",
+    "frequency": "How often?",
+    "frequencyOnce": "Once",
+    "frequencyRecurring": "Recurring",
+    "description": "Describe the job",
+    "descriptionHelp": "Number of windows, floors, how often, any special requirements. The more you write, the more exact the quote.",
+    "submit": "Send request",
+    "submitting": "Sending …",
+    "successTitle": "Thank you, we have your request!",
+    "successReference": "Your reference is {{reference}}.",
+    "successText": "We will read it through and come back with a fixed price within one working day."
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact us",
+      "description": "Call, email or leave your number and we get back to you. We clean across Västra Götaland, Jönköping and Halland."
+    },
+    "title": "Contact us",
+    "text": "Call if it is urgent, otherwise we answer email the same working day.",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Opening hours",
+    "hoursWeekdays": "Monday to Friday, 08:00–17:00",
+    "hoursWeekend": "Weekends: closed, but email is read",
+    "areas": "We work in",
+    "orgTitle": "Company details"
+  },
+  "callback": {
+    "title": "Leave your number",
+    "text": "We call you back, usually within the hour during office hours.",
+    "name": "Name",
+    "phone": "Phone number",
+    "submit": "Call me",
+    "submitting": "Sending …",
+    "success": "Thank you! We will call you shortly.",
+    "error": "Something went wrong. Please call us directly on {{phone}}.",
+    "open": "Get a call back",
+    "close": "Close"
+  },
+  "validation": {
+    "name": "Enter your name",
+    "email": "Check the email address",
+    "phone": "Enter a phone number",
+    "description": "Briefly describe what you need help with"
+  }
+}

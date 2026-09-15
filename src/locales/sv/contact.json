@@ -1,0 +1,58 @@
+{
+  "quote": {
+    "meta": {
+      "title": "Begär offert",
+      "description": "Få ett fast pris på fönsterputs, trappstädning, byggstädning eller butiksstädning. Svar inom en arbetsdag."
+    },
+    "title": "Begär offert",
+    "text": "Vissa tjänster prissätts efter en kort genomgång, eftersom arbetet skiljer sig för mycket mellan olika lokaler. Beskriv vad du behöver så återkommer vi med ett fast pris inom en arbetsdag.",
+    "service": "Vilken tjänst gäller det?",
+    "anyService": "Något annat",
+    "propertyType": "Typ av lokal eller bostad",
+    "propertyPlaceholder": "Lägenhet, villa, kontor, trapphus, butik …",
+    "squareMeters": "Ungefärlig yta i kvadratmeter",
+    "frequency": "Hur ofta?",
+    "frequencyOnce": "En gång",
+    "frequencyRecurring": "Återkommande",
+    "description": "Beskriv uppdraget",
+    "descriptionHelp": "Antal fönster, våningar, hur ofta, särskilda krav. Ju mer du skriver, desto exaktare blir offerten.",
+    "submit": "Skicka förfrågan",
+    "submitting": "Skickar …",
+    "successTitle": "Tack, vi har fått din förfrågan!",
+    "successReference": "Din referens är {{reference}}.",
+    "successText": "Vi läser igenom den och återkommer med ett fast pris inom en arbetsdag."
+  },
+  "contact": {
+    "meta": {
+      "title": "Kontakta oss",
+      "description": "Ring, mejla eller lämna ditt nummer så hör vi av oss. Vi städar i Västra Götaland, Jönköpings län och Halland."
+    },
+    "title": "Kontakta oss",
+    "text": "Ring om det är brådskande, annars svarar vi på mejl samma arbetsdag.",
+    "phone": "Telefon",
+    "email": "E-post",
+    "hours": "Öppettider",
+    "hoursWeekdays": "Måndag–fredag 08:00–17:00",
+    "hoursWeekend": "Helger: stängt, men mejl läses",
+    "areas": "Vi arbetar i",
+    "orgTitle": "Företagsuppgifter"
+  },
+  "callback": {
+    "title": "Lämna ditt nummer",
+    "text": "Så ringer vi upp dig, oftast inom en timme under kontorstid.",
+    "name": "Namn",
+    "phone": "Telefonnummer",
+    "submit": "Ring mig",
+    "submitting": "Skickar …",
+    "success": "Tack! Vi ringer dig strax.",
+    "error": "Något gick fel. Ring oss gärna direkt på {{phone}}.",
+    "open": "Bli uppringd",
+    "close": "Stäng"
+  },
+  "validation": {
+    "name": "Fyll i ditt namn",
+    "email": "Kontrollera e-postadressen",
+    "phone": "Fyll i ett telefonnummer",
+    "description": "Beskriv kort vad du behöver hjälp med"
+  }
+}
