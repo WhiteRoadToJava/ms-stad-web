@@ -1,0 +1,83 @@
+{
+  "about": {
+    "meta": {
+      "title": "About us",
+      "description": "MA Städ is a local cleaning company across Västra Götaland, Jönköping and Halland. Fixed prices, the same team every time."
+    },
+    "title": "A cleaning company built around coming back",
+    "lead": "Most cleaning firms compete on being cheapest the first time. We built the way we work around the second time: the same team, the same slot, and a price you can count on.",
+    "storyTitle": "Why we started",
+    "story": "The idea came from a recurring problem: customers getting a different person in their home every week and having to explain everything again. Where the key goes, which floor cannot take water, that the dog is afraid of the vacuum. We set out to solve that, and everything else in the company is built around that question.",
+    "valuesTitle": "How we work",
+    "values": [
+      {
+        "title": "The same team, every time",
+        "text": "You get a fixed team that learns your home. If someone is ill we send a stand-in who has been briefed first, not someone arriving blind."
+      },
+      {
+        "title": "The price is set before we start",
+        "text": "We charge by the size of the home, not by how long we happen to take. If the work runs long, that is our problem, not yours."
+      },
+      {
+        "title": "Proper employment",
+        "text": "Our staff are employed, insured and paid for travel time. A cleaning company that squeezes the price almost always does it at the staff's expense."
+      },
+      {
+        "title": "We tell you when something is wrong",
+        "text": "If we see a leak under the sink or mould in the grouting we let you know. It is not part of the job, but we would want to know ourselves."
+      }
+    ],
+    "areaTitle": "Where we work",
+    "areaText": "We are based around Gothenburg and work across Västra Götaland, Jönköping and Halland. If you are unsure whether we reach you, call and we will answer straight away.",
+    "ctaTitle": "Want to know what it would cost?",
+    "ctaText": "Work out the price in a minute, without leaving any details.",
+    "ctaButton": "Calculate a price"
+  },
+  "business": {
+    "meta": {
+      "title": "Cleaning for businesses",
+      "description": "Office, stairwell, post-construction and retail cleaning across Västra Götaland, Jönköping and Halland. Fixed prices and the same staff every time."
+    },
+    "title": "Cleaning for businesses",
+    "lead": "Offices, stairwells, shops and new builds. You get a fixed schedule, the same staff every time and one invoice a month instead of hours to check.",
+    "servicesTitle": "What we do",
+    "whyTitle": "What you get",
+    "why": [
+      {
+        "title": "A fixed schedule, nothing to chase",
+        "text": "We come at agreed times without needing a reminder. The work is documented so you can see what was done."
+      },
+      {
+        "title": "The same staff",
+        "text": "They learn your premises, your alarm routines and what is delicate. Everyone signs a confidentiality agreement."
+      },
+      {
+        "title": "Outside your hours",
+        "text": "Evenings, early mornings or weekends. We do not disturb the business and you avoid cleaning in the middle of the working day."
+      },
+      {
+        "title": "One invoice, clear terms",
+        "text": "A monthly invoice with thirty day terms. No lock-in periods that are hard to leave."
+      }
+    ],
+    "processTitle": "How we start",
+    "process": [
+      {
+        "title": "We see the premises",
+        "text": "We come by, walk through the areas and what you need. It rarely takes more than half an hour."
+      },
+      {
+        "title": "You get a quote",
+        "text": "A fixed price per visit or per month, with exactly what is included. Within one working day."
+      },
+      {
+        "title": "We get going",
+        "text": "We book times that suit your business and start with a more thorough first clean."
+      }
+    ],
+    "ctaTitle": "Request a quote",
+    "ctaText": "Describe the premises and what you need, and we come back with a fixed price within one working day.",
+    "ctaButton": "Request a quote",
+    "ctaSecondary": "Call us"
+  }
+}

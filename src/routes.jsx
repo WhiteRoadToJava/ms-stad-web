@@ -58,6 +58,16 @@ export const routes = [
         lazy: () => import('./pages/Prices').then((m) => ({ Component: m.Prices })),
       },
       {
+        path: 'om-oss',
+        entry: 'src/pages/About.jsx',
+        lazy: () => import('./pages/About').then((m) => ({ Component: m.About })),
+      },
+      {
+        path: 'foretag',
+        entry: 'src/pages/Business.jsx',
+        lazy: () => import('./pages/Business').then((m) => ({ Component: m.Business })),
+      },
+      {
         path: 'integritetspolicy',
         entry: 'src/pages/LegalPage.jsx',
         lazy: () =>
