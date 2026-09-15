@@ -1,0 +1,45 @@
+.hero {
+  background-color: var(--color-surface);
+  border-bottom: var(--border-hairline);
+  padding-block: var(--space-7);
+}
+
+.narrow {
+  max-width: var(--container-narrow);
+}
+
+.updated {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+.section {
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.intro {
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+}
+
+.block {
+  margin-top: var(--space-6);
+}
+
+.blockTitle {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xl);
+}
+
+/* Numbered sections so a customer and the office can refer to the same clause
+   over the phone. */
+.number {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-accent);
+}

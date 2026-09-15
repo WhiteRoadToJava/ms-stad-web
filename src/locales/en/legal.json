@@ -1,0 +1,88 @@
+{
+  "privacy": {
+    "meta": {
+      "title": "Privacy policy",
+      "description": "How MA Städ handles your personal data under GDPR."
+    },
+    "title": "Privacy policy",
+    "updated": "Last updated {{date}}",
+    "intro": "This policy describes what personal data we collect when you book cleaning or contact us, why we collect it and what rights you have. We never collect more than we need to do the work.",
+    "sections": [
+      {
+        "title": "Data controller",
+        "body": "{{company}} is the controller for data processed through this website. You can reach us at {{email}} or {{phone}}."
+      },
+      {
+        "title": "What we collect",
+        "body": "When you book we collect your name, address, postal code, city, phone number and email, along with details about the home such as area and number of rooms. If you request a quote we keep your description of the job. If you leave your number for a callback we keep your name and number. For the RUT deduction we need your personal identity number, which we collect when the booking is confirmed and never through the form."
+      },
+      {
+        "title": "Why we process it",
+        "body": "The data is used to carry out the cleaning you ordered, contact you about times, invoice you and claim the RUT deduction from the Swedish Tax Agency. The legal basis is performance of a contract, and for the RUT deduction a legal obligation."
+      },
+      {
+        "title": "How long we keep it",
+        "body": "Bookings and invoicing records are kept for seven years under Swedish accounting law. Quote requests that do not lead to work are deleted after twelve months. Callback requests are deleted once we have called."
+      },
+      {
+        "title": "Who sees it",
+        "body": "Only our staff and the suppliers we need to operate: our web host, which stores data within the EU, and our accounting system. We never sell data on."
+      },
+      {
+        "title": "Cookies",
+        "body": "The site uses no marketing or analytics cookies. The only cookie we set is a technical sign-in cookie for our own staff in the admin interface."
+      },
+      {
+        "title": "Your rights",
+        "body": "You may request a copy of the data we hold about you, have incorrect data corrected, and have data erased once we no longer need it for accounting. Write to {{email}} and we answer within a month. If you are unhappy with how we handle your data you can contact the Swedish Authority for Privacy Protection, IMY."
+      }
+    ]
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms and conditions",
+      "description": "Terms for booking, cancellation, guarantee and payment with MA Städ."
+    },
+    "title": "Terms and conditions",
+    "updated": "Last updated {{date}}",
+    "intro": "These terms apply between {{company}} and you as a customer. They are written to be understood, not to protect us from you.",
+    "sections": [
+      {
+        "title": "Booking and confirmation",
+        "body": "A booking on the website is a request. The agreement applies once we have confirmed the time, which we do the same working day. The price shown at booking is the price that applies, provided the details you gave are correct."
+      },
+      {
+        "title": "Prices and the RUT deduction",
+        "body": "All prices for private customers are shown after the RUT deduction and include materials and VAT. We deduct it on the invoice and claim it from the Tax Agency. If your RUT allowance is used up, or the claim is refused, we invoice the difference. Business prices are shown excluding VAT."
+      },
+      {
+        "title": "If the details do not match",
+        "body": "If the home is substantially larger than stated, or the work needs considerably more time than a normal clean of that area, we contact you before continuing. We never adjust the price afterwards without agreeing it with you first."
+      },
+      {
+        "title": "Cancellation",
+        "body": "You can cancel or move a booking free of charge up to 24 hours before. Later than that we charge half the amount, since the time cannot be filled. If we arrive and cannot get in, the full amount is charged."
+      },
+      {
+        "title": "Right of withdrawal",
+        "body": "For distance contracts you have a fourteen day right of withdrawal as a consumer. You may ask us to start before that period ends, but then you pay for work already carried out if you later withdraw."
+      },
+      {
+        "title": "Our guarantee",
+        "body": "If you are not satisfied, tell us within seven days and we come back and fix it at no cost. This applies to all our cleaning services."
+      },
+      {
+        "title": "If something breaks",
+        "body": "We carry liability insurance covering damage we cause. Report it as soon as you notice, ideally with a photo. We are not responsible for wear or for faults that existed before we arrived."
+      },
+      {
+        "title": "Payment",
+        "body": "We invoice after the work is done with thirty days to pay. Late payment carries interest under the Swedish Interest Act and the statutory reminder fee."
+      },
+      {
+        "title": "Disputes",
+        "body": "If we cannot agree, you can turn to the Swedish National Board for Consumer Disputes, ARN, whose recommendations we follow."
+      }
+    ]
+  }
+}

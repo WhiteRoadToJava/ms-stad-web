@@ -58,6 +58,17 @@ export const routes = [
         lazy: () => import('./pages/Prices').then((m) => ({ Component: m.Prices })),
       },
       {
+        path: 'integritetspolicy',
+        entry: 'src/pages/LegalPage.jsx',
+        lazy: () =>
+          import('./pages/LegalPage').then((m) => ({ Component: m.PrivacyPage })),
+      },
+      {
+        path: 'villkor',
+        entry: 'src/pages/LegalPage.jsx',
+        lazy: () => import('./pages/LegalPage').then((m) => ({ Component: m.TermsPage })),
+      },
+      {
         path: '*',
         entry: 'src/pages/NotFound.jsx',
         lazy: () => import('./pages/NotFound').then((m) => ({ Component: m.NotFound })),

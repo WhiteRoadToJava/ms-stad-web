@@ -1,0 +1,88 @@
+{
+  "privacy": {
+    "meta": {
+      "title": "Integritetspolicy",
+      "description": "Så behandlar MA Städ dina personuppgifter enligt GDPR."
+    },
+    "title": "Integritetspolicy",
+    "updated": "Senast uppdaterad {{date}}",
+    "intro": "Den här policyn beskriver vilka personuppgifter vi samlar in när du bokar städning eller kontaktar oss, varför vi gör det och vilka rättigheter du har. Vi samlar aldrig in fler uppgifter än vi behöver för att utföra arbetet.",
+    "sections": [
+      {
+        "title": "Personuppgiftsansvarig",
+        "body": "{{company}} är personuppgiftsansvarig för de uppgifter som behandlas via den här webbplatsen. Du når oss på {{email}} eller {{phone}}."
+      },
+      {
+        "title": "Vilka uppgifter vi samlar in",
+        "body": "När du bokar samlar vi in namn, adress, postnummer, ort, telefonnummer och e-postadress, samt uppgifter om bostaden som yta och antal rum. Begär du offert sparar vi din beskrivning av uppdraget. Lämnar du ditt nummer för uppringning sparar vi namn och telefonnummer. För RUT-avdraget behöver vi ditt personnummer, som vi samlar in först när bokningen bekräftas och aldrig via formuläret."
+      },
+      {
+        "title": "Varför vi behandlar dem",
+        "body": "Uppgifterna används för att utföra den städning du beställt, kontakta dig om tider, fakturera och begära RUT-avdrag hos Skatteverket. Den rättsliga grunden är fullgörande av avtal, och för RUT-avdraget en rättslig förpliktelse."
+      },
+      {
+        "title": "Hur länge vi sparar dem",
+        "body": "Bokningar och fakturaunderlag sparas i sju år enligt bokföringslagen. Offertförfrågningar som inte leder till uppdrag raderas efter tolv månader. Förfrågningar om uppringning raderas när vi har ringt."
+      },
+      {
+        "title": "Vem som får se dem",
+        "body": "Endast vår personal och de underleverantörer vi behöver för drift: vår webbhotellsleverantör, som lagrar data inom EU, och vårt bokföringssystem. Vi säljer aldrig uppgifter vidare."
+      },
+      {
+        "title": "Kakor",
+        "body": "Webbplatsen använder inga kakor för marknadsföring eller analys. Den enda kaka vi sätter är en teknisk inloggningskaka för vår egen personal i administrationsgränssnittet."
+      },
+      {
+        "title": "Dina rättigheter",
+        "body": "Du har rätt att begära ett utdrag över vilka uppgifter vi har om dig, att få felaktiga uppgifter rättade och att få uppgifter raderade när vi inte längre behöver dem för bokföring. Hör av dig till {{email}} så svarar vi inom en månad. Är du missnöjd med vår hantering kan du vända dig till Integritetsskyddsmyndigheten, IMY."
+      }
+    ]
+  },
+  "terms": {
+    "meta": {
+      "title": "Allmänna villkor",
+      "description": "Villkor för bokning, avbokning, garanti och betalning hos MA Städ."
+    },
+    "title": "Allmänna villkor",
+    "updated": "Senast uppdaterad {{date}}",
+    "intro": "Villkoren gäller mellan {{company}} och dig som beställer våra tjänster. De är skrivna för att vara begripliga, inte för att skydda oss mot dig.",
+    "sections": [
+      {
+        "title": "Bokning och bekräftelse",
+        "body": "En bokning på webbplatsen är en förfrågan. Avtalet gäller först när vi har bekräftat tiden, vilket vi gör samma arbetsdag. Priset du ser vid bokningen är det pris som gäller, förutsatt att uppgifterna du lämnat stämmer."
+      },
+      {
+        "title": "Priser och RUT-avdrag",
+        "body": "Alla priser till privatpersoner visas efter RUT-avdrag och inkluderar material och moms. Vi drar av avdraget på fakturan och begär det från Skatteverket. Räcker inte ditt utrymme för avdraget, eller nekas det, fakturerar vi mellanskillnaden. Företagspriser anges exklusive moms."
+      },
+      {
+        "title": "Om uppgifterna inte stämmer",
+        "body": "Är bostaden väsentligt större än angivet, eller kräver arbetet betydligt mer tid än en normal städning av den ytan, kontaktar vi dig innan vi fortsätter. Vi justerar aldrig priset i efterhand utan att först ha kommit överens med dig."
+      },
+      {
+        "title": "Avbokning",
+        "body": "Du kan avboka eller flytta en tid kostnadsfritt fram till 24 timmar innan. Vid senare avbokning debiterar vi halva beloppet, eftersom tiden då inte går att fylla. Kommer vi till adressen utan att komma in debiteras hela beloppet."
+      },
+      {
+        "title": "Ångerrätt",
+        "body": "Vid distansavtal har du som konsument ångerrätt i fjorton dagar. Önskar du att vi utför arbetet innan ångerfristen löpt ut går det bra, men då betalar du för det arbete som redan utförts om du sedan ångrar dig."
+      },
+      {
+        "title": "Vår garanti",
+        "body": "Är du inte nöjd, hör av dig inom sju dagar så kommer vi tillbaka och åtgärdar det utan kostnad. Det gäller alla våra städtjänster."
+      },
+      {
+        "title": "Om något går sönder",
+        "body": "Vi har ansvarsförsäkring som täcker skador vi orsakar. Anmäl skadan så snart du upptäcker den, gärna med foto. Vi ansvarar inte för slitage eller fel som fanns innan vi kom."
+      },
+      {
+        "title": "Betalning",
+        "body": "Vi fakturerar efter utfört arbete med trettio dagars betalningsvillkor. Vid försenad betalning tillkommer dröjsmålsränta enligt räntelagen och lagstadgad påminnelseavgift."
+      },
+      {
+        "title": "Tvist",
+        "body": "Skulle vi inte komma överens kan du vända dig till Allmänna reklamationsnämnden, ARN, vars rekommendationer vi följer."
+      }
+    ]
+  }
+}

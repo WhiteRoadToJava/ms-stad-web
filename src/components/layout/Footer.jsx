@@ -62,6 +62,16 @@ export const Footer = () => {
         <span>
           © {new Date().getFullYear()} {site.legalName}. {t('footer.rights')}
         </span>
+
+        <nav className={styles.legalLinks}>
+          <Link className={styles.link} to="/integritetspolicy">
+            {t('footer.privacy')}
+          </Link>
+          <Link className={styles.link} to="/villkor">
+            {t('footer.terms')}
+          </Link>
+        </nav>
+
         <span>{site.regions.join(' · ')}</span>
       </Container>
     </footer>
