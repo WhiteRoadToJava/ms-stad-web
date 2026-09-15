@@ -1,0 +1,83 @@
+{
+  "about": {
+    "meta": {
+      "title": "Om oss",
+      "description": "MA Städ är ett lokalt städföretag i Västra Götaland, Jönköpings län och Halland. Fast pris, samma team varje gång."
+    },
+    "title": "Ett städbolag byggt på att komma tillbaka",
+    "lead": "De flesta städfirmor tävlar om att vara billigast första gången. Vi har byggt vårt sätt att arbeta kring andra gången: samma team, samma tid, och ett pris du kan räkna med.",
+    "storyTitle": "Varför vi startade",
+    "story": "Idén kom från ett återkommande problem: kunder som fick en ny person hem till sig varje vecka och fick förklara om från början varje gång. Var nyckeln skulle ligga, vilket golv som inte tål vatten, att hunden är rädd för dammsugaren. Vi bestämde oss för att lösa just det, och allt annat i företaget är byggt runt den frågan.",
+    "valuesTitle": "Så arbetar vi",
+    "values": [
+      {
+        "title": "Samma team, varje gång",
+        "text": "Du får ett fast team som lär sig ditt hem. Vid sjukdom skickar vi en vikarie som fått en genomgång först, inte någon som kommer blint."
+      },
+      {
+        "title": "Priset står innan vi börjar",
+        "text": "Vi räknar på bostadens storlek, inte på hur lång tid vi råkar behöva. Tar arbetet längre tid än beräknat är det vårt problem, inte ditt."
+      },
+      {
+        "title": "Ordnade anställningar",
+        "text": "Vår personal är anställd, försäkrad och får betalt för restid. Ett städbolag som pressar priset gör det nästan alltid på personalens bekostnad."
+      },
+      {
+        "title": "Vi säger till när något är fel",
+        "text": "Ser vi en läcka under diskbänken eller mögel i fogen hör vi av oss. Det ingår inte i uppdraget, men vi hade velat veta själva."
+      }
+    ],
+    "areaTitle": "Var vi finns",
+    "areaText": "Vi utgår från Göteborgsområdet och arbetar i hela Västra Götaland, Jönköpings län och Halland. Är du osäker på om vi kommer till dig, ring så svarar vi direkt.",
+    "ctaTitle": "Vill du veta vad det skulle kosta?",
+    "ctaText": "Räkna ut priset på en minut, utan att lämna några uppgifter.",
+    "ctaButton": "Räkna ut pris"
+  },
+  "business": {
+    "meta": {
+      "title": "Städning för företag",
+      "description": "Kontorsstäd, trappstädning, byggstädning och butiksstädning i Västra Götaland, Jönköpings län och Halland. Fast pris och samma personal varje gång."
+    },
+    "title": "Städning för företag",
+    "lead": "Kontor, trapphus, butiker och nyproduktion. Ni får ett fast schema, samma personal varje gång och en faktura i månaden i stället för timmar att kontrollera.",
+    "servicesTitle": "Vad vi gör",
+    "whyTitle": "Vad ni får",
+    "why": [
+      {
+        "title": "Fast schema, ingen bevakning",
+        "text": "Vi kommer på överenskomna tider utan att ni behöver påminna. Arbetet dokumenteras så att ni kan se vad som gjorts."
+      },
+      {
+        "title": "Samma personal",
+        "text": "Personalen lär sig era lokaler, era larmrutiner och vad som är känsligt. Alla skriver på sekretessavtal."
+      },
+      {
+        "title": "Utanför er arbetstid",
+        "text": "Kvällar, tidiga morgnar eller helger. Vi stör inte verksamheten och ni slipper städning mitt i arbetsdagen."
+      },
+      {
+        "title": "En faktura, tydliga villkor",
+        "text": "Månadsfaktura med trettio dagars villkor. Inga bindningstider som är svåra att komma ur."
+      }
+    ],
+    "processTitle": "Så börjar vi",
+    "process": [
+      {
+        "title": "Vi ser lokalen",
+        "text": "Vi kommer förbi, går igenom ytorna och vad ni behöver. Det tar sällan mer än en halvtimme."
+      },
+      {
+        "title": "Ni får en offert",
+        "text": "Fast pris per tillfälle eller per månad, med exakt vad som ingår. Inom en arbetsdag."
+      },
+      {
+        "title": "Vi kör igång",
+        "text": "Vi bokar tider som passar er verksamhet och börjar med en grundligare första städning."
+      }
+    ],
+    "ctaTitle": "Begär offert",
+    "ctaText": "Beskriv lokalen och vad ni behöver, så återkommer vi med ett fast pris inom en arbetsdag.",
+    "ctaButton": "Begär offert",
+    "ctaSecondary": "Ring oss"
+  }
+}
