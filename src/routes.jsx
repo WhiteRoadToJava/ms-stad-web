@@ -10,6 +10,13 @@ import { services } from './data/services';
  */
 export const routes = [
   {
+    // The dashboard sits outside the public layout: no header, no footer, and
+    // no pre-rendering, since everything it shows is live data behind a login.
+    path: '/admin/*',
+    entry: 'src/pages/admin/AdminApp.jsx',
+    lazy: () => import('./pages/admin/AdminApp').then((m) => ({ Component: m.AdminApp })),
+  },
+  {
     path: '/',
     element: <App />,
     children: [

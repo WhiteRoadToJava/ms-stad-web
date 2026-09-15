@@ -1,0 +1,34 @@
+# Apache rules for the static build (Hostinger runs Apache).
+#
+# Every public page has its own HTML file, so the only rewriting needed is for
+# the dashboard: /admin/bokningar exists only in the browser's router, and
+# without this a reload or a direct link would return 404.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Serve real files and directories untouched.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Anything under /admin falls back to the dashboard shell.
+  RewriteRule ^admin(/.*)?$ /admin.html [L]
+
+  # Extensionless public paths map to their generated file.
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ /$1.html [L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Hashed assets never change content, so they can be cached hard.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

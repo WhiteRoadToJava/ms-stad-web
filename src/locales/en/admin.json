@@ -1,0 +1,98 @@
+{
+  "login": {
+    "title": "Sign in",
+    "text": "Staff sign in.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "submitting": "Signing in …",
+    "failed": "Wrong email or password."
+  },
+  "password": {
+    "title": "Choose a new password",
+    "text": "This account was created with a password that is written in the code. Pick your own before continuing.",
+    "current": "Current password",
+    "new": "New password",
+    "help": "At least 12 characters. Length matters more than odd symbols.",
+    "submit": "Save password",
+    "failed": "Could not change the password. Check the current one."
+  },
+  "nav": {
+    "dashboard": "Overview",
+    "bookings": "Bookings",
+    "quotes": "Quotes",
+    "callbacks": "Callbacks",
+    "services": "Prices",
+    "logout": "Sign out",
+    "site": "To the website"
+  },
+  "dashboard": {
+    "title": "Overview",
+    "newBookings": "Unhandled bookings",
+    "todayBookings": "Cleanings today",
+    "weekBookings": "Next seven days",
+    "openQuotes": "Open quotes",
+    "pendingCallbacks": "Waiting for a call",
+    "monthBookings": "Bookings this month",
+    "monthRevenue": "Invoiced this month"
+  },
+  "bookings": {
+    "title": "Bookings",
+    "search": "Search reference, name or phone",
+    "allStatuses": "All statuses",
+    "reference": "Reference",
+    "customer": "Customer",
+    "service": "Service",
+    "date": "Date",
+    "price": "Price",
+    "status": "Status",
+    "noDate": "No time chosen",
+    "empty": "No bookings match the filter.",
+    "notes": "Internal notes",
+    "save": "Save"
+  },
+  "quotes": {
+    "title": "Quotes",
+    "amount": "Quoted amount",
+    "amountHelp": "Given in kronor.",
+    "empty": "No quote requests yet."
+  },
+  "callbacks": {
+    "title": "Callbacks",
+    "phone": "Phone",
+    "received": "Received",
+    "markHandled": "Mark as called",
+    "handled": "Called",
+    "empty": "No callback requests."
+  },
+  "services": {
+    "title": "Prices",
+    "text": "Changes apply to new bookings. Existing ones keep their price.",
+    "pricePerSqm": "Price per sqm",
+    "minPrice": "Minimum price",
+    "hourlyRate": "Hourly rate",
+    "packagePrice": "Package price",
+    "active": "Active",
+    "inKronor": "All amounts in kronor, before the RUT deduction.",
+    "save": "Save",
+    "saved": "Saved"
+  },
+  "status": {
+    "NEW": "New",
+    "CONFIRMED": "Confirmed",
+    "SCHEDULED": "Scheduled",
+    "COMPLETED": "Completed",
+    "CANCELLED": "Cancelled",
+    "CONTACTED": "Contacted",
+    "SENT": "Quote sent",
+    "WON": "Won",
+    "LOST": "Lost"
+  },
+  "common": {
+    "loading": "Loading …",
+    "error": "Something went wrong. Try again.",
+    "page": "Page {{page}} of {{pages}}",
+    "previous": "Previous",
+    "next": "Next"
+  }
+}
