@@ -1,0 +1,275 @@
+/* One stylesheet for the whole dashboard. It is an internal tool with a single
+   visual pattern, so splitting it per page would spread the same rules across
+   eight files. */
+
+.shell {
+  display: grid;
+  min-height: 100vh;
+  background-color: var(--color-surface);
+}
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background-color: var(--color-brand-strong);
+  color: #fff;
+}
+
+.brand {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navLink {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  color: rgb(255 255 255 / 75%);
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #fff;
+}
+
+.navActive {
+  background-color: rgb(255 255 255 / 15%);
+  color: #fff;
+  font-weight: 600;
+}
+
+.logout {
+  padding: var(--space-2) var(--space-3);
+  background: none;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: var(--radius-pill);
+  color: #fff;
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.content {
+  padding: var(--space-6) var(--space-5);
+}
+
+.title {
+  margin-bottom: var(--space-5);
+}
+
+/* --- Cards --- */
+
+.cards {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.card {
+  padding: var(--space-5);
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-panel);
+}
+
+.cardLabel {
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+.cardValue {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  color: var(--color-brand-strong);
+}
+
+.cardAlert .cardValue {
+  color: #a4291b;
+}
+
+/* --- Tables --- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.input,
+.select {
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  font: inherit;
+  font-size: var(--text-sm);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-panel);
+}
+
+.table {
+  width: 100%;
+  min-width: 48rem;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-hairline);
+  vertical-align: top;
+}
+
+.table thead th {
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--color-ink-muted);
+}
+
+.amount {
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.pager {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.button {
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-brand);
+  border: 2px solid var(--color-brand);
+  border-radius: var(--radius-control);
+  color: #fff;
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.buttonGhost {
+  background: transparent;
+  border-color: var(--color-line-strong);
+  color: var(--color-ink-soft);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Login and password --- */
+
+.centered {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+}
+
+.panel {
+  width: min(26rem, 100%);
+  padding: var(--space-6);
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-panel);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.field input {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  font: inherit;
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.field small {
+  color: var(--color-ink-muted);
+  font-weight: 400;
+}
+
+.submit {
+  width: 100%;
+  margin-top: var(--space-5);
+  padding: var(--space-3);
+  background-color: var(--color-brand);
+  border: none;
+  border-radius: var(--radius-control);
+  color: #fff;
+  font: inherit;
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.error {
+  margin-top: var(--space-4);
+  color: #a4291b;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.hint {
+  margin-top: var(--space-2);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+
+.saved {
+  color: var(--color-brand);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+@media (min-width: 62rem) {
+  .content {
+    padding: var(--space-7) var(--space-6);
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "login": {
+    "title": "Logga in",
+    "text": "Inloggning för personal.",
+    "email": "E-post",
+    "password": "Lösenord",
+    "submit": "Logga in",
+    "submitting": "Loggar in …",
+    "failed": "Fel e-post eller lösenord."
+  },
+  "password": {
+    "title": "Välj ett nytt lösenord",
+    "text": "Kontot skapades med ett lösenord som står i koden. Välj ett eget innan du fortsätter.",
+    "current": "Nuvarande lösenord",
+    "new": "Nytt lösenord",
+    "help": "Minst 12 tecken. Längd är viktigare än krångliga tecken.",
+    "submit": "Spara lösenord",
+    "failed": "Kunde inte byta lösenord. Kontrollera det nuvarande."
+  },
+  "nav": {
+    "dashboard": "Översikt",
+    "bookings": "Bokningar",
+    "quotes": "Offerter",
+    "callbacks": "Uppringningar",
+    "services": "Priser",
+    "logout": "Logga ut",
+    "site": "Till webbplatsen"
+  },
+  "dashboard": {
+    "title": "Översikt",
+    "newBookings": "Obehandlade bokningar",
+    "todayBookings": "Städningar idag",
+    "weekBookings": "Kommande sju dagar",
+    "openQuotes": "Öppna offerter",
+    "pendingCallbacks": "Väntar på samtal",
+    "monthBookings": "Bokningar denna månad",
+    "monthRevenue": "Fakturerat denna månad"
+  },
+  "bookings": {
+    "title": "Bokningar",
+    "search": "Sök referens, namn eller telefon",
+    "allStatuses": "Alla statusar",
+    "reference": "Referens",
+    "customer": "Kund",
+    "service": "Tjänst",
+    "date": "Datum",
+    "price": "Pris",
+    "status": "Status",
+    "noDate": "Ingen tid vald",
+    "empty": "Inga bokningar matchar filtret.",
+    "notes": "Interna anteckningar",
+    "save": "Spara"
+  },
+  "quotes": {
+    "title": "Offerter",
+    "amount": "Offererat belopp",
+    "amountHelp": "Anges i kronor.",
+    "empty": "Inga offertförfrågningar än."
+  },
+  "callbacks": {
+    "title": "Uppringningar",
+    "phone": "Telefon",
+    "received": "Inkom",
+    "markHandled": "Markera som uppringd",
+    "handled": "Uppringd",
+    "empty": "Inga förfrågningar om att bli uppringd."
+  },
+  "services": {
+    "title": "Priser",
+    "text": "Ändringar gäller nya bokningar. Redan bokade priser ligger kvar.",
+    "pricePerSqm": "Pris per kvm",
+    "minPrice": "Lägsta pris",
+    "hourlyRate": "Timpris",
+    "packagePrice": "Paketpris",
+    "active": "Aktiv",
+    "inKronor": "Alla belopp i kronor, före RUT-avdrag.",
+    "save": "Spara",
+    "saved": "Sparat"
+  },
+  "status": {
+    "NEW": "Ny",
+    "CONFIRMED": "Bekräftad",
+    "SCHEDULED": "Inplanerad",
+    "COMPLETED": "Utförd",
+    "CANCELLED": "Avbokad",
+    "CONTACTED": "Kontaktad",
+    "SENT": "Offert skickad",
+    "WON": "Vunnen",
+    "LOST": "Förlorad"
+  },
+  "common": {
+    "loading": "Hämtar …",
+    "error": "Något gick fel. Försök igen.",
+    "page": "Sida {{page}} av {{pages}}",
+    "previous": "Föregående",
+    "next": "Nästa"
+  }
+}
