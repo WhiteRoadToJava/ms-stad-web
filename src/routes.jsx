@@ -36,6 +36,16 @@ export const routes = [
         lazy: () => import('./pages/Booking').then((m) => ({ Component: m.Booking })),
       },
       {
+        path: 'offert',
+        entry: 'src/pages/Quote.jsx',
+        lazy: () => import('./pages/Quote').then((m) => ({ Component: m.Quote })),
+      },
+      {
+        path: 'kontakt',
+        entry: 'src/pages/Contact.jsx',
+        lazy: () => import('./pages/Contact').then((m) => ({ Component: m.Contact })),
+      },
+      {
         path: 'priser',
         entry: 'src/pages/Prices.jsx',
         lazy: () => import('./pages/Prices').then((m) => ({ Component: m.Prices })),

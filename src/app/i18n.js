@@ -13,11 +13,13 @@ import svServices from '../locales/sv/services.json';
 import svHome from '../locales/sv/home.json';
 import svPrices from '../locales/sv/prices.json';
 import svBooking from '../locales/sv/booking.json';
+import svContact from '../locales/sv/contact.json';
 import enCommon from '../locales/en/common.json';
 import enServices from '../locales/en/services.json';
 import enHome from '../locales/en/home.json';
 import enPrices from '../locales/en/prices.json';
 import enBooking from '../locales/en/booking.json';
+import enContact from '../locales/en/contact.json';
 
 export const locales = ['sv', 'en'];
 
@@ -25,8 +27,8 @@ export const defaultLocale = 'sv';
 
 void i18n.use(initReactI18next).init({
   resources: {
-    sv: { common: svCommon, services: svServices, home: svHome, prices: svPrices, booking: svBooking },
-    en: { common: enCommon, services: enServices, home: enHome, prices: enPrices, booking: enBooking },
+    sv: { common: svCommon, services: svServices, home: svHome, prices: svPrices, booking: svBooking, contact: svContact },
+    en: { common: enCommon, services: enServices, home: enHome, prices: enPrices, booking: enBooking, contact: enContact },
   },
   lng: defaultLocale,
   fallbackLng: defaultLocale,
