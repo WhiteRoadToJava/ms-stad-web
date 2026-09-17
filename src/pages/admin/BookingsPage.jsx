@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { adminApi, toQuery } from '../../lib/adminApi';
+import { BookingDetail } from './BookingDetail';
 import { formatPrice } from '../../data/pricing';
 import styles from './admin.module.css';
 
@@ -16,6 +17,7 @@ export const BookingsPage = () => {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -46,6 +48,14 @@ export const BookingsPage = () => {
     setItems((current) =>
       current.map((item) => (item.id === booking.id ? payload.data : item)),
     );
+  };
+
+  /** Keeps the open dialog and the row behind it showing the same booking. */
+  const applyUpdate = (updated) => {
+    setItems((current) =>
+      current.map((item) => (item.id === updated.id ? updated : item)),
+    );
+    setSelected(updated);
   };
 
   const pages = Math.max(1, Math.ceil(meta.total / meta.perPage));
@@ -104,11 +114,26 @@ export const BookingsPage = () => {
             <tbody>
               {items.map((booking) => (
                 <tr key={booking.id}>
-                  <td className={styles.mono}>{booking.reference}</td>
+                  <td className={styles.mono}>
+                    <button
+                      type="button"
+                      className={styles.linkButton}
+                      onClick={() => setSelected(booking)}
+                      title={t('detail.open')}
+                    >
+                      {booking.reference}
+                    </button>
+                  </td>
                   <td>
                     {booking.customer.name}
                     <br />
                     <span className={styles.muted}>{booking.customer.phone}</span>
+                    {booking.customer.city ? (
+                      <>
+                        <br />
+                        <span className={styles.muted}>{booking.customer.city}</span>
+                      </>
+                    ) : null}
                   </td>
                   <td>
                     {booking.service.translations[0]?.name ?? booking.service.slug}
@@ -154,6 +179,14 @@ export const BookingsPage = () => {
             </tbody>
           </table>
         </div>
+      ) : null}
+
+      {selected ? (
+        <BookingDetail
+          booking={selected}
+          onClose={() => setSelected(null)}
+          onUpdated={applyUpdate}
+        />
       ) : null}
 
       <div className={styles.pager}>
