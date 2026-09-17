@@ -38,7 +38,11 @@ export const BookingForm = ({ initialSlug }) => {
     squareMeters: 70,
     rooms: '',
     hours: 3,
-    frequency: 'biweekly',
+    // A one-off clean is what someone booking for the first time is usually
+    // after, and it is also the most expensive option. Starting on a recurring
+    // plan would quote a price the customer never chose and, worse, show a
+    // lower figure than the one they end up paying.
+    frequency: 'once',
     extraKeys: [],
     timeSlotId: null,
     applyRut: true,
