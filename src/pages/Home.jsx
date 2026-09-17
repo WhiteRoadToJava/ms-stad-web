@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Seo } from '../components/seo/Seo';
 import { Hero } from '../components/home/Hero';
 import { HowItWorks } from '../components/home/HowItWorks';
+import { Stats } from '../components/home/Stats';
 import { ServiceGrid } from '../components/home/ServiceGrid';
 import { Promises } from '../components/home/Promises';
 import { Areas } from '../components/home/Areas';
@@ -46,6 +47,7 @@ export const Home = () => {
       />
 
       <Hero />
+      <Stats />
       <HowItWorks />
       <ServiceGrid />
       <Promises />
