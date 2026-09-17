@@ -94,5 +94,43 @@
     "page": "Sida {{page}} av {{pages}}",
     "previous": "Föregående",
     "next": "Nästa"
+  },
+  "detail": {
+    "title": "Bokning {{reference}}",
+    "close": "Stäng",
+    "open": "Visa detaljer",
+    "customer": "Kund",
+    "name": "Namn",
+    "email": "E-post",
+    "phone": "Telefon",
+    "address": "Adress",
+    "job": "Uppdrag",
+    "service": "Tjänst",
+    "area": "Yta",
+    "rooms": "Rum",
+    "frequency": "Hur ofta",
+    "time": "Tid",
+    "extras": "Tillägg",
+    "noExtras": "Inga tillägg",
+    "message": "Kundens meddelande",
+    "noMessage": "Inget meddelande",
+    "price": "Pris",
+    "basePrice": "Grundpris",
+    "extrasPrice": "Tillägg",
+    "grossPrice": "Före avdrag",
+    "rutDeduction": "RUT-avdrag",
+    "totalPrice": "Att betala",
+    "notes": "Interna anteckningar",
+    "notesHelp": "Syns bara för personalen.",
+    "save": "Spara",
+    "saved": "Sparat",
+    "created": "Bokad",
+    "noAddress": "Ingen adress angiven"
+  },
+  "frequency": {
+    "ONCE": "Engångsstädning",
+    "WEEKLY": "Varje vecka",
+    "BIWEEKLY": "Varannan vecka",
+    "MONTHLY": "En gång i månaden"
   }
 }

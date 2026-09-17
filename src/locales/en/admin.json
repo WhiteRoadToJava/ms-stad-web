@@ -94,5 +94,43 @@
     "page": "Page {{page}} of {{pages}}",
     "previous": "Previous",
     "next": "Next"
+  },
+  "detail": {
+    "title": "Booking {{reference}}",
+    "close": "Close",
+    "open": "Show details",
+    "customer": "Customer",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "job": "Job",
+    "service": "Service",
+    "area": "Area",
+    "rooms": "Rooms",
+    "frequency": "Frequency",
+    "time": "Time",
+    "extras": "Add-ons",
+    "noExtras": "No add-ons",
+    "message": "Customer's message",
+    "noMessage": "No message",
+    "price": "Price",
+    "basePrice": "Base price",
+    "extrasPrice": "Add-ons",
+    "grossPrice": "Before deduction",
+    "rutDeduction": "RUT deduction",
+    "totalPrice": "To pay",
+    "notes": "Internal notes",
+    "notesHelp": "Visible to staff only.",
+    "save": "Save",
+    "saved": "Saved",
+    "created": "Booked",
+    "noAddress": "No address given"
+  },
+  "frequency": {
+    "ONCE": "One-off clean",
+    "WEEKLY": "Every week",
+    "BIWEEKLY": "Every other week",
+    "MONTHLY": "Once a month"
   }
 }
