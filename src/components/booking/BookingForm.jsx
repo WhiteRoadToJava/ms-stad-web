@@ -50,6 +50,8 @@ export const BookingForm = ({ initialSlug }) => {
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState(null);
   const [confirmation, setConfirmation] = useState(null);
+  // Set when the server reports a different price than the one on screen.
+  const [serverPrice, setServerPrice] = useState(null);
 
   const service = getService(slug);
   const isHourly = service.pricingModel === 'hourly';
@@ -57,7 +59,7 @@ export const BookingForm = ({ initialSlug }) => {
 
   // Recomputed on every keystroke. It is arithmetic on numbers already in
   // memory, so there is nothing to debounce and no request to wait for.
-  const breakdown = useMemo(
+  const localBreakdown = useMemo(
     () =>
       calculatePrice({
         service,
@@ -70,7 +72,14 @@ export const BookingForm = ({ initialSlug }) => {
     [service, values],
   );
 
-  const change = (field, value) => setValues((current) => ({ ...current, [field]: value }));
+  // Once the server has corrected us, its figure is the one displayed: the
+  // customer must see the price they are about to be invoiced.
+  const breakdown = serverPrice ?? localBreakdown;
+
+  const change = (field, value) => {
+    setServerPrice(null);
+    setValues((current) => ({ ...current, [field]: value }));
+  };
 
   const changeCustomer = (field) => (event) =>
     setCustomer((current) => ({ ...current, [field]: event.target.value }));
@@ -84,6 +93,7 @@ export const BookingForm = ({ initialSlug }) => {
     }));
 
   const changeService = (nextSlug) => {
+    setServerPrice(null);
     setSlug(nextSlug);
     // Extras belong to one service; carrying them over would price a fridge
     // clean into an office contract.
@@ -165,6 +175,9 @@ export const BookingForm = ({ initialSlug }) => {
         hours: isHourly ? Number(values.hours) : undefined,
         rooms: values.rooms ? Number(values.rooms) : undefined,
         message: values.message || undefined,
+        // Evidence of what was on screen, not an input. The server refuses the
+        // booking if its own calculation disagrees.
+        quotedTotal: breakdown.totalPrice,
         website: values.honeypot,
       });
 
@@ -173,6 +186,13 @@ export const BookingForm = ({ initialSlug }) => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       setStatus('idle');
+
+      if (error instanceof ApiError && error.code === 'PRICE_CHANGED') {
+        setServerPrice(error.details.breakdown);
+        setErrorMessage(null);
+        return;
+      }
+
       setErrorMessage(
         error instanceof ApiError && error.status === 409
           ? error.message
@@ -277,6 +297,7 @@ export const BookingForm = ({ initialSlug }) => {
           hasSlot={Boolean(values.timeSlotId)}
           status={status}
           errorMessage={errorMessage}
+          priceChanged={Boolean(serverPrice)}
           canSubmit={step === STEPS.length - 1}
           submitDisabled={!values.confirmed}
         />
