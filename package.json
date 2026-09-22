@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "vite",
     "sync:prices": "node scripts/sync-prices.js",
-    "build": "vite-react-ssg build",
-    "build:prod": "npm run sync:prices && vite-react-ssg build",
+    "build": "vite-react-ssg build && node scripts/generate-sitemap.js",
+    "build:prod": "npm run sync:prices && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
