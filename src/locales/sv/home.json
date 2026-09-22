@@ -100,5 +100,14 @@
     "text": "Räkna ut priset på en minut, eller ring oss så hjälper vi dig fram till rätt tjänst.",
     "primary": "Boka städning",
     "secondary": "Få offert"
+  },
+  "stats": {
+    "responseTime": "Svarstid på offert",
+    "guarantee": "Dagars nöjdhetsgaranti",
+    "counties": "Län vi städar i",
+    "services": "Tjänster för hem och företag",
+    "customers": "Utförda städningar",
+    "years": "År i branschen",
+    "returning": "Återkommande kunder"
   }
 }

@@ -100,5 +100,14 @@
     "text": "Work out the price in a minute, or call us and we will point you to the right service.",
     "primary": "Book cleaning",
     "secondary": "Request a quote"
+  },
+  "stats": {
+    "responseTime": "Response time on quotes",
+    "guarantee": "Day satisfaction guarantee",
+    "counties": "Counties we clean in",
+    "services": "Services for homes and businesses",
+    "customers": "Cleanings carried out",
+    "years": "Years in the trade",
+    "returning": "Returning customers"
   }
 }
