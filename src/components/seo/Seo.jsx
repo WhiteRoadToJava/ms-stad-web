@@ -7,6 +7,13 @@ import { Head } from 'vite-react-ssg';
  * generating the site: crawlers and link previews see the real tags, not an
  * empty shell that fills in later.
  */
+/**
+ * False on staging and any other copy of the site that is not mastad.se.
+ * Anything other than the literal "false" counts as indexable, so production
+ * cannot be hidden from search by a missing variable.
+ */
+const INDEXABLE = import.meta.env.VITE_INDEXABLE !== 'false';
+
 export const Seo = ({ title, description, path = '/', siteUrl, jsonLd }) => {
   const canonical = `${siteUrl}${path}`;
 
@@ -14,6 +21,7 @@ export const Seo = ({ title, description, path = '/', siteUrl, jsonLd }) => {
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {INDEXABLE ? null : <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={canonical} />
 
       <meta property="og:type" content="website" />

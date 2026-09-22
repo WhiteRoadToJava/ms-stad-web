@@ -55,7 +55,21 @@ const priorityFor = (urlPath) => {
 const escapeXml = (value) =>
   value.replace(/[<>&'"]/g, (char) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[char]);
 
+/**
+ * Staging and other copies of the site must stay out of search results: a
+ * second copy of every page competes with the real one, and a customer could
+ * land on the test site and book into the test database. Same rule as the
+ * pages: only the literal "false" switches indexing off.
+ */
+const INDEXABLE = process.env.VITE_INDEXABLE !== 'false';
+
 const main = async () => {
+  if (!INDEXABLE) {
+    await writeFile(path.join(DIST, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+    process.stdout.write('Not indexable: robots.txt disallows everything, no sitemap written\n');
+    return;
+  }
+
   const htmlFiles = (await walk(DIST)).filter((file) => file.endsWith('.html'));
 
   const pages = [];
