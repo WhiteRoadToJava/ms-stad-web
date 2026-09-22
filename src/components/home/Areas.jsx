@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Container } from '../layout/Container';
 import { areas } from '../../data/areas';
+import { citiesWithPage } from '../../data/localPages';
 import styles from './Areas.module.css';
 
 /**
@@ -9,11 +10,14 @@ import styles from './Areas.module.css';
  *
  * This block is how a local cleaning company gets found: someone searching for
  * "hemstädning Borås" lands on a page written for Borås, not on a generic one.
- * The pages themselves arrive in a later phase; the links are already the
- * canonical URLs so nothing has to change then.
+ *
+ * Only cities with a page are links. The rest are still listed, because we do
+ * work there, but a link to a page that does not exist is a 404 for visitors
+ * and a dead end for crawlers.
  */
 export const Areas = () => {
   const { t } = useTranslation('home');
+  const withPage = citiesWithPage('hemstadning');
 
   return (
     <section className={styles.section}>
@@ -26,13 +30,17 @@ export const Areas = () => {
         <ul className={styles.list}>
           {areas.map((area) => (
             <li key={area.slug}>
-              <Link
-                to={`/hemstadning-${area.slug}`}
-                className={styles.chip}
-                title={t('areas.linkLabel', { area: area.name })}
-              >
-                {area.name}
-              </Link>
+              {withPage.has(area.slug) ? (
+                <Link
+                  to={`/hemstadning-${area.slug}`}
+                  className={styles.chip}
+                  title={t('areas.linkLabel', { area: area.name })}
+                >
+                  {area.name}
+                </Link>
+              ) : (
+                <span className={styles.chipPlain}>{area.name}</span>
+              )}
             </li>
           ))}
         </ul>

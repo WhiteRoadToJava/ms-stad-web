@@ -14,14 +14,18 @@ import { Head } from 'vite-react-ssg';
  */
 const INDEXABLE = import.meta.env.VITE_INDEXABLE !== 'false';
 
-export const Seo = ({ title, description, path = '/', siteUrl, jsonLd }) => {
+/**
+ * noindex hides a single page, for content that exists but is not ready to be
+ * found, such as a city page whose local details have not been checked yet.
+ */
+export const Seo = ({ title, description, path = '/', siteUrl, jsonLd, noindex = false }) => {
   const canonical = `${siteUrl}${path}`;
 
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
-      {INDEXABLE ? null : <meta name="robots" content="noindex, nofollow" />}
+      {INDEXABLE && !noindex ? null : <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={canonical} />
 
       <meta property="og:type" content="website" />

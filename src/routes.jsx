@@ -1,5 +1,6 @@
 import { App } from './App';
 import { services } from './data/services';
+import { localPages } from './data/localPages';
 
 /**
  * Route table.
@@ -78,6 +79,12 @@ export const routes = [
         entry: 'src/pages/LegalPage.jsx',
         lazy: () => import('./pages/LegalPage').then((m) => ({ Component: m.TermsPage })),
       },
+      ...localPages.map((page) => ({
+        path: page.path.slice(1),
+        entry: 'src/pages/LocalService.jsx',
+        lazy: () =>
+          import('./pages/LocalService').then((m) => ({ Component: m.LocalService })),
+      })),
       {
         path: '*',
         entry: 'src/pages/NotFound.jsx',
