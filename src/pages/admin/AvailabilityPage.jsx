@@ -26,8 +26,8 @@ const addDays = (days) => {
 export const AvailabilityPage = () => {
   const { t, i18n } = useTranslation('admin');
 
-  const [days, setDays] = useState(30);
-  const [slots, setSlots] = useState([]);
+  const [window, setWindow] = useState(30);
+  const [days, setDays] = useState([]);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState(null);
 
@@ -42,37 +42,24 @@ export const AvailabilityPage = () => {
 
     try {
       const payload = await adminApi.get(
-        `/admin/availability${toQuery({ from: toKey(new Date()), to: toKey(addDays(days)) })}`,
+        `/admin/availability${toQuery({ from: toKey(new Date()), to: toKey(addDays(window)) })}`,
       );
-      setSlots(payload.data);
+      setDays(payload.data);
     } finally {
       setLoading(false);
     }
-  }, [days]);
+  }, [window]);
 
   useEffect(() => {
     load();
   }, [load]);
 
-  /** One entry per date, so the table reads like a calendar rather than a log. */
-  const byDate = useMemo(() => {
-    const dates = new Map();
-
-    for (const slot of slots) {
-      const key = slot.date.slice(0, 10);
-      if (!dates.has(key)) dates.set(key, []);
-      dates.get(key).push(slot);
-    }
-
-    return [...dates.entries()];
-  }, [slots]);
-
   const totals = useMemo(
     () => ({
-      total: slots.length,
-      free: slots.filter((slot) => !slot.isBlocked && slot.bookedCount < slot.capacity).length,
+      total: days.length,
+      free: days.filter((day) => !day.isBlocked && day.bookedCount < day.capacity).length,
     }),
-    [slots],
+    [days],
   );
 
   const run = async (action) => {
@@ -118,10 +105,8 @@ export const AvailabilityPage = () => {
       setMessage({ tone: 'ok', text: parts.join(' · ') });
     });
 
-  const toggleSlot = (slot) =>
-    run(() =>
-      adminApi.patch(`/admin/availability/${slot.id}`, { isBlocked: !slot.isBlocked }),
-    );
+  const toggleDay = (day) =>
+    run(() => adminApi.patch(`/admin/availability/${day.id}`, { isBlocked: !day.isBlocked }));
 
   const formatDay = (key) =>
     new Intl.DateTimeFormat(i18n.language, {
@@ -210,8 +195,8 @@ export const AvailabilityPage = () => {
         <h2 className={styles.detailHeading}>{t('availability.listTitle')}</h2>
         <select
           className={styles.select}
-          value={days}
-          onChange={(event) => setDays(Number(event.target.value))}
+          value={window}
+          onChange={(event) => setWindow(Number(event.target.value))}
         >
           <option value={30}>{t('availability.days30')}</option>
           <option value={60}>{t('availability.days60')}</option>
@@ -222,64 +207,57 @@ export const AvailabilityPage = () => {
 
       {loading ? <p className={styles.muted}>{t('common.loading')}</p> : null}
 
-      {!loading && byDate.length === 0 ? (
+      {!loading && days.length === 0 ? (
         <p className={styles.muted}>{t('availability.empty')}</p>
       ) : null}
 
-      {byDate.length ? (
+      {days.length ? (
         <div className={styles.tableWrap}>
           <table className={styles.table}>
             <tbody>
-              {byDate.map(([date, daySlots]) => (
-                <tr key={date}>
-                  <th scope="row" className={styles.dayCell}>
-                    {formatDay(date)}
-                  </th>
-                  <td>
-                    <div className={styles.slotRow}>
-                      {daySlots.map((slot) => {
-                        const full = slot.bookedCount >= slot.capacity;
+              {days.map((day) => {
+                const full = day.bookedCount >= day.capacity;
 
-                        return (
-                          <button
-                            key={slot.id}
-                            type="button"
-                            onClick={() => toggleSlot(slot)}
-                            // Clicking closes an open slot and reopens a closed
-                            // one. Capacity changes go through the range form,
-                            // where the effect on bookings is spelled out.
-                            title={
-                              slot.isBlocked
-                                ? t('availability.openDay')
-                                : t('availability.blockDay')
-                            }
-                            className={`${styles.slotChip} ${
-                              slot.isBlocked
-                                ? styles.slotBlocked
-                                : full
-                                  ? styles.slotFull
-                                  : styles.slotFree
-                            }`}
-                          >
-                            <span>
-                              {slot.startTime}–{slot.endTime}
-                            </span>
-                            <small>
-                              {slot.isBlocked
-                                ? t('availability.blocked')
-                                : `${slot.bookedCount}/${slot.capacity}`}
-                            </small>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                return (
+                  <tr key={day.id}>
+                    <th scope="row" className={styles.dayCell}>
+                      {formatDay(day.date.slice(0, 10))}
+                    </th>
+                    <td>
+                      <button
+                        type="button"
+                        onClick={() => toggleDay(day)}
+                        title={
+                          day.isBlocked
+                            ? t('availability.openDay')
+                            : t('availability.blockDay')
+                        }
+                        className={`${styles.slotChip} ${
+                          day.isBlocked
+                            ? styles.slotBlocked
+                            : full
+                              ? styles.slotFull
+                              : styles.slotFree
+                        }`}
+                      >
+                        <span>
+                          {day.isBlocked
+                            ? t('availability.blocked')
+                            : full
+                              ? t('availability.full')
+                              : `${day.bookedCount}/${day.capacity}`}
+                        </span>
+                      </button>
+                      {day.note ? <span className={styles.muted}> {day.note}</span> : null}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
       ) : null}
+
     </>
   );
 };

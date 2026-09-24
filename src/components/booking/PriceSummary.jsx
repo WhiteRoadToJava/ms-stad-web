@@ -15,14 +15,14 @@ export const PriceSummary = ({
   squareMeters,
   hours,
   extraKeys,
-  hasSlot,
+  scheduledDate,
   status,
   errorMessage,
   canSubmit = true,
   submitDisabled = false,
   priceChanged = false,
 }) => {
-  const { t } = useTranslation('booking');
+  const { t, i18n } = useTranslation('booking');
   const { t: tCommon } = useTranslation();
   const { t: tServices } = useTranslation('services');
 
@@ -56,7 +56,14 @@ export const PriceSummary = ({
 
           <div>
             <dt>{t('summary.time')}</dt>
-            <dd>{hasSlot ? t('summary.time') : t('summary.timeMissing')}</dd>
+            <dd>
+              {scheduledDate
+                ? new Intl.DateTimeFormat(i18n.language, {
+                    day: 'numeric',
+                    month: 'short',
+                  }).format(new Date(`${scheduledDate}T00:00:00`))
+                : t('summary.timeMissing')}
+            </dd>
           </div>
 
           {extraKeys.length ? (

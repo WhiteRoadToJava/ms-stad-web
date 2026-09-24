@@ -3,7 +3,7 @@ import { Calendar } from '../Calendar';
 import styles from '../BookingForm.module.css';
 
 /** Step 3: where we are going and when. */
-export const AddressStep = ({ customer, errors, timeSlotId, onCustomer, onSlot }) => {
+export const AddressStep = ({ customer, errors, scheduledDate, onCustomer, onDate }) => {
   const { t } = useTranslation('booking');
 
   return (
@@ -52,7 +52,7 @@ export const AddressStep = ({ customer, errors, timeSlotId, onCustomer, onSlot }
 
       <fieldset className={styles.block}>
         <legend className={styles.legend}>{t('calendar.legend')}</legend>
-        <Calendar value={timeSlotId} onChange={onSlot} />
+        <Calendar value={scheduledDate} onChange={onDate} />
       </fieldset>
     </>
   );

@@ -32,10 +32,9 @@
     "legend": "Vill du lägga till något?"
   },
   "slot": {
-    "legend": "När passar det?",
-    "loading": "Hämtar lediga tider …",
-    "empty": "Vi kunde inte hämta lediga tider just nu. Boka ändå, så ringer vi och kommer överens om en tid.",
-    "skip": "Jag vill att ni föreslår en tid",
+    "loading": "Hämtar lediga datum …",
+    "empty": "Vi kunde inte hämta lediga datum just nu. Boka ändå, så ringer vi och kommer överens om en dag.",
+    "skip": "Jag vill att ni föreslår ett datum",
     "placesLeft": "{{count}} plats kvar",
     "placesLeft_other": "{{count}} platser kvar"
   },
@@ -57,8 +56,8 @@
     "service": "Tjänst",
     "size": "Yta",
     "frequency": "Hur ofta",
-    "time": "Tid",
-    "timeMissing": "Vi föreslår en tid",
+    "time": "Datum",
+    "timeMissing": "Vi föreslår ett datum",
     "extras": "Tillägg",
     "gross": "Pris före avdrag",
     "rut": "RUT-avdrag",
@@ -94,12 +93,12 @@
     "confirm": "Bekräfta bokning"
   },
   "calendar": {
-    "legend": "Önskat datum och tid",
-    "availableTimes": "Tillgängliga tider för {{date}}",
-    "noTimes": "Inga lediga tider den dagen. Välj ett annat datum.",
+    "legend": "Önskat datum",
+    "help": "Välj vilken dag du vill ha städat. Vi ringer och kommer överens om tid på dagen.",
+    "chosen": "Valt datum: {{date}}",
+    "unavailable": "Fullbokat",
     "previous": "Föregående månad",
-    "next": "Nästa månad",
-    "unavailable": "Inga tider"
+    "next": "Nästa månad"
   },
   "review": {
     "title": "Ser det här rätt ut?",
