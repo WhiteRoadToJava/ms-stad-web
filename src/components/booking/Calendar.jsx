@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { api } from '../../lib/api';
 import styles from './Calendar.module.css';
 
-/** ISO date string in local time; toISOString() would shift the day in Sweden. */
+/** ISO date in local time; toISOString would shift the day in Sweden. */
 const toKey = (date) =>
   `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(
     date.getDate(),
@@ -30,22 +30,26 @@ const buildMonth = (year, month) => {
 };
 
 /**
- * Date and time picker.
+ * Date picker.
+ *
+ * The customer chooses a day, not an hour. The hour is agreed when the office
+ * calls to confirm, and offering fixed windows on the website promised
+ * something nobody had committed to.
  *
  * Availability is fetched once and indexed by date, so moving between months
  * costs nothing. If the request fails the customer can still continue without
- * a time and the office calls to agree one: a booking with a missing slot is
- * worth far more than a form that refuses to go on.
+ * a date: a booking with no date is worth far more than a form that stops.
  */
 export const Calendar = ({ value, onChange }) => {
   const { t, i18n } = useTranslation('booking');
 
-  const [slotsByDate, setSlotsByDate] = useState(null);
+  const [availableDays, setAvailableDays] = useState(null);
   const [failed, setFailed] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
 
   const today = useMemo(() => new Date(), []);
-  const [cursor, setCursor] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
+  const [cursor, setCursor] = useState(
+    () => new Date(today.getFullYear(), today.getMonth(), 1),
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -56,12 +60,9 @@ export const Calendar = ({ value, onChange }) => {
         if (cancelled) return;
 
         const index = new Map();
-        for (const slot of payload.data ?? []) {
-          if (!index.has(slot.date)) index.set(slot.date, []);
-          index.get(slot.date).push(slot);
-        }
+        for (const day of payload.data ?? []) index.set(day.date, day.placesLeft);
 
-        setSlotsByDate(index);
+        setAvailableDays(index);
       })
       .catch(() => {
         if (!cancelled) setFailed(true);
@@ -73,7 +74,6 @@ export const Calendar = ({ value, onChange }) => {
   }, []);
 
   const cells = buildMonth(cursor.getFullYear(), cursor.getMonth());
-  const daySlots = selectedDate ? (slotsByDate?.get(selectedDate) ?? []) : [];
 
   const monthLabel = new Intl.DateTimeFormat(i18n.language, {
     month: 'long',
@@ -88,21 +88,16 @@ export const Calendar = ({ value, onChange }) => {
     );
   }, [i18n.language]);
 
-  const moveMonth = (offset) => {
+  const moveMonth = (offset) =>
     setCursor((current) => new Date(current.getFullYear(), current.getMonth() + offset, 1));
-  };
-
-  const pickDate = (date) => {
-    const key = toKey(date);
-    setSelectedDate(key === selectedDate ? null : key);
-    onChange(null);
-  };
 
   if (failed) return <p className={styles.status}>{t('slot.empty')}</p>;
-  if (!slotsByDate) return <p className={styles.status}>{t('slot.loading')}</p>;
+  if (!availableDays) return <p className={styles.status}>{t('slot.loading')}</p>;
 
   return (
     <div className={styles.calendar}>
+      <p className={styles.help}>{t('calendar.help')}</p>
+
       <div className={styles.header}>
         <p className={styles.month}>{monthLabel}</p>
         <div className={styles.controls}>
@@ -136,15 +131,16 @@ export const Calendar = ({ value, onChange }) => {
           if (!date) return <span key={`pad-${index}`} />;
 
           const key = toKey(date);
-          const hasTimes = (slotsByDate.get(key)?.length ?? 0) > 0;
+          const placesLeft = availableDays.get(key) ?? 0;
 
           return (
             <button
               key={key}
               type="button"
-              disabled={!hasTimes}
-              onClick={() => pickDate(date)}
-              className={`${styles.day} ${selectedDate === key ? styles.dayActive : ''}`}
+              disabled={placesLeft === 0}
+              onClick={() => onChange(value === key ? null : key)}
+              title={placesLeft === 0 ? t('calendar.unavailable') : undefined}
+              className={`${styles.day} ${value === key ? styles.dayActive : ''}`}
             >
               {date.getDate()}
             </button>
@@ -152,49 +148,20 @@ export const Calendar = ({ value, onChange }) => {
         })}
       </div>
 
-      {selectedDate ? (
-        <div className={styles.times}>
-          <p className={styles.timesTitle}>
-            {t('calendar.availableTimes', {
-              date: new Intl.DateTimeFormat(i18n.language, {
-                weekday: 'long',
-                day: 'numeric',
-                month: 'long',
-              }).format(new Date(`${selectedDate}T00:00:00`)),
-            })}
-          </p>
-
-          {daySlots.length ? (
-            <div className={styles.timeGrid}>
-              {daySlots.map((slot) => (
-                <button
-                  key={slot.id}
-                  type="button"
-                  onClick={() => onChange(value === slot.id ? null : slot.id)}
-                  className={`${styles.time} ${value === slot.id ? styles.timeActive : ''}`}
-                >
-                  <span>
-                    {slot.startTime}–{slot.endTime}
-                  </span>
-                  <small>{t('slot.placesLeft', { count: slot.placesLeft })}</small>
-                </button>
-              ))}
-            </div>
-          ) : (
-            <p className={styles.status}>{t('calendar.noTimes')}</p>
-          )}
-        </div>
+      {value ? (
+        <p className={styles.chosen}>
+          {t('calendar.chosen', {
+            date: new Intl.DateTimeFormat(i18n.language, {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+            }).format(new Date(`${value}T00:00:00`)),
+          })}
+        </p>
       ) : null}
 
       <label className={styles.skip}>
-        <input
-          type="checkbox"
-          checked={value === null}
-          onChange={() => {
-            onChange(null);
-            setSelectedDate(null);
-          }}
-        />
+        <input type="checkbox" checked={value === null} onChange={() => onChange(null)} />
         {t('slot.skip')}
       </label>
     </div>

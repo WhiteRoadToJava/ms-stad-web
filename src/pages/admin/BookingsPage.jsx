@@ -148,14 +148,6 @@ export const BookingsPage = () => {
                         {new Intl.DateTimeFormat(i18n.language, {
                           dateStyle: 'medium',
                         }).format(new Date(booking.scheduledDate))}
-                        {booking.timeSlot ? (
-                          <>
-                            <br />
-                            <span className={styles.muted}>
-                              {booking.timeSlot.startTime}–{booking.timeSlot.endTime}
-                            </span>
-                          </>
-                        ) : null}
                       </>
                     ) : (
                       <span className={styles.muted}>{t('bookings.noDate')}</span>

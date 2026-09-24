@@ -88,7 +88,7 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
     }
   };
 
-  const { customer, service, timeSlot } = booking;
+  const { customer, service } = booking;
 
   const address = [customer.street, [customer.postalCode, customer.city].filter(Boolean).join(' ')]
     .filter(Boolean)
@@ -176,9 +176,7 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
               [
                 t('detail.time'),
                 booking.scheduledDate
-                  ? `${formatDate(booking.scheduledDate)}${
-                      timeSlot ? `, ${timeSlot.startTime}–${timeSlot.endTime}` : ''
-                    }`
+                  ? formatDate(booking.scheduledDate)
                   : t('bookings.noDate'),
               ],
               [

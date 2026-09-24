@@ -44,7 +44,7 @@ export const BookingForm = ({ initialSlug }) => {
     // lower figure than the one they end up paying.
     frequency: 'once',
     extraKeys: [],
-    timeSlotId: null,
+    scheduledDate: null,
     applyRut: true,
     message: '',
     confirmed: false,
@@ -174,7 +174,7 @@ export const BookingForm = ({ initialSlug }) => {
         frequency: values.frequency.toUpperCase(),
         extraKeys: values.extraKeys,
         applyRut: values.applyRut,
-        timeSlotId: values.timeSlotId ?? undefined,
+        scheduledDate: values.scheduledDate ?? undefined,
         squareMeters: isHourly || isPackage ? undefined : Number(values.squareMeters),
         hours: isHourly ? Number(values.hours) : undefined,
         rooms: values.rooms ? Number(values.rooms) : undefined,
@@ -246,9 +246,9 @@ export const BookingForm = ({ initialSlug }) => {
             <AddressStep
               customer={customer}
               errors={errors}
-              timeSlotId={values.timeSlotId}
+              scheduledDate={values.scheduledDate}
               onCustomer={changeCustomer}
-              onSlot={(id) => change('timeSlotId', id)}
+              onDate={(date) => change('scheduledDate', date)}
             />
           ) : null}
 
@@ -298,7 +298,7 @@ export const BookingForm = ({ initialSlug }) => {
           squareMeters={values.squareMeters}
           hours={values.hours}
           extraKeys={values.extraKeys}
-          hasSlot={Boolean(values.timeSlotId)}
+          scheduledDate={values.scheduledDate}
           status={status}
           errorMessage={errorMessage}
           priceChanged={Boolean(serverPrice)}
