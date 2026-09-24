@@ -19,6 +19,9 @@ export const frequencyModifier = {
 
 export const RUT_PERCENTAGE = 50;
 
+/** Shortest visit we charge for. Mirrors MIN_BILLABLE_HOURS on the server. */
+export const MIN_BILLABLE_HOURS = 2;
+
 /**
  * Share of the price that counts as labour, and is therefore RUT eligible.
  * Moving help includes a van and fuel, which do not qualify.
@@ -62,7 +65,11 @@ export const calculatePrice = (input) => {
       );
       break;
     case 'hourly':
-      basePrice = hours * (service.hourlyRate ?? 0);
+      // The floor exists because a single hour does not cover getting there.
+      // The server enforces it too, and a booking whose displayed total is
+      // lower than the server's is refused, so leaving it out here showed
+      // customers a price they could never actually book at.
+      basePrice = Math.max(hours, MIN_BILLABLE_HOURS) * (service.hourlyRate ?? 0);
       break;
     case 'package':
       basePrice = service.packagePrice ?? 0;
