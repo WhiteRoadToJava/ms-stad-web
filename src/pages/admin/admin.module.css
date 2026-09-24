@@ -385,3 +385,56 @@
     gap: 2px;
   }
 }
+
+/* --- Times --- */
+
+.inlineField {
+  display: grid;
+  gap: 4px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.dayCell {
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.slotRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* A slot's state is readable without the label: free, taken, or closed. */
+.slotChip {
+  display: grid;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  background-color: var(--color-canvas);
+  font: inherit;
+  font-size: var(--text-xs);
+  text-align: left;
+  cursor: pointer;
+}
+
+.slotFree {
+  border-color: var(--color-brand);
+  color: var(--color-brand-strong);
+}
+
+.slotFull {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+}
+
+.slotBlocked {
+  background-color: transparent;
+  border-style: dashed;
+  color: var(--color-ink-muted);
+  text-decoration: line-through;
+}
