@@ -24,7 +24,8 @@
     "callbacks": "Uppringningar",
     "services": "Priser",
     "logout": "Logga ut",
-    "site": "Till webbplatsen"
+    "site": "Till webbplatsen",
+    "availability": "Tider"
   },
   "dashboard": {
     "title": "Översikt",
@@ -132,5 +133,35 @@
     "WEEKLY": "Varje vecka",
     "BIWEEKLY": "Varannan vecka",
     "MONTHLY": "En gång i månaden"
+  },
+  "availability": {
+    "title": "Tider",
+    "text": "Kalendern fylls på automatiskt sextio dagar framåt. Här stänger du semestrar, ändrar hur många städningar ni hinner per pass, och öppnar perioder i förväg.",
+    "rangeTitle": "Ändra en period",
+    "from": "Från",
+    "to": "Till",
+    "capacity": "Städningar per pass",
+    "open": "Öppna tider",
+    "block": "Stäng perioden",
+    "unblock": "Öppna perioden igen",
+    "setCapacity": "Spara antal",
+    "listTitle": "Kommande tider",
+    "show": "Visa",
+    "days30": "30 dagar",
+    "days60": "60 dagar",
+    "days90": "90 dagar",
+    "booked": "Bokat",
+    "blocked": "Stängd",
+    "free": "Ledig",
+    "full": "Fullbokad",
+    "empty": "Inga tider i perioden. Öppna tider ovan.",
+    "blockDay": "Stäng dagen",
+    "openDay": "Öppna dagen",
+    "opened": "{{count}} nya tider öppnade",
+    "openedNone": "Alla tider i perioden fanns redan",
+    "updated": "{{count}} tider ändrade",
+    "skipped": "{{count}} hoppades över eftersom de redan är bokade",
+    "error": "Något gick fel. Försök igen.",
+    "summary": "{{free}} lediga av {{total}} tider"
   }
 }
