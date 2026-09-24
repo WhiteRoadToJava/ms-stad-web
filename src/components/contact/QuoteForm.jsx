@@ -8,6 +8,16 @@ import styles from './QuoteForm.module.css';
 const emptyCustomer = { name: '', email: '', phone: '', city: '' };
 
 /**
+ * Drops the fields nobody filled in. A form holds "" for an untouched input,
+ * and an empty string is not the same as a field being absent: the server
+ * validates optional text as "at least one character, or nothing at all".
+ */
+const withoutEmpty = (values) =>
+  Object.fromEntries(
+    Object.entries(values).filter(([, value]) => String(value).trim() !== ''),
+  );
+
+/**
  * Quote request.
  *
  * Deliberately shorter than the booking wizard. Someone asking for a price on
@@ -55,7 +65,7 @@ export const QuoteForm = ({ initialSlug }) => {
     try {
       const payload = await api.post('/quotes', {
         serviceSlug: slug || undefined,
-        customer,
+        customer: withoutEmpty(customer),
         propertyType: propertyType || undefined,
         squareMeters: squareMeters ? Number(squareMeters) : undefined,
         frequency,

@@ -169,7 +169,10 @@ export const BookingForm = ({ initialSlug }) => {
     try {
       const payload = await api.post('/bookings', {
         serviceSlug: slug,
-        customer,
+        // Same reason as the quote form: "" is not an absent field.
+        customer: Object.fromEntries(
+          Object.entries(customer).filter(([, value]) => String(value).trim() !== ''),
+        ),
         // The API speaks the Prisma enum, the UI speaks lower case.
         frequency: values.frequency.toUpperCase(),
         extraKeys: values.extraKeys,
