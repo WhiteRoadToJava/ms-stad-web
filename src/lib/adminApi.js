@@ -58,6 +58,8 @@ export const adminApi = {
   get: (path) => withRefresh(path),
   post: (path, body) => withRefresh(path, { method: 'POST', body }),
   patch: (path, body) => withRefresh(path, { method: 'PATCH', body }),
+  // Replacing a whole collection, such as who is assigned to a booking.
+  put: (path, body) => withRefresh(path, { method: 'PUT', body }),
 };
 
 /** Builds ?a=1&b=2 while dropping anything empty, so the URL stays readable. */

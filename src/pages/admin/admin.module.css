@@ -438,3 +438,62 @@
   color: var(--color-ink-muted);
   text-decoration: line-through;
 }
+
+/* --- Staff --- */
+
+.colourInput {
+  width: 3rem;
+  height: 2.2rem;
+  padding: 2px;
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  cursor: pointer;
+}
+
+/* The dot carries the person's colour, so a day can be scanned by colour
+   rather than by reading every name. */
+.colourDot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: var(--space-2);
+  border-radius: 50%;
+  vertical-align: baseline;
+}
+
+.assignee {
+  display: inline-flex;
+  align-items: center;
+  margin-right: var(--space-3);
+  white-space: nowrap;
+}
+
+.employeeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.employeeChip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.employeeChip:focus-within {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.employeeChipActive {
+  color: #fff;
+  font-weight: 600;
+}

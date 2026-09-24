@@ -25,7 +25,8 @@
     "services": "Prices",
     "logout": "Sign out",
     "site": "To the website",
-    "availability": "Times"
+    "availability": "Times",
+    "employees": "Staff"
   },
   "dashboard": {
     "title": "Overview",
@@ -50,7 +51,8 @@
     "noDate": "No time chosen",
     "empty": "No bookings match the filter.",
     "notes": "Internal notes",
-    "save": "Save"
+    "save": "Save",
+    "assigned": "Done by"
   },
   "quotes": {
     "title": "Quotes",
@@ -126,7 +128,11 @@
     "save": "Save",
     "saved": "Saved",
     "created": "Booked",
-    "noAddress": "No address given"
+    "noAddress": "No address given",
+    "assigned": "Who is doing the cleaning",
+    "assignedNone": "Nobody assigned yet",
+    "saveAssignment": "Save",
+    "assignmentSaved": "Saved"
   },
   "frequency": {
     "ONCE": "One-off clean",
@@ -163,5 +169,24 @@
     "skipped": "{{count}} skipped because they are already booked",
     "error": "Something went wrong. Try again.",
     "summary": "{{free}} free of {{total}} times"
+  },
+  "employees": {
+    "title": "Staff",
+    "text": "Add the people who do the cleaning so you can see who went where. Anyone who leaves is deactivated rather than deleted, so past bookings still show who was there.",
+    "addTitle": "Add a colleague",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "colour": "Colour in the schedule",
+    "notes": "Notes",
+    "add": "Add",
+    "saving": "Saving …",
+    "active": "Active",
+    "inactive": "Left",
+    "deactivate": "Mark as left",
+    "reactivate": "Reactivate",
+    "empty": "No staff added yet.",
+    "error": "Something went wrong. Try again.",
+    "adminOnly": "Only administrators can add or change staff."
   }
 }

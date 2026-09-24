@@ -25,7 +25,8 @@
     "services": "Priser",
     "logout": "Logga ut",
     "site": "Till webbplatsen",
-    "availability": "Tider"
+    "availability": "Tider",
+    "employees": "Personal"
   },
   "dashboard": {
     "title": "Översikt",
@@ -50,7 +51,8 @@
     "noDate": "Ingen tid vald",
     "empty": "Inga bokningar matchar filtret.",
     "notes": "Interna anteckningar",
-    "save": "Spara"
+    "save": "Spara",
+    "assigned": "Utförs av"
   },
   "quotes": {
     "title": "Offerter",
@@ -126,7 +128,11 @@
     "save": "Spara",
     "saved": "Sparat",
     "created": "Bokad",
-    "noAddress": "Ingen adress angiven"
+    "noAddress": "Ingen adress angiven",
+    "assigned": "Vem utför städningen",
+    "assignedNone": "Ingen tilldelad än",
+    "saveAssignment": "Spara",
+    "assignmentSaved": "Sparat"
   },
   "frequency": {
     "ONCE": "Engångsstädning",
@@ -163,5 +169,24 @@
     "skipped": "{{count}} hoppades över eftersom de redan är bokade",
     "error": "Något gick fel. Försök igen.",
     "summary": "{{free}} lediga av {{total}} tider"
+  },
+  "employees": {
+    "title": "Personal",
+    "text": "Lägg till dem som utför städningarna, så kan du se vem som varit var. Personal som slutat inaktiveras i stället för att tas bort, så gamla bokningar visar fortfarande vem som var där.",
+    "addTitle": "Lägg till medarbetare",
+    "name": "Namn",
+    "email": "E-post",
+    "phone": "Telefon",
+    "colour": "Färg i schemat",
+    "notes": "Anteckningar",
+    "add": "Lägg till",
+    "saving": "Sparar …",
+    "active": "Aktiv",
+    "inactive": "Slutat",
+    "deactivate": "Markera som slutat",
+    "reactivate": "Aktivera igen",
+    "empty": "Ingen personal tillagd än.",
+    "error": "Något gick fel. Försök igen.",
+    "adminOnly": "Bara administratörer kan lägga till eller ändra personal."
   }
 }
