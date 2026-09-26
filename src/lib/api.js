@@ -18,14 +18,18 @@ export class ApiError extends Error {
 export const request = async (path, options = {}) => {
   const { body, headers, ...rest } = options;
 
+  // A FormData body carries a file, and the browser has to set the content
+  // type itself: it appends the multipart boundary, which we cannot know.
+  const isFormData = typeof FormData !== 'undefined' && body instanceof FormData;
+
   const response = await fetch(`${BASE_URL}${path}`, {
     ...rest,
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json',
+      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
       ...headers,
     },
-    body: body === undefined ? undefined : JSON.stringify(body),
+    body: body === undefined ? undefined : isFormData ? body : JSON.stringify(body),
   });
 
   if (response.status === 204) return undefined;

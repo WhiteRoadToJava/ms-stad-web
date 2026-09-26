@@ -1,0 +1,178 @@
+.hero {
+  background-color: var(--color-surface);
+  border-bottom: var(--border-hairline);
+  padding-block: var(--space-8);
+}
+
+.narrow {
+  max-width: var(--container-narrow);
+}
+
+.lead {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+}
+
+.section {
+  padding-block: var(--space-7);
+}
+
+.split {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: 0;
+  list-style: none;
+  color: var(--color-ink-soft);
+}
+
+.list li {
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+/* The same brass tick the rest of the site uses for things included. */
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 0.4rem;
+  height: 0.75rem;
+  border: solid var(--color-accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.formSection {
+  background-color: var(--color-surface);
+  border-top: var(--border-hairline);
+  padding-block: var(--space-8);
+}
+
+.text {
+  margin-top: var(--space-3);
+  color: var(--color-ink-soft);
+}
+
+.form {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  padding: var(--space-5);
+  background-color: var(--color-canvas);
+  border: var(--border-hairline);
+  border-radius: var(--radius-panel);
+}
+
+.row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-control);
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.field input[type='file'] {
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 1px;
+}
+
+.field small {
+  color: var(--color-ink-muted);
+  font-weight: 400;
+}
+
+.checkbox {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.checkbox small {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-ink-muted);
+}
+
+.submit {
+  justify-self: start;
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--color-brand);
+  border: 2px solid var(--color-brand);
+  border-radius: var(--radius-control);
+  color: #fff;
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.error {
+  color: #a4291b;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.success {
+  margin-top: var(--space-5);
+  padding: var(--space-6);
+  background-color: var(--color-brand-tint);
+  border-radius: var(--radius-panel);
+}
+
+@media (min-width: 40rem) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 62rem) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}

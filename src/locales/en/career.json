@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "Work with us",
+    "description": "We are looking for cleaners across Västra Götaland, Jönköping and Halland. Proper employment, the same team and paid travel time."
+  },
+  "title": "Work with us",
+  "lead": "We are growing and looking for people who like finishing a job properly. You do not need experience of cleaning, but you do need to arrive on time and do what you said you would.",
+  "offerTitle": "What we offer",
+  "offer": [
+    "Proper employment, not work invoiced afterwards",
+    "Paid travel time between customers",
+    "The same customers regularly, so you are not starting over every day",
+    "An introduction before your first shift, even if you are new to this"
+  ],
+  "wantedTitle": "We hope you",
+  "wanted": [
+    "Speak Swedish or English, so we can agree things with the customer",
+    "Are thorough even when nobody is checking",
+    "Have a driving licence, which helps but is not required"
+  ],
+  "formTitle": "Send an application",
+  "formText": "Fill in the form and we will be in touch if we have something that fits. We read every application.",
+  "name": "Name",
+  "email": "Email",
+  "phone": "Phone",
+  "city": "City",
+  "cityHelp": "Where do you live? We plan routes around where staff are.",
+  "licence": "I have a driving licence",
+  "message": "Tell us a little about yourself",
+  "messageHelp": "Previous experience, when you could start, how much you want to work.",
+  "cv": "CV (optional)",
+  "cvHelp": "PDF or Word, up to 5 MB.",
+  "consent": "I agree that MA Städ may contact me about this application.",
+  "consentHelp": "We keep the application for twelve months and never pass it on.",
+  "submit": "Send application",
+  "submitting": "Sending …",
+  "successTitle": "Thank you for your application!",
+  "successText": "We will read it through and be in touch if we have something that fits. It can take a week or so.",
+  "errors": {
+    "name": "Enter your name",
+    "email": "Check the email address",
+    "phone": "Enter a phone number",
+    "consent": "Please agree that we may contact you",
+    "fileSize": "The file is larger than 5 MB",
+    "fileType": "Attach the CV as PDF or Word",
+    "generic": "Something went wrong. Try again or email us at {{email}}."
+  }
+}

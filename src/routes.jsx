@@ -69,6 +69,11 @@ export const routes = [
         lazy: () => import('./pages/Business').then((m) => ({ Component: m.Business })),
       },
       {
+        path: 'karriar',
+        entry: 'src/pages/Career.jsx',
+        lazy: () => import('./pages/Career').then((m) => ({ Component: m.Career })),
+      },
+      {
         path: 'integritetspolicy',
         entry: 'src/pages/LegalPage.jsx',
         lazy: () =>
