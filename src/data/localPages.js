@@ -19,7 +19,7 @@ export const localCities = [
   {
     slug: 'goteborg',
     name: 'Göteborg',
-    reviewed: false,
+    reviewed: true,
     // Typical home size used for the price example on the page. Older flats
     // dominate the central districts.
     typicalSqm: 65,
@@ -37,14 +37,14 @@ export const localCities = [
   {
     slug: 'molndal',
     name: 'Mölndal',
-    reviewed: false,
+    reviewed: true,
     typicalSqm: 80,
     districts: ['Centrum', 'Krokslätt', 'Fässberg', 'Balltorp', 'Kållered', 'Lindome'],
   },
   {
     slug: 'kungsbacka',
     name: 'Kungsbacka',
-    reviewed: false,
+    reviewed: true,
     // Mostly detached houses, so the example is a villa rather than a flat.
     typicalSqm: 130,
     districts: ['Centrum', 'Kullavik', 'Särö', 'Onsala', 'Åsa', 'Fjärås', 'Frillesås'],
@@ -52,21 +52,21 @@ export const localCities = [
   {
     slug: 'boras',
     name: 'Borås',
-    reviewed: false,
+    reviewed: true,
     typicalSqm: 75,
     districts: ['Centrum', 'Norrby', 'Hässleholmen', 'Göta', 'Sjöbo', 'Brämhult', 'Fristad'],
   },
   {
     slug: 'jonkoping',
     name: 'Jönköping',
-    reviewed: false,
+    reviewed: true,
     typicalSqm: 75,
     districts: ['Centrum', 'Öster', 'Väster', 'Huskvarna', 'Ekhagen', 'Råslätt', 'Bankeryd'],
   },
   {
     slug: 'halmstad',
     name: 'Halmstad',
-    reviewed: false,
+    reviewed: true,
     typicalSqm: 85,
     districts: ['Centrum', 'Andersberg', 'Söndrum', 'Tylösand', 'Frösakull', 'Oskarström'],
   },
