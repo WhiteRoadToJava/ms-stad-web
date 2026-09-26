@@ -193,6 +193,18 @@
     "close": "Close",
     "nameRequired": "The name cannot be empty",
     "status": "Status",
-    "added": "Added"
+    "added": "Added",
+    "jobsTitle": "Jobs",
+    "upcoming": "Upcoming jobs",
+    "thisMonth": "Jobs this month",
+    "total": "Total",
+    "jobDate": "Date",
+    "jobCustomer": "Customer",
+    "jobService": "Service",
+    "jobStatus": "Status",
+    "noJobs": "No jobs yet.",
+    "noDate": "No date",
+    "more": "Show more",
+    "loadingJobs": "Loading jobs …"
   }
 }

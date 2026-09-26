@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { adminApi } from '../../lib/adminApi';
+import { adminApi, toQuery } from '../../lib/adminApi';
 import styles from './admin.module.css';
 
 /**
@@ -22,6 +22,11 @@ export const EmployeeDetail = ({ employee, onClose, onUpdated }) => {
     notes: employee.notes ?? '',
   });
 
+  const [jobs, setJobs] = useState([]);
+  const [jobMeta, setJobMeta] = useState(null);
+  const [jobPage, setJobPage] = useState(1);
+  const [loadingJobs, setLoadingJobs] = useState(true);
+
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState(null);
@@ -36,6 +41,29 @@ export const EmployeeDetail = ({ employee, onClose, onUpdated }) => {
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [onClose]);
+
+  // Loaded per page and appended, so opening the dialog is one small request
+  // even for someone with hundreds of jobs behind them.
+  useEffect(() => {
+    let cancelled = false;
+    setLoadingJobs(true);
+
+    adminApi
+      .get(`/admin/employees/${employee.id}/bookings${toQuery({ page: jobPage, perPage: 10 })}`)
+      .then((payload) => {
+        if (cancelled) return;
+        setJobs((current) => (jobPage === 1 ? payload.data : [...current, ...payload.data]));
+        setJobMeta(payload.meta);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setLoadingJobs(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [employee.id, jobPage]);
 
   const change = (field) => (event) => {
     setSaved(false);
@@ -178,6 +206,89 @@ export const EmployeeDetail = ({ employee, onClose, onUpdated }) => {
               {saved ? <span className={styles.saved}>{t('employees.saved')}</span> : null}
               {error ? <span className={styles.error}>{error}</span> : null}
             </div>
+          </section>
+
+          <section>
+            <h3 className={styles.detailHeading}>{t('employees.jobsTitle')}</h3>
+
+            {jobMeta ? (
+              <div className={styles.cards} style={{ marginBottom: 'var(--space-4)' }}>
+                <div className={styles.card}>
+                  <p className={styles.cardLabel}>{t('employees.upcoming')}</p>
+                  <p className={styles.cardValue}>{jobMeta.upcoming}</p>
+                </div>
+                <div className={styles.card}>
+                  <p className={styles.cardLabel}>{t('employees.thisMonth')}</p>
+                  <p className={styles.cardValue}>{jobMeta.thisMonth}</p>
+                </div>
+                <div className={styles.card}>
+                  <p className={styles.cardLabel}>{t('employees.total')}</p>
+                  <p className={styles.cardValue}>{jobMeta.total}</p>
+                </div>
+              </div>
+            ) : null}
+
+            {loadingJobs && jobs.length === 0 ? (
+              <p className={styles.muted}>{t('employees.loadingJobs')}</p>
+            ) : null}
+
+            {!loadingJobs && jobs.length === 0 ? (
+              <p className={styles.muted}>{t('employees.noJobs')}</p>
+            ) : null}
+
+            {jobs.length ? (
+              <div className={styles.tableWrap}>
+                <table className={styles.table}>
+                  <thead>
+                    <tr>
+                      <th>{t('employees.jobDate')}</th>
+                      <th>{t('employees.jobCustomer')}</th>
+                      <th>{t('employees.jobService')}</th>
+                      <th>{t('employees.jobStatus')}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {jobs.map((job) => (
+                      <tr key={job.id}>
+                        <td className={styles.mono}>
+                          {job.scheduledDate ? (
+                            new Intl.DateTimeFormat(i18n.language, {
+                              dateStyle: 'medium',
+                            }).format(new Date(job.scheduledDate))
+                          ) : (
+                            <span className={styles.muted}>{t('employees.noDate')}</span>
+                          )}
+                        </td>
+                        <td>
+                          {job.customer.name}
+                          {job.customer.city ? (
+                            <>
+                              <br />
+                              <span className={styles.muted}>{job.customer.city}</span>
+                            </>
+                          ) : null}
+                        </td>
+                        <td>{job.service.translations[0]?.name ?? job.service.slug}</td>
+                        <td>{t(`status.${job.status}`)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : null}
+
+            {jobMeta && jobs.length < jobMeta.total ? (
+              <div className={styles.detailActions}>
+                <button
+                  type="button"
+                  className={`${styles.button} ${styles.buttonGhost}`}
+                  onClick={() => setJobPage((current) => current + 1)}
+                  disabled={loadingJobs}
+                >
+                  {t('employees.more')}
+                </button>
+              </div>
+            ) : null}
           </section>
         </div>
       </div>

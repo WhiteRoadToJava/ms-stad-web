@@ -193,6 +193,18 @@
     "close": "Stäng",
     "nameRequired": "Namnet får inte vara tomt",
     "status": "Status",
-    "added": "Tillagd"
+    "added": "Tillagd",
+    "jobsTitle": "Uppdrag",
+    "upcoming": "Kommande uppdrag",
+    "thisMonth": "Uppdrag denna månad",
+    "total": "Totalt",
+    "jobDate": "Datum",
+    "jobCustomer": "Kund",
+    "jobService": "Tjänst",
+    "jobStatus": "Status",
+    "noJobs": "Inga uppdrag ännu.",
+    "noDate": "Inget datum",
+    "more": "Visa fler",
+    "loadingJobs": "Hämtar uppdrag …"
   }
 }
