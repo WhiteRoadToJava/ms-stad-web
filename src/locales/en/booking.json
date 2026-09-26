@@ -32,10 +32,9 @@
     "legend": "Anything to add?"
   },
   "slot": {
-    "legend": "When suits you?",
-    "loading": "Loading available times …",
-    "empty": "We could not load available times right now. Book anyway and we will call you to agree on a time.",
-    "skip": "I want you to suggest a time",
+    "loading": "Loading available dates …",
+    "empty": "We could not load available dates right now. Book anyway and we will call to agree a day.",
+    "skip": "I want you to suggest a date",
     "placesLeft": "{{count}} place left",
     "placesLeft_other": "{{count}} places left"
   },
@@ -57,8 +56,8 @@
     "service": "Service",
     "size": "Area",
     "frequency": "Frequency",
-    "time": "Time",
-    "timeMissing": "We suggest a time",
+    "time": "Date",
+    "timeMissing": "We suggest a date",
     "extras": "Add-ons",
     "gross": "Price before deduction",
     "rut": "RUT deduction",
@@ -94,12 +93,12 @@
     "confirm": "Confirm booking"
   },
   "calendar": {
-    "legend": "Preferred date and time",
-    "availableTimes": "Available times on {{date}}",
-    "noTimes": "No times left that day. Pick another date.",
+    "legend": "Preferred date",
+    "help": "Pick the day you want cleaned. We call to agree the time of day.",
+    "chosen": "Chosen date: {{date}}",
+    "unavailable": "Fully booked",
     "previous": "Previous month",
-    "next": "Next month",
-    "unavailable": "No times"
+    "next": "Next month"
   },
   "review": {
     "title": "Does this look right?",

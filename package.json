@@ -7,9 +7,10 @@
   "scripts": {
     "dev": "vite",
     "sync:prices": "node scripts/sync-prices.js",
-    "build": "vite-react-ssg build",
-    "build:prod": "npm run sync:prices && vite-react-ssg build",
-    "preview": "vite preview"
+    "build": "vite-react-ssg build && node scripts/generate-sitemap.js",
+    "build:prod": "npm run sync:prices && npm run build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.js"
   },
   "dependencies": {
     "i18next": "^23.16.8",

@@ -107,6 +107,7 @@ export const BookingsPage = () => {
                 <th>{t('bookings.customer')}</th>
                 <th>{t('bookings.service')}</th>
                 <th>{t('bookings.date')}</th>
+                <th>{t('bookings.assigned')}</th>
                 <th>{t('bookings.price')}</th>
                 <th>{t('bookings.status')}</th>
               </tr>
@@ -147,17 +148,25 @@ export const BookingsPage = () => {
                         {new Intl.DateTimeFormat(i18n.language, {
                           dateStyle: 'medium',
                         }).format(new Date(booking.scheduledDate))}
-                        {booking.timeSlot ? (
-                          <>
-                            <br />
-                            <span className={styles.muted}>
-                              {booking.timeSlot.startTime}–{booking.timeSlot.endTime}
-                            </span>
-                          </>
-                        ) : null}
                       </>
                     ) : (
                       <span className={styles.muted}>{t('bookings.noDate')}</span>
+                    )}
+                  </td>
+                  <td>
+                    {booking.assignments?.length ? (
+                      booking.assignments.map((item) => (
+                        <span key={item.id} className={styles.assignee}>
+                          <span
+                            className={styles.colourDot}
+                            style={{ backgroundColor: item.employee.colour }}
+                            aria-hidden="true"
+                          />
+                          {item.employee.name}
+                        </span>
+                      ))
+                    ) : (
+                      <span className={styles.muted}>—</span>
                     )}
                   </td>
                   <td className={styles.amount}>{formatPrice(booking.totalPrice)}</td>

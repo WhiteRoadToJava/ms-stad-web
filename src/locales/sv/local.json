@@ -1,0 +1,138 @@
+{
+  "labels": {
+    "titleHemstadning": "Hemstädning i {{city}}",
+    "titleFlyttstadning": "Flyttstädning i {{city}}",
+    "metaHemstadning": "Hemstädning i {{city}} med fast pris och samma team varje gång. RUT-avdraget dras direkt på fakturan.",
+    "metaFlyttstadning": "Flyttstädning i {{city}} med fast pris och besiktningsgaranti. Fönsterputs och vitvaror ingår.",
+    "breadcrumbHome": "Hem",
+    "districtsTitle": "Här städar vi i {{city}}",
+    "districtsText": "Bor du någon annanstans i {{city}} med omnejd, ring så svarar vi direkt om vi kommer till dig.",
+    "priceTitle": "Vad kostar det i {{city}}?",
+    "priceExampleHemstadning": "En typisk bostad på {{sqm}} m² i {{city}} kostar {{price}} per städning varannan vecka, efter RUT-avdrag.",
+    "priceExampleFlyttstadning": "En flyttstädning av {{sqm}} m² i {{city}} kostar {{price}}, efter RUT-avdrag, med fönsterputs och vitvaror.",
+    "priceLink": "Räkna på just din bostad",
+    "includesTitle": "Det här ingår",
+    "faqTitle": "Frågor från kunder i {{city}}",
+    "otherCitiesTitle": "Vi städar även i",
+    "otherServiceHemstadning": "Hemstädning i {{city}}",
+    "otherServiceFlyttstadning": "Flyttstädning i {{city}}",
+    "book": "Boka i {{city}}",
+    "allAbout": "Allt om {{service}}"
+  },
+  "cities": {
+    "goteborg": {
+      "housing": "De centrala stadsdelarna domineras av äldre lägenheter med trägolv, höga tak och kakelugnar, medan Hisingen, Frölunda och Angered har fler moderna hyreshus och radhus.",
+      "hemstadning": {
+        "intro": "Hemstädning i Göteborg innebär oftast äldre lägenheter, och de kräver lite annat än nyproduktion. Vi använder milda medel på trägolv och tar det försiktigt runt kakelugnar och gamla fönsterbågar. Samma team kommer varje gång, så du behöver bara förklara en gång var nyckeln ligger och vilket golv som inte tål vatten."
+      },
+      "flyttstadning": {
+        "intro": "I Göteborg flyttar många ur hyresrätter, och en flyttstädning som inte godkänns vid besiktningen kan bli en dyr faktura från hyresvärden. Vi städar efter branschens besiktningslista, och om något anmärks kommer vi tillbaka utan kostnad. Månadsskiften är fullbokade tidigt, särskilt kring första juli och första oktober, så boka i god tid."
+      },
+      "faq": [
+        {
+          "question": "Hur gör ni med parkering i centrala Göteborg?",
+          "answer": "Vi löser parkeringen själva. Finns det gästparkering eller en lastzon vid porten är det ändå bra om du berättar det när du bokar, så hinner vi mer av tiden hos dig."
+        },
+        {
+          "question": "Kommer ni till Hisingen och Angered också?",
+          "answer": "Ja, vi städar i hela Göteborg, inte bara innerstaden. Priset är detsamma oavsett stadsdel."
+        }
+      ]
+    },
+    "molndal": {
+      "housing": "Mölndal är en blandning av lägenheter kring centrum och Krokslätt och villor och radhus i Kållered och Lindome.",
+      "hemstadning": {
+        "intro": "I Mölndal städar vi både lägenheter nära centrum och villor längre söderut i Kållered och Lindome. För villor på flera plan planerar vi tiden efter antal våningar och trappor, inte bara efter kvadratmeter, så att inget plan blir halvgjort."
+      },
+      "flyttstadning": {
+        "intro": "Flyttar du inom eller ut från Mölndal kan vi ofta kombinera flyttstädningen med att du fortfarande har nycklarna till båda bostäderna. Säg till om du vill ha städningen samma dag som flytten eller dagen efter, så lägger vi tiden därefter."
+      },
+      "faq": [
+        {
+          "question": "Städar ni villor med källare?",
+          "answer": "Ja. Ange den totala ytan inklusive källare när du bokar, eller hör av dig om källaren är ett förråd som inte ska städas, så räknar vi om priset."
+        },
+        {
+          "question": "Kommer ni till Lindome?",
+          "answer": "Ja, Lindome och Kållered ingår i vårt område i Mölndal."
+        }
+      ]
+    },
+    "kungsbacka": {
+      "housing": "Kungsbacka består till stor del av villor och radhus, från centrum ut mot kusten i Kullavik, Särö och Onsala.",
+      "hemstadning": {
+        "intro": "De flesta vi städar hos i Kungsbacka bor i villa, ofta med fler rum och större ytor än i en lägenhet. Hemstädning varannan vecka är vanligast här, och vi planerar teamet efter husets storlek så att det räcker tid till alla våningar."
+      },
+      "flyttstadning": {
+        "intro": "En villa i Kungsbacka tar betydligt längre tid att flyttstäda än en lägenhet, och köparen besiktar ofta noggrant. Vi städar även tvättstuga, pannrum och uterum, och garage kan läggas till. Berätta om huset har altan eller balkong, så räknar vi med det från början."
+      },
+      "faq": [
+        {
+          "question": "Gäller RUT-avdraget för hela villan?",
+          "answer": "Ja, RUT gäller städning av din bostad oavsett om det är villa eller lägenhet. Avdraget dras direkt på fakturan."
+        },
+        {
+          "question": "Städar ni fritidshus vid kusten?",
+          "answer": "Ja, och RUT gäller även för fritidshus du äger. Hör av dig om du vill ha en städning inför eller efter säsongen."
+        }
+      ]
+    },
+    "boras": {
+      "housing": "Borås har många hyreslägenheter i Norrby, Hässleholmen och Sjöbo och villaområden i Brämhult och Fristad.",
+      "hemstadning": {
+        "intro": "I Borås städar vi både lägenheter och villor, och många av våra kunder har bokat hemstädning för att få tillbaka helgerna. Du väljer själv hur ofta, och du kan pausa eller avsluta när du vill, utan bindningstid."
+      },
+      "flyttstadning": {
+        "intro": "Borås är en studentstad, och kring terminsstart och terminsslut i juni och augusti flyttar många samtidigt. Flyttstädningar under de veckorna bokas snabbt, så är du student som flyttar ur en korridor eller lägenhet, boka så tidigt du kan."
+      },
+      "faq": [
+        {
+          "question": "Kan jag som student få RUT-avdrag?",
+          "answer": "RUT-avdraget räknas mot skatt du har betalat under året. Har du haft en inkomst kan du få avdraget, annars fakturerar vi hela beloppet. Vi hjälper gärna till att räkna på det innan du bokar."
+        },
+        {
+          "question": "Kommer ni till Fristad?",
+          "answer": "Ja, Fristad och Brämhult ingår i vårt område i Borås."
+        }
+      ]
+    },
+    "jonkoping": {
+      "housing": "Jönköping har tät bebyggelse kring centrum och Öster och Väster, och villor och radhus i Bankeryd, Ekhagen och mot Huskvarna.",
+      "hemstadning": {
+        "intro": "I Jönköping städar vi från centrum och ut mot Huskvarna och Bankeryd. Många av bostäderna ligger i backar mot Vättern, och vi planerar in tiden det tar att bära in utrustning i flerplanshus så att den inte tas från själva städningen."
+      },
+      "flyttstadning": {
+        "intro": "Jönköping har många studenter, och flyttarna samlas kring sommaren och vid terminsstart. Vi flyttstädar både studentlägenheter och villor, och om något anmärks vid besiktningen kommer vi tillbaka utan kostnad inom sju dagar."
+      },
+      "faq": [
+        {
+          "question": "Kommer ni till Huskvarna?",
+          "answer": "Ja, Huskvarna ingår i vårt område i Jönköping och priset är detsamma."
+        },
+        {
+          "question": "Hur tidigt behöver jag boka inför sommaren?",
+          "answer": "Flyttstädningar i juni och i augusti bör bokas några veckor i förväg. Resten av året räcker det oftast med en vecka."
+        }
+      ]
+    },
+    "halmstad": {
+      "housing": "Halmstad har lägenheter i centrum och Andersberg och villor längs kusten i Söndrum, Tylösand och Frösakull, där många också har fritidshus.",
+      "hemstadning": {
+        "intro": "I Halmstad städar vi både i centrum och längs kusten mot Tylösand. Sand följer med in i hemmen här på sommaren, och vi lägger extra tid på entréer, golv och lister under säsongen så att det inte samlas i hörnen."
+      },
+      "flyttstadning": {
+        "intro": "Flyttstädning i Halmstad gäller ofta både permanentbostäder och fritidshus som säljs. Vi städar hus som stått tomma en tid, och tar hand om damm, spindelväv och fönster som inte putsats på länge."
+      },
+      "faq": [
+        {
+          "question": "Städar ni sommarhus i Tylösand och Frösakull?",
+          "answer": "Ja, både inför och efter säsongen. RUT-avdraget gäller även för fritidshus du äger."
+        },
+        {
+          "question": "Kommer ni till Oskarström?",
+          "answer": "Ja, Oskarström ingår i vårt område i Halmstad."
+        }
+      ]
+    }
+  }
+}

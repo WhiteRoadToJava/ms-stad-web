@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { adminApi } from '../../lib/adminApi';
 import { formatPrice } from '../../data/pricing';
@@ -20,6 +20,26 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
 
+  const [employees, setEmployees] = useState([]);
+  const [assigned, setAssigned] = useState(
+    () => new Set((booking.assignments ?? []).map((item) => item.employeeId)),
+  );
+  const [assignmentSaved, setAssignmentSaved] = useState(false);
+
+  // Only people still working here can be picked, but someone who has left
+  // stays visible on the jobs they did.
+  const selectable = useMemo(
+    () => employees.filter((employee) => employee.isActive || assigned.has(employee.id)),
+    [employees, assigned],
+  );
+
+  useEffect(() => {
+    adminApi
+      .get('/admin/employees')
+      .then((payload) => setEmployees(payload.data))
+      .catch(() => setEmployees([]));
+  }, []);
+
   // Escape closes, and focus starts on the close button so the dialog is
   // usable without a mouse.
   useEffect(() => {
@@ -32,6 +52,26 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [onClose]);
+
+  const toggleEmployee = (id) => {
+    setAssignmentSaved(false);
+    setAssigned((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const saveAssignment = async () => {
+    // The whole list is sent, so saving twice changes nothing the second time.
+    const payload = await adminApi.put(`/admin/bookings/${booking.id}/assignments`, {
+      employeeIds: [...assigned],
+    });
+
+    onUpdated?.(payload.data);
+    setAssignmentSaved(true);
+  };
 
   const saveNotes = async () => {
     setSaving(true);
@@ -48,7 +88,7 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
     }
   };
 
-  const { customer, service, timeSlot } = booking;
+  const { customer, service } = booking;
 
   const address = [customer.street, [customer.postalCode, customer.city].filter(Boolean).join(' ')]
     .filter(Boolean)
@@ -136,9 +176,7 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
               [
                 t('detail.time'),
                 booking.scheduledDate
-                  ? `${formatDate(booking.scheduledDate)}${
-                      timeSlot ? `, ${timeSlot.startTime}–${timeSlot.endTime}` : ''
-                    }`
+                  ? formatDate(booking.scheduledDate)
                   : t('bookings.noDate'),
               ],
               [
@@ -171,6 +209,46 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
                 <strong key="total">{formatPrice(booking.totalPrice)}</strong>,
               ],
             ])}
+          </section>
+
+          <section>
+            <h3 className={styles.detailHeading}>{t('detail.assigned')}</h3>
+
+            {selectable.length === 0 ? (
+              <p className={styles.muted}>{t('detail.assignedNone')}</p>
+            ) : (
+              <div className={styles.slotRow}>
+                {selectable.map((employee) => (
+                  <label
+                    key={employee.id}
+                    className={`${styles.employeeChip} ${
+                      assigned.has(employee.id) ? styles.employeeChipActive : ''
+                    }`}
+                    style={
+                      assigned.has(employee.id)
+                        ? { backgroundColor: employee.colour, borderColor: employee.colour }
+                        : undefined
+                    }
+                  >
+                    <input
+                      type="checkbox"
+                      checked={assigned.has(employee.id)}
+                      onChange={() => toggleEmployee(employee.id)}
+                    />
+                    {employee.name}
+                  </label>
+                ))}
+              </div>
+            )}
+
+            <div className={styles.detailActions}>
+              <button type="button" className={styles.button} onClick={saveAssignment}>
+                {t('detail.saveAssignment')}
+              </button>
+              {assignmentSaved ? (
+                <span className={styles.saved}>{t('detail.assignmentSaved')}</span>
+              ) : null}
+            </div>
           </section>
 
           <section>

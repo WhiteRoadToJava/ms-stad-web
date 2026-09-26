@@ -9,6 +9,8 @@ import { BookingsPage } from './BookingsPage';
 import { QuotesPage } from './QuotesPage';
 import { CallbacksPage } from './CallbacksPage';
 import { ServicesPage } from './ServicesPage';
+import { EmployeesPage } from './EmployeesPage';
+import { AvailabilityPage } from './AvailabilityPage';
 import styles from './admin.module.css';
 
 const LINKS = [
@@ -16,6 +18,8 @@ const LINKS = [
   ['bokningar', 'bookings'],
   ['offerter', 'quotes'],
   ['uppringningar', 'callbacks'],
+  ['tider', 'availability'],
+  ['personal', 'employees'],
   ['priser', 'services'],
 ];
 
@@ -70,6 +74,8 @@ const Dashboard = () => {
         <Route path="bokningar" element={<BookingsPage />} />
         <Route path="offerter" element={<QuotesPage />} />
         <Route path="uppringningar" element={<CallbacksPage />} />
+        <Route path="tider" element={<AvailabilityPage />} />
+        <Route path="personal" element={<EmployeesPage />} />
         <Route path="priser" element={<ServicesPage />} />
         <Route path="*" element={<Navigate to="/admin" replace />} />
       </Routes>
