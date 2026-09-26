@@ -184,6 +184,15 @@
     "reactivate": "Aktivera igen",
     "empty": "Ingen personal tillagd än.",
     "error": "Något gick fel. Försök igen.",
-    "adminOnly": "Bara administratörer kan lägga till eller ändra personal."
+    "adminOnly": "Bara administratörer kan lägga till eller ändra personal.",
+    "edit": "Ändra",
+    "editTitle": "Ändra {{name}}",
+    "save": "Spara",
+    "saved": "Sparat",
+    "cancel": "Avbryt",
+    "close": "Stäng",
+    "nameRequired": "Namnet får inte vara tomt",
+    "status": "Status",
+    "added": "Tillagd"
   }
 }

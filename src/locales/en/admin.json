@@ -184,6 +184,15 @@
     "reactivate": "Reactivate",
     "empty": "No staff added yet.",
     "error": "Something went wrong. Try again.",
-    "adminOnly": "Only administrators can add or change staff."
+    "adminOnly": "Only administrators can add or change staff.",
+    "edit": "Edit",
+    "editTitle": "Edit {{name}}",
+    "save": "Save",
+    "saved": "Saved",
+    "cancel": "Cancel",
+    "close": "Close",
+    "nameRequired": "The name cannot be empty",
+    "status": "Status",
+    "added": "Added"
   }
 }
