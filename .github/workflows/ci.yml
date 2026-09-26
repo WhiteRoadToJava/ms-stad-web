@@ -1,0 +1,46 @@
+# Runs on every pull request, and on dev and main directly.
+#
+# The build matters as much as the tests here. The site is generated to static
+# HTML, so a broken import or a missing translation key does not show up as a
+# red screen in development: it shows up as a build that fails, or worse, as a
+# page that renders a raw key name to a customer.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [dev, main]
+
+jobs:
+  test:
+    name: Tests and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test
+
+      # Plain build, not build:prod: the price sync would need the live API,
+      # which a pull request has no business reaching. The committed
+      # prices.generated.json is what a build here should use.
+      - run: npm run build
+
+      # A raw key like "labels.titleHemstadning" rendered as visible text is
+      # the failure this catches. It happened once, on twelve city pages, and
+      # was only noticed by reading the generated HTML by hand.
+      - name: Check for untranslated keys in the generated pages
+        run: |
+          if grep -rhoE '>(labels|summary|nav|detail|employees|availability)\.[a-zA-Z]+<' dist --include="*.html" | head -20 | grep .; then
+            echo "Found translation keys rendered as text in the built pages."
+            exit 1
+          fi
+          echo "No untranslated keys in the generated pages."
