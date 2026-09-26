@@ -184,6 +184,27 @@
     "reactivate": "Reactivate",
     "empty": "No staff added yet.",
     "error": "Something went wrong. Try again.",
-    "adminOnly": "Only administrators can add or change staff."
+    "adminOnly": "Only administrators can add or change staff.",
+    "edit": "Edit",
+    "editTitle": "Edit {{name}}",
+    "save": "Save",
+    "saved": "Saved",
+    "cancel": "Cancel",
+    "close": "Close",
+    "nameRequired": "The name cannot be empty",
+    "status": "Status",
+    "added": "Added",
+    "jobsTitle": "Jobs",
+    "upcoming": "Upcoming jobs",
+    "thisMonth": "Jobs this month",
+    "total": "Total",
+    "jobDate": "Date",
+    "jobCustomer": "Customer",
+    "jobService": "Service",
+    "jobStatus": "Status",
+    "noJobs": "No jobs yet.",
+    "noDate": "No date",
+    "more": "Show more",
+    "loadingJobs": "Loading jobs …"
   }
 }

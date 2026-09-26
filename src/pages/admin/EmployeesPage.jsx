@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { adminApi } from '../../lib/adminApi';
 import { useAuth } from '../../features/admin/AuthContext';
+import { EmployeeDetail } from './EmployeeDetail';
 import styles from './admin.module.css';
 
 const emptyForm = { name: '', email: '', phone: '', colour: '#124559', notes: '' };
@@ -22,6 +23,7 @@ export const EmployeesPage = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
+  const [selected, setSelected] = useState(null);
 
   const canEdit = admin?.role === 'ADMIN';
 
@@ -48,6 +50,14 @@ export const EmployeesPage = () => {
     } finally {
       setSaving(false);
     }
+  };
+
+  /** Keeps the open dialog and the row behind it showing the same person. */
+  const applyUpdate = (updated) => {
+    setEmployees((current) =>
+      current.map((item) => (item.id === updated.id ? updated : item)),
+    );
+    setSelected(updated);
   };
 
   const toggleActive = async (employee) => {
@@ -149,7 +159,18 @@ export const EmployeesPage = () => {
                       style={{ backgroundColor: employee.colour }}
                       aria-hidden="true"
                     />
-                    {employee.name}
+                    {canEdit ? (
+                      <button
+                        type="button"
+                        className={styles.linkButton}
+                        onClick={() => setSelected(employee)}
+                        title={t('employees.edit')}
+                      >
+                        {employee.name}
+                      </button>
+                    ) : (
+                      employee.name
+                    )}
                     {employee.isActive ? null : (
                       <span className={styles.muted}> · {t('employees.inactive')}</span>
                     )}
@@ -158,15 +179,24 @@ export const EmployeesPage = () => {
                   <td>{employee.email || '—'}</td>
                   <td>
                     {canEdit ? (
-                      <button
-                        type="button"
-                        className={`${styles.button} ${styles.buttonGhost}`}
-                        onClick={() => toggleActive(employee)}
-                      >
-                        {employee.isActive
-                          ? t('employees.deactivate')
-                          : t('employees.reactivate')}
-                      </button>
+                      <>
+                        <button
+                          type="button"
+                          className={`${styles.button} ${styles.buttonGhost}`}
+                          onClick={() => setSelected(employee)}
+                        >
+                          {t('employees.edit')}
+                        </button>{' '}
+                        <button
+                          type="button"
+                          className={`${styles.button} ${styles.buttonGhost}`}
+                          onClick={() => toggleActive(employee)}
+                        >
+                          {employee.isActive
+                            ? t('employees.deactivate')
+                            : t('employees.reactivate')}
+                        </button>
+                      </>
                     ) : null}
                   </td>
                 </tr>
@@ -174,6 +204,14 @@ export const EmployeesPage = () => {
             </tbody>
           </table>
         </div>
+      ) : null}
+
+      {selected ? (
+        <EmployeeDetail
+          employee={selected}
+          onClose={() => setSelected(null)}
+          onUpdated={applyUpdate}
+        />
       ) : null}
     </>
   );
