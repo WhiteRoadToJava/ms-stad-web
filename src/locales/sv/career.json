@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "title": "Jobba hos oss",
+    "description": "Vi söker städare i Västra Götaland, Jönköping och Halland. Ordnade villkor, samma team och betald restid."
+  },
+  "title": "Jobba hos oss",
+  "lead": "Vi växer och söker fler som tycker om att göra klart ordentligt. Du behöver ingen erfarenhet av städbranschen, men du behöver komma i tid och göra det du sagt att du ska göra.",
+  "offerTitle": "Det här erbjuder vi",
+  "offer": [
+    "Anställning med ordnade villkor, inte uppdrag i efterhand",
+    "Betald restid mellan kunder",
+    "Samma kunder återkommande, så du slipper börja om varje dag",
+    "Introduktion innan första passet, även om du är ny i branschen"
+  ],
+  "wantedTitle": "Vi hoppas att du",
+  "wanted": [
+    "Talar svenska eller engelska så att vi kan komma överens med kunden",
+    "Är noggrann även när ingen ser efter",
+    "Har körkort, vilket är ett plus men inget krav"
+  ],
+  "formTitle": "Skicka en ansökan",
+  "formText": "Fyll i formuläret så hör vi av oss om vi har något som passar. Vi läser alla ansökningar.",
+  "name": "Namn",
+  "email": "E-post",
+  "phone": "Telefon",
+  "city": "Ort",
+  "cityHelp": "Var bor du? Vi planerar rutter efter var personalen bor.",
+  "licence": "Jag har körkort",
+  "message": "Berätta kort om dig själv",
+  "messageHelp": "Tidigare erfarenhet, när du kan börja, hur mycket du vill jobba.",
+  "cv": "CV (valfritt)",
+  "cvHelp": "PDF eller Word, högst 5 MB.",
+  "consent": "Jag godkänner att MA Städ kontaktar mig om den här ansökan.",
+  "consentHelp": "Vi sparar ansökan i tolv månader och lämnar den aldrig vidare.",
+  "submit": "Skicka ansökan",
+  "submitting": "Skickar …",
+  "successTitle": "Tack för din ansökan!",
+  "successText": "Vi läser igenom den och hör av oss om vi har något som passar. Det kan ta någon vecka.",
+  "errors": {
+    "name": "Fyll i ditt namn",
+    "email": "Kontrollera e-postadressen",
+    "phone": "Fyll i ett telefonnummer",
+    "consent": "Du behöver godkänna att vi kontaktar dig",
+    "fileSize": "Filen är större än 5 MB",
+    "fileType": "Bifoga CV:t som PDF eller Word",
+    "generic": "Något gick fel. Försök igen eller mejla oss på {{email}}."
+  }
+}

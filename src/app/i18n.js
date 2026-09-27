@@ -17,6 +17,7 @@ import svContact from '../locales/sv/contact.json';
 import svAdmin from '../locales/sv/admin.json';
 import svLegal from '../locales/sv/legal.json';
 import svAbout from '../locales/sv/about.json';
+import svCareer from '../locales/sv/career.json';
 import svLocal from '../locales/sv/local.json';
 import enCommon from '../locales/en/common.json';
 import enServices from '../locales/en/services.json';
@@ -27,6 +28,7 @@ import enContact from '../locales/en/contact.json';
 import enAdmin from '../locales/en/admin.json';
 import enLegal from '../locales/en/legal.json';
 import enAbout from '../locales/en/about.json';
+import enCareer from '../locales/en/career.json';
 
 export const locales = ['sv', 'en'];
 
@@ -34,8 +36,8 @@ export const defaultLocale = 'sv';
 
 void i18n.use(initReactI18next).init({
   resources: {
-    sv: { common: svCommon, services: svServices, home: svHome, prices: svPrices, booking: svBooking, contact: svContact, admin: svAdmin, legal: svLegal, about: svAbout, local: svLocal },
-    en: { common: enCommon, services: enServices, home: enHome, prices: enPrices, booking: enBooking, contact: enContact, admin: enAdmin, legal: enLegal, about: enAbout },
+    sv: { common: svCommon, services: svServices, home: svHome, prices: svPrices, booking: svBooking, contact: svContact, admin: svAdmin, legal: svLegal, about: svAbout, local: svLocal, career: svCareer },
+    en: { common: enCommon, services: enServices, home: enHome, prices: enPrices, booking: enBooking, contact: enContact, admin: enAdmin, legal: enLegal, about: enAbout, career: enCareer },
   },
   lng: defaultLocale,
   fallbackLng: defaultLocale,
