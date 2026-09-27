@@ -17,6 +17,21 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
   const closeRef = useRef(null);
 
   const [notes, setNotes] = useState(booking.internalNotes ?? '');
+
+  const [details, setDetails] = useState({
+    name: booking.customer.name,
+    phone: booking.customer.phone,
+    email: booking.customer.email,
+    street: booking.customer.street ?? '',
+    postalCode: booking.customer.postalCode ?? '',
+    city: booking.customer.city ?? '',
+    scheduledDate: booking.scheduledDate ? booking.scheduledDate.slice(0, 10) : '',
+  });
+
+  const [scope, setScope] = useState('all');
+  const [detailsSaved, setDetailsSaved] = useState(false);
+  const [detailsError, setDetailsError] = useState(null);
+  const [savingDetails, setSavingDetails] = useState(false);
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
 
@@ -71,6 +86,38 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
 
     onUpdated?.(payload.data);
     setAssignmentSaved(true);
+  };
+
+  const changeDetail = (field) => (event) => {
+    setDetailsSaved(false);
+    setDetailsError(null);
+    setDetails({ ...details, [field]: event.target.value });
+  };
+
+  const saveDetails = async () => {
+    setSavingDetails(true);
+    setDetailsError(null);
+
+    try {
+      const { scheduledDate, ...customer } = details;
+
+      const payload = await adminApi.patch(`/admin/bookings/${booking.id}`, {
+        customer,
+        customerScope: scope,
+        // An empty field means the date was removed, which frees the day for
+        // someone else; undefined would mean "leave it as it is".
+        scheduledDate: scheduledDate === '' ? null : scheduledDate,
+      });
+
+      onUpdated?.(payload.data);
+      setDetailsSaved(true);
+    } catch (error) {
+      setDetailsError(
+        error?.status === 409 ? t('detail.dateTaken') : t('detail.detailsError'),
+      );
+    } finally {
+      setSavingDetails(false);
+    }
   };
 
   const saveNotes = async () => {
@@ -146,6 +193,124 @@ export const BookingDetail = ({ booking, onClose, onUpdated }) => {
         </header>
 
         <div className={styles.modalBody}>
+          <section>
+            <h3 className={styles.detailHeading}>{t('detail.edit')}</h3>
+            <p className={styles.muted}>{t('detail.editHint')}</p>
+
+            <div className={styles.filters} style={{ marginTop: 'var(--space-3)' }}>
+              <label className={styles.inlineField}>
+                <span>{t('detail.name')}</span>
+                <input
+                  className={styles.input}
+                  value={details.name}
+                  onChange={changeDetail('name')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('detail.phone')}</span>
+                <input
+                  className={styles.input}
+                  value={details.phone}
+                  onChange={changeDetail('phone')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('detail.email')}</span>
+                <input
+                  className={styles.input}
+                  type="email"
+                  value={details.email}
+                  onChange={changeDetail('email')}
+                />
+              </label>
+            </div>
+
+            <div className={styles.filters}>
+              <label className={styles.inlineField}>
+                <span>{t('detail.address')}</span>
+                <input
+                  className={styles.input}
+                  value={details.street}
+                  onChange={changeDetail('street')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('customer.postalCode', { defaultValue: 'Postnummer' })}</span>
+                <input
+                  className={styles.input}
+                  value={details.postalCode}
+                  onChange={changeDetail('postalCode')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('bookings.customer')}</span>
+                <input
+                  className={styles.input}
+                  value={details.city}
+                  onChange={changeDetail('city')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('detail.newDate')}</span>
+                <input
+                  className={styles.input}
+                  type="date"
+                  value={details.scheduledDate}
+                  onChange={changeDetail('scheduledDate')}
+                />
+              </label>
+            </div>
+
+            <fieldset className={styles.scope}>
+              <legend className={styles.detailHeading}>{t('detail.scopeTitle')}</legend>
+
+              {['all', 'booking'].map((value) => (
+                <label key={value} className={styles.scopeOption}>
+                  <input
+                    type="radio"
+                    name="scope"
+                    checked={scope === value}
+                    onChange={() => setScope(value)}
+                  />
+                  {value === 'all' ? t('detail.scopeAll') : t('detail.scopeBooking')}
+                </label>
+              ))}
+
+              <p className={styles.muted}>{t('detail.scopeHint')}</p>
+            </fieldset>
+
+            <div className={styles.detailActions}>
+              <button
+                type="button"
+                className={styles.button}
+                onClick={saveDetails}
+                disabled={savingDetails}
+              >
+                {savingDetails ? t('detail.savingDetails') : t('detail.saveDetails')}
+              </button>
+
+              {details.scheduledDate ? (
+                <button
+                  type="button"
+                  className={`${styles.button} ${styles.buttonGhost}`}
+                  onClick={() => setDetails({ ...details, scheduledDate: '' })}
+                >
+                  {t('detail.clearDate')}
+                </button>
+              ) : null}
+
+              {detailsSaved ? (
+                <span className={styles.saved}>{t('detail.detailsSaved')}</span>
+              ) : null}
+              {detailsError ? <span className={styles.error}>{detailsError}</span> : null}
+            </div>
+          </section>
+
           <section>
             <h3 className={styles.detailHeading}>{t('detail.customer')}</h3>
             {rows([
