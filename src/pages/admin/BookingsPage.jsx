@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { adminApi, toQuery } from '../../lib/adminApi';
 import { BookingDetail } from './BookingDetail';
+import { NewBookingDialog } from './NewBookingDialog';
 import { formatPrice } from '../../data/pricing';
 import styles from './admin.module.css';
 
@@ -18,6 +19,7 @@ export const BookingsPage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState(null);
+  const [creating, setCreating] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -74,6 +76,10 @@ export const BookingsPage = () => {
             setSearch(event.target.value);
           }}
         />
+
+        <button type="button" className={styles.button} onClick={() => setCreating(true)}>
+          {t('newBooking.open')}
+        </button>
 
         <select
           className={styles.select}
@@ -188,6 +194,17 @@ export const BookingsPage = () => {
             </tbody>
           </table>
         </div>
+      ) : null}
+
+      {creating ? (
+        <NewBookingDialog
+          onClose={() => setCreating(false)}
+          onCreated={(booking) => {
+            // Straight to the top of the list, where the newest belong.
+            setItems((current) => [booking, ...current]);
+            setSelected(booking);
+          }}
+        />
       ) : null}
 
       {selected ? (
