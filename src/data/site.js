@@ -10,6 +10,22 @@ export const site = {
   phoneDisplay: import.meta.env.VITE_PHONE_DISPLAY ?? '076-263 89 40',
   url: import.meta.env.VITE_SITE_URL ?? 'https://mastad.se',
   /**
+   * The bar across the top of every page.
+   *
+   * Set enabled to false and it disappears everywhere, including from the
+   * generated HTML: one line to switch off once the company is registered and
+   * bookings can be confirmed as promised.
+   *
+   * month is written into the text, so changing it is an edit here rather than
+   * a hunt through the translation files.
+   */
+  announcement: {
+    enabled: true,
+    month: 'oktober',
+    ctaPath: '/kontakt',
+  },
+
+  /**
    * When the privacy policy and terms were last edited. Bump this by hand when
    * the wording changes; rendering today's date would make the documents claim
    * an update every time someone opens them.
