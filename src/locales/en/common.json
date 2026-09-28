@@ -71,5 +71,10 @@
   "breadcrumb": {
     "home": "Home",
     "services": "Services"
+  },
+  "announcement": {
+    "text": "We open for booking in {{month}}. Leave your number now and we will contact you first.",
+    "cta": "Leave your number",
+    "dismiss": "Close the message"
   }
 }

@@ -1,4 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
+import { AnnouncementBar } from './components/layout/AnnouncementBar';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { CallbackWidget } from './components/contact/CallbackWidget';
@@ -17,6 +18,7 @@ export const App = () => {
       <a href="#main" className="visually-hidden">
         Till innehållet
       </a>
+      <AnnouncementBar />
       <Header />
       <main id="main">
         <Outlet />

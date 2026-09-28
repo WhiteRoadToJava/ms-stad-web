@@ -71,5 +71,10 @@
   "breadcrumb": {
     "home": "Hem",
     "services": "Tjänster"
+  },
+  "announcement": {
+    "text": "Vi öppnar för bokning i {{month}}. Lämna ditt nummer redan nu, så hör vi av oss först.",
+    "cta": "Lämna ditt nummer",
+    "dismiss": "Stäng meddelandet"
   }
 }
