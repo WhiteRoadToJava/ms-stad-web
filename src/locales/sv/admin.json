@@ -236,7 +236,32 @@
     "noJobs": "Inga uppdrag ännu.",
     "noDate": "Inget datum",
     "more": "Visa fler",
-    "loadingJobs": "Hämtar uppdrag …"
+    "loadingJobs": "Hämtar uppdrag …",
+    "monthsTitle": "Uppdrag per månad",
+    "jobsInMonth": "{{count}} uppdrag",
+    "extraTitle": "Extraarbete",
+    "extraHint": "Omstädning, något kunden bad om på plats, eller arbete utöver bokningen. Vanliga uppdrag tidrapporteras inte.",
+    "addExtra": "Lägg till extraarbete",
+    "extraDate": "Datum",
+    "extraStart": "Från",
+    "extraEnd": "Till",
+    "extraReason": "Anledning",
+    "extraBooking": "Gäller bokning",
+    "extraBookingNone": "Ingen särskild bokning",
+    "extraDescription": "Vad gjordes?",
+    "extraSave": "Spara",
+    "extraSaving": "Sparar …",
+    "extraError": "Kunde inte spara. Kontrollera tiderna.",
+    "extraEmpty": "Inget extraarbete registrerat.",
+    "extraMinutes": "{{minutes}} min",
+    "extraHours": "{{hours}} tim {{minutes}} min",
+    "extraMonthTotal": "{{count}} tillfällen · {{time}}",
+    "extraDelete": "Ta bort",
+    "reason": {
+      "REDO": "Omstädning",
+      "SUPERVISOR": "Kund eller besiktning bad om det",
+      "EXTRA": "Utöver bokningen"
+    }
   },
   "newBooking": {
     "title": "Ny bokning",

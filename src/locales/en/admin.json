@@ -236,7 +236,32 @@
     "noJobs": "No jobs yet.",
     "noDate": "No date",
     "more": "Show more",
-    "loadingJobs": "Loading jobs …"
+    "loadingJobs": "Loading jobs …",
+    "monthsTitle": "Jobs per month",
+    "jobsInMonth": "{{count}} jobs",
+    "extraTitle": "Extra work",
+    "extraHint": "A redo, something the customer asked for on the spot, or work beyond the booking. Normal jobs are not clocked.",
+    "addExtra": "Add extra work",
+    "extraDate": "Date",
+    "extraStart": "From",
+    "extraEnd": "To",
+    "extraReason": "Reason",
+    "extraBooking": "Relates to booking",
+    "extraBookingNone": "No particular booking",
+    "extraDescription": "What was done?",
+    "extraSave": "Save",
+    "extraSaving": "Saving …",
+    "extraError": "Could not save. Check the times.",
+    "extraEmpty": "No extra work recorded.",
+    "extraMinutes": "{{minutes}} min",
+    "extraHours": "{{hours}} h {{minutes}} min",
+    "extraMonthTotal": "{{count}} occasions · {{time}}",
+    "extraDelete": "Delete",
+    "reason": {
+      "REDO": "Redo",
+      "SUPERVISOR": "Customer or inspection asked",
+      "EXTRA": "Beyond the booking"
+    }
   },
   "newBooking": {
     "title": "New booking",
