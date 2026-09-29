@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { adminApi, toQuery } from '../../lib/adminApi';
 import styles from './admin.module.css';
+
 
 /**
  * Editing one colleague.
@@ -26,6 +27,19 @@ export const EmployeeDetail = ({ employee, onClose, onUpdated }) => {
   const [jobMeta, setJobMeta] = useState(null);
   const [jobPage, setJobPage] = useState(1);
   const [loadingJobs, setLoadingJobs] = useState(true);
+
+  const [extra, setExtra] = useState([]);
+  const [extraMonths, setExtraMonths] = useState([]);
+  const [extraForm, setExtraForm] = useState({
+    date: new Date().toISOString().slice(0, 10),
+    startTime: '',
+    endTime: '',
+    reason: 'REDO',
+    bookingId: '',
+    description: '',
+  });
+  const [savingExtra, setSavingExtra] = useState(false);
+  const [extraError, setExtraError] = useState(null);
 
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -64,6 +78,55 @@ export const EmployeeDetail = ({ employee, onClose, onUpdated }) => {
       cancelled = true;
     };
   }, [employee.id, jobPage]);
+
+  const loadExtra = useCallback(async () => {
+    const payload = await adminApi.get(`/admin/employees/${employee.id}/extra-work`);
+    setExtra(payload.data);
+    setExtraMonths(payload.meta.months);
+  }, [employee.id]);
+
+  useEffect(() => {
+    loadExtra().catch(() => setExtra([]));
+  }, [loadExtra]);
+
+  /** "1 tim 30 min" reads better than 90 anywhere a person looks at it. */
+  const formatMinutes = (minutes) =>
+    minutes >= 60
+      ? t('employees.extraHours', {
+          hours: Math.floor(minutes / 60),
+          minutes: minutes % 60,
+        })
+      : t('employees.extraMinutes', { minutes });
+
+  const saveExtra = async (event) => {
+    event.preventDefault();
+    setSavingExtra(true);
+    setExtraError(null);
+
+    try {
+      await adminApi.post(`/admin/employees/${employee.id}/extra-work`, {
+        ...extraForm,
+        employeeId: employee.id,
+        bookingId: extraForm.bookingId ? Number(extraForm.bookingId) : undefined,
+        description: extraForm.description || undefined,
+      });
+
+      await loadExtra();
+      setExtraForm({ ...extraForm, startTime: '', endTime: '', description: '' });
+    } catch {
+      setExtraError(t('employees.extraError'));
+    } finally {
+      setSavingExtra(false);
+    }
+  };
+
+  const removeExtra = async (entry) => {
+    await adminApi.delete(`/admin/employees/${employee.id}/extra-work/${entry.id}`);
+    await loadExtra();
+  };
+
+  const changeExtra = (field) => (event) =>
+    setExtraForm({ ...extraForm, [field]: event.target.value });
 
   const change = (field) => (event) => {
     setSaved(false);
@@ -209,6 +272,158 @@ export const EmployeeDetail = ({ employee, onClose, onUpdated }) => {
           </section>
 
           <section>
+            <h3 className={styles.detailHeading}>{t('employees.extraTitle')}</h3>
+            <p className={styles.muted}>{t('employees.extraHint')}</p>
+
+            {extraMonths.length ? (
+              <ul className={styles.monthList}>
+                {extraMonths.map((month) => (
+                  <li key={month.month}>
+                    <strong className={styles.monthName}>
+                      {new Intl.DateTimeFormat(i18n.language, {
+                        month: 'long',
+                        year: 'numeric',
+                      }).format(new Date(`${month.month}-01T00:00:00`))}
+                    </strong>
+                    <span className={styles.muted}>
+                      {t('employees.extraMonthTotal', {
+                        count: month.entries,
+                        time: formatMinutes(month.minutes),
+                      })}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            <form className={styles.filters} onSubmit={saveExtra}>
+              <label className={styles.inlineField}>
+                <span>{t('employees.extraDate')}</span>
+                <input
+                  className={styles.input}
+                  type="date"
+                  required
+                  value={extraForm.date}
+                  onChange={changeExtra('date')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('employees.extraStart')}</span>
+                <input
+                  className={styles.input}
+                  type="time"
+                  required
+                  value={extraForm.startTime}
+                  onChange={changeExtra('startTime')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('employees.extraEnd')}</span>
+                <input
+                  className={styles.input}
+                  type="time"
+                  required
+                  value={extraForm.endTime}
+                  onChange={changeExtra('endTime')}
+                />
+              </label>
+
+              <label className={styles.inlineField}>
+                <span>{t('employees.extraReason')}</span>
+                <select
+                  className={styles.select}
+                  value={extraForm.reason}
+                  onChange={changeExtra('reason')}
+                >
+                  {['REDO', 'SUPERVISOR', 'EXTRA'].map((value) => (
+                    <option key={value} value={value}>
+                      {t(`employees.reason.${value}`)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              {/* The jobs already loaded above, so the booking can be picked
+                  rather than typed. */}
+              <label className={styles.inlineField}>
+                <span>{t('employees.extraBooking')}</span>
+                <select
+                  className={styles.select}
+                  value={extraForm.bookingId}
+                  onChange={changeExtra('bookingId')}
+                >
+                  <option value="">{t('employees.extraBookingNone')}</option>
+                  {jobs.map((job) => (
+                    <option key={job.id} value={job.id}>
+                      {job.reference} · {job.customer.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label className={styles.inlineField} style={{ gridColumn: '1 / -1' }}>
+                <span>{t('employees.extraDescription')}</span>
+                <input
+                  className={styles.input}
+                  value={extraForm.description}
+                  onChange={changeExtra('description')}
+                />
+              </label>
+
+              <div className={styles.detailActions} style={{ gridColumn: '1 / -1' }}>
+                <button type="submit" className={styles.button} disabled={savingExtra}>
+                  {savingExtra ? t('employees.extraSaving') : t('employees.addExtra')}
+                </button>
+                {extraError ? <span className={styles.error}>{extraError}</span> : null}
+              </div>
+            </form>
+
+            {extra.length === 0 ? (
+              <p className={styles.muted}>{t('employees.extraEmpty')}</p>
+            ) : (
+              <div className={styles.tableWrap}>
+                <table className={styles.table}>
+                  <tbody>
+                    {extra.map((entry) => (
+                      <tr key={entry.id}>
+                        <td className={styles.mono}>
+                          {entry.date.slice(0, 10)}
+                          <br />
+                          <span className={styles.muted}>
+                            {entry.startTime}–{entry.endTime}
+                          </span>
+                        </td>
+                        <td>
+                          {t(`employees.reason.${entry.reason}`)}
+                          {entry.booking ? (
+                            <>
+                              <br />
+                              <span className={styles.muted}>{entry.booking.reference}</span>
+                            </>
+                          ) : null}
+                        </td>
+                        <td>{entry.description || '—'}</td>
+                        <td className={styles.amount}>{formatMinutes(entry.minutes)}</td>
+                        <td>
+                          <button
+                            type="button"
+                            className={`${styles.button} ${styles.buttonGhost}`}
+                            onClick={() => removeExtra(entry)}
+                          >
+                            {t('employees.extraDelete')}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </section>
+
+          <section>
             <h3 className={styles.detailHeading}>{t('employees.jobsTitle')}</h3>
 
             {jobMeta ? (
@@ -226,6 +441,24 @@ export const EmployeeDetail = ({ employee, onClose, onUpdated }) => {
                   <p className={styles.cardValue}>{jobMeta.total}</p>
                 </div>
               </div>
+            ) : null}
+
+            {jobMeta?.months?.length ? (
+              <ul className={styles.monthList}>
+                {jobMeta.months.map((month) => (
+                  <li key={month.month}>
+                    <strong className={styles.monthName}>
+                      {new Intl.DateTimeFormat(i18n.language, {
+                        month: 'long',
+                        year: 'numeric',
+                      }).format(new Date(`${month.month}-01T00:00:00`))}
+                    </strong>
+                    <span className={styles.muted}>
+                      {t('employees.jobsInMonth', { count: month.jobs })}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             ) : null}
 
             {loadingJobs && jobs.length === 0 ? (
