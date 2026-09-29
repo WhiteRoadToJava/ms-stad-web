@@ -1,0 +1,15 @@
+[1mdiff --git a/src/pages/admin/EmployeeDetail.jsx b/src/pages/admin/EmployeeDetail.jsx[m
+[1mindex e64d000..7109690 100644[m
+[1m--- a/src/pages/admin/EmployeeDetail.jsx[m
+[1m+++ b/src/pages/admin/EmployeeDetail.jsx[m
+[36m@@ -1,8 +1,9 @@[m
+[31m-import { useEffect, useRef, useState } from 'react';[m
+[32m+[m[32mimport { useCallback, useEffect, useMemo, useRef, useState } from 'react';[m
+ import { useTranslation } from 'react-i18next';[m
+ import { adminApi, toQuery } from '../../lib/adminApi';[m
+ import styles from './admin.module.css';[m
+ [m
+[32m+[m
+ /**[m
+  * Editing one colleague.[m
+  *[m
