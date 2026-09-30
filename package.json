@@ -10,7 +10,8 @@
     "build": "vite-react-ssg build && node scripts/generate-sitemap.js",
     "build:prod": "npm run sync:prices && npm run build",
     "preview": "vite preview",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "brand:images": "python3 scripts/generate-brand-images.py"
   },
   "dependencies": {
     "i18next": "^23.16.8",

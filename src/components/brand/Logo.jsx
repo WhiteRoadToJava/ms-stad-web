@@ -1,5 +1,5 @@
 /**
- * MA Städ logo.
+ * MA Städservice logo.
  *
  * The mark is an M and an A sharing a stroke, cut by a single droplet in the
  * counter of the A: the only literal reference to cleaning, kept small so the
@@ -16,7 +16,7 @@ export const Logo = ({ size = 36, markOnly = false, className }) => (
       height={size}
       viewBox="0 0 48 48"
       role="img"
-      aria-label="MA Städ"
+      aria-label="MA Städservice"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect width="48" height="48" rx="10" fill="var(--color-brand)" />
@@ -56,7 +56,7 @@ export const Logo = ({ size = 36, markOnly = false, className }) => (
           lineHeight: 1,
         }}
       >
-        MA Städ
+        MA Städservice
       </span>
     )}
   </span>

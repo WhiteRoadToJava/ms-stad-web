@@ -45,7 +45,7 @@ export const Seo = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:locale" content="sv_SE" />
-      <meta property="og:site_name" content="MA Städ" />
+      <meta property="og:site_name" content="MA Städservice" />
       <meta property="og:image" content={imageUrl} />
       {/* Facebook and LinkedIn reserve the space before the file arrives, so
           the card does not jump once it loads. */}

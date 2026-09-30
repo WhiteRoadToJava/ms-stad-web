@@ -3,8 +3,11 @@
  * address is never hard coded into a component.
  */
 export const site = {
-  name: 'MA Städ',
-  legalName: 'MA Städ AB',
+  name: 'MA Städservice',
+  // No "AB" until a limited company is actually registered: using it before
+  // then is not allowed. Set this to the registered name, and add the
+  // organisation number, once Bolagsverket confirms the registration.
+  legalName: 'MA Städservice',
   email: import.meta.env.VITE_EMAIL ?? 'info@mastad.se',
   phone: import.meta.env.VITE_PHONE ?? '+46762638940',
   phoneDisplay: import.meta.env.VITE_PHONE_DISPLAY ?? '076-263 89 40',

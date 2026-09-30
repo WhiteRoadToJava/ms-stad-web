@@ -2,7 +2,7 @@
   "privacy": {
     "meta": {
       "title": "Integritetspolicy",
-      "description": "Så behandlar MA Städ dina personuppgifter enligt GDPR."
+      "description": "Så behandlar MA Städservice dina personuppgifter enligt GDPR."
     },
     "title": "Integritetspolicy",
     "updated": "Senast uppdaterad {{date}}",
@@ -41,7 +41,7 @@
   "terms": {
     "meta": {
       "title": "Allmänna villkor",
-      "description": "Villkor för bokning, avbokning, garanti och betalning hos MA Städ."
+      "description": "Villkor för bokning, avbokning, garanti och betalning hos MA Städservice."
     },
     "title": "Allmänna villkor",
     "updated": "Senast uppdaterad {{date}}",
