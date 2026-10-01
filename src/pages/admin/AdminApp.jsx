@@ -30,7 +30,7 @@ const Shell = ({ children }) => {
   return (
     <div className={styles.shell}>
       <header className={styles.sidebar}>
-        <span className={styles.brand}>MA Städ</span>
+        <span className={styles.brand}>MA Städservice</span>
 
         <nav>
           {LINKS.map(([path, key]) => (
@@ -91,7 +91,7 @@ const Dashboard = () => {
 export const AdminApp = () => (
   <>
     <Head>
-      <title>MA Städ — Admin</title>
+      <title>MA Städservice — Admin</title>
       <meta name="robots" content="noindex, nofollow" />
     </Head>
 

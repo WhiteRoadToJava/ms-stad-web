@@ -2,7 +2,7 @@
   "privacy": {
     "meta": {
       "title": "Privacy policy",
-      "description": "How MA Städ handles your personal data under GDPR."
+      "description": "How MA Städservice handles your personal data under GDPR."
     },
     "title": "Privacy policy",
     "updated": "Last updated {{date}}",
@@ -41,7 +41,7 @@
   "terms": {
     "meta": {
       "title": "Terms and conditions",
-      "description": "Terms for booking, cancellation, guarantee and payment with MA Städ."
+      "description": "Terms for booking, cancellation, guarantee and payment with MA Städservice."
     },
     "title": "Terms and conditions",
     "updated": "Last updated {{date}}",
